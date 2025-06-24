@@ -1,6 +1,6 @@
 This is the README file for PHPlot
 The project web site is https://github.com/AJRepo/PHPlot/
-The project home page is https://github.com/AJRepo/PHPlot//
+The project home page is https://github.com/AJRepo/PHPlot/
 -----------------------------------------------------------------------------
 
 OVERVIEW:
@@ -200,8 +200,7 @@ You should have received a copy of the GNU Lesser General Public
 License along with this software; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
-   Notice: Despite the presence of the letters "PHP" in the name of 
+   Notice: Despite the presence of the letters "PHP" in the name of
    PHPlot, it should be apparent that this software is not a product
    of the PHP Group, is not derived from PHP, and the PHP Group does
    endorse and is not responsible for this product.
-
