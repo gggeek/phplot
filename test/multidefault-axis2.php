@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Testing PHPlot - Multi-plot with axis change - case 2
 # See the script named below for details.
 $case = 2;

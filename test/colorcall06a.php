@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Color callback - thinbarline plot with color callback
 # See the script named below for details.
 $plot_type = 'thinbarline';

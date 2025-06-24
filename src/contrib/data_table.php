@@ -1,5 +1,5 @@
 <?php
-/* $Id$
+/*
 phplot / contrib / data_table.php: Draw a table of data values
 
      Copyright (c) 2011, lbayuk -at- users.sourceforge.net
@@ -161,7 +161,7 @@ function draw_data_table($img, $settings)
     // factors are ignored, since each column will be as wide as needed.
     if (empty($o_width)) {
         $o_width = 0;
-        $col = 0; // Index to unskipped columns 
+        $col = 0; // Index to unskipped columns
         for ($i = 0; $i < $n_data_cols; $i++) { // Index to all columns
             if (is_null($o_headers[$i])) continue; // Skip column
             // Find the longest string in this column, post-formatting.
@@ -211,9 +211,9 @@ function draw_data_table($img, $settings)
         if ($row == 0) $cells = $o_headers; // Header row
         else $cells = $o_data[$row - 1]; // -1 accounts for header row.
 
-        $col = 0; // Index to unskipped columns 
+        $col = 0; // Index to unskipped columns
         for ($i = 0; $i < $n_data_cols; $i++) { // Index to all columns
-           
+
             if (is_null($o_headers[$i])) continue; // NULL header => skip column
 
             if (($cell = $cells[$i]) !== '') { // Empty cell?

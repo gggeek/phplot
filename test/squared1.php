@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot Example: squared plot
 require_once 'phplot.php';
 

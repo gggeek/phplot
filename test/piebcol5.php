@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot Test: Pie border color and control, case 5
 # See the script named below for details
 $border_on = True;

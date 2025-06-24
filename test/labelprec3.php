@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot test: SetPrecisionY() vs pie chart, override
 # See the script included below for details.
 $override = TRUE;

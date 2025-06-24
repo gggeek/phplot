@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # phplot / contrib / data_table example 1:  Stand-alone data tables
 # This example does not use PHPlot. Output is a PNG file with multiple
 # data tables, with varying parameters.

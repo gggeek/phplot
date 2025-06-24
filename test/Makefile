@@ -1,5 +1,4 @@
 # Makefile for PHPlot Test Suite
-# $Id$
 # This Makefile is used to make a zip file release of the test suite.
 
 # Staging area, zip file base name, and directory when unpacked:

@@ -1,6 +1,5 @@
 <?php
 # PHPlot / contrib / prune_labels : Test
-# $Id$
 # Test driver for contrib / prune_labels
 
 require_once 'prune_labels.php';

@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot test: Horizontal plot Y axis default - Bars, data <0 and >0
 require_once 'phplot.php';
 $data = array(

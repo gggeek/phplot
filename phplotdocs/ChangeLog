@@ -241,8 +241,8 @@ manual, which only contains summaries of changes.
     * Merged /branches/Rel6 changes back into trunk. Changes recorded below
       with "(/branches/Rel6)" were made on the branch. Note: Subversion
       change history for those changes is only available by looking at
-      revision 1558 on the branch, for example: 
-         svn log ^/branches/Rel6/phplotdocs/concepts.xml@1558 
+      revision 1558 on the branch, for example:
+         svn log ^/branches/Rel6/phplotdocs/concepts.xml@1558
       The /branches/Rel6 tree has not been deleted, but may be in the future
       (as recommended in Subversion documentation).
 
@@ -1100,7 +1100,7 @@ manual, which only contains summaries of changes.
         Clarify or fix use of "axis" when describing ticks and labels.  These
         might not actually be on the axis lines.
    * reference.xml: Specify new defaults in SetXAxisPosition, SetYAxisPosition.
-        Also corrected text on axis position in SetYTickLabelPos, SetYTickPos, 
+        Also corrected text on axis position in SetYTickLabelPos, SetYTickPos,
         SetPlotBorderType, and others.
 
 
@@ -1483,7 +1483,7 @@ manual, which only contains summaries of changes.
 2009-06-13
    * main.xml: Update license information. PHPlot is now under the LGPL.
    * reference.xml: Add notes to SetRGBArray() about finding the rgb.inc.php
-       file (related to a recent bug fix), about the default color map, and 
+       file (related to a recent bug fix), about the default color map, and
        how to avoid invalid color errors with custom color maps.
 
 2009-05-25
@@ -1610,7 +1610,7 @@ manual, which only contains summaries of changes.
      area edges.
      Also cross-reference back from SetXDataLabelPos, and explain what happens
      to the data label lines when a plot has multiple data sets.
- 
+
 2007-09-30
    * New Part III - PHPlot Developer's Guide. This includes two layout figures
      (overall plot, and legend), and a list of internal functions. This
@@ -1729,5 +1729,3 @@ manual, which only contains summaries of changes.
   * Fixed typos in examples, concepts/datatypes, example/pie1
 
 2005-02-06 Released draft manual tagged REL20050206 dated 2005-02-06
-
-$Id$

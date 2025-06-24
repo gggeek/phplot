@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Testing phplot - Wrong ticks on X and Y
 # This is a parameterized test. Other scripts can set $tp and then include
 # this script. The parameters are shown in the defaults array below:

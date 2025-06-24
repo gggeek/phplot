@@ -1,7 +1,6 @@
 <?php
 /*
    PHPlot / contrib / prune_labels
-   $Id$
    PHPlot contrib code - public domain - no copyright - use as you wish
 
 Reduce the number of data labels along the X axis,  when the density is too

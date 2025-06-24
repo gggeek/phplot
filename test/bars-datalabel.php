@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Testing phplot - Bars, with new (post-5.0rc2) datalabel feature
 # This is a parameterized test. Other scripts can set $tp and then include
 # this script. The parameters are shown in the defaults array below:

@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot test: Date/time range on X axis
 #            H  M  S  mo da yr
 $t1 = mktime(0, 0, 0, 8, 1, 2010);

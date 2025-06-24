@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # phplot / contrib / data_table example 2: Line plot with data table on the side
 require_once 'phplot.php';
 require_once 'data_table.php';

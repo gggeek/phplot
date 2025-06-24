@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Testing PHPlot - Bad data range with SetPlotAreaWorld - baseline/master
 # Other scripts set $spaw and $subtitle and then include this script.
 require 'phplot.php';

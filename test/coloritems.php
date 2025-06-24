@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot test: Coloring various items
 require_once 'phplot.php';
 
