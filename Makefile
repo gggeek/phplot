@@ -6,25 +6,25 @@ PROJ=phplot
 
 # List of text files to release, and do CRLF line ending
 # conversions in the ZIP release only:
-REL_TXTFILES=ChangeLog NEWS.txt README.txt NEWS_part1.txt LICENSE
+REL_TXTFILES=docs/ChangeLog doc/NEWS.txt doc/README.txt doc/NEWS_part1.txt LICENSE
 # List of all top-level files to release:
-REL=$(REL_TXTFILES) phplot.php rgb.inc.php
+REL=$(REL_TXTFILES) src/phplot.php src/rgb.inc.php
 
 # Contrib files to get CRLF line ending conversion in the Zip release:
-REL_CONTRIB_TXTFILES=contrib/README.txt
+REL_CONTRIB_TXTFILES=src/contrib/README.txt
 # Contrib files to release:
 REL_CONTRIB=$(REL_CONTRIB_TXTFILES) \
-  contrib/color_range.example.php \
-  contrib/color_range.php \
-  contrib/color_range.test1.php \
-  contrib/color_range.test2.php \
-  contrib/data_table.example1.php \
-  contrib/data_table.example2.php \
-  contrib/data_table.example3.php \
-  contrib/data_table.php \
-  contrib/prune_labels.example.php \
-  contrib/prune_labels.php \
-  contrib/prune_labels.test.php \
+  src/contrib/color_range.example.php \
+  src/contrib/color_range.php \
+  src/contrib/color_range.test1.php \
+  src/contrib/color_range.test2.php \
+  src/contrib/data_table.example1.php \
+  src/contrib/data_table.example2.php \
+  src/contrib/data_table.example3.php \
+  src/contrib/data_table.php \
+  src/contrib/prune_labels.example.php \
+  src/contrib/prune_labels.php \
+  src/contrib/prune_labels.test.php \
 
 
 # Temporary directory for building releases. Can be relative.
@@ -69,7 +69,7 @@ release:
 	@echo "Release packages are: $(TMP)/$(RDIR).zip"
 	@echo "                 and: $(TMP)/$(RDIR).tar.gz"
 
+# Todo move this to a Makefile in docs/
 phpdoc:
 	mkdir -p $(PHPDOCDIR)
 	$(PHP) $(PHPDOCUMENTOR) --template=$(TEMPLATE) -f phplot.php -t $(PHPDOCDIR)
-

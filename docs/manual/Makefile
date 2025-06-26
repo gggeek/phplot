@@ -19,7 +19,7 @@ FOP=/opt/fop/fop
 # =====
 
 # Name of this package, for the release target:
-PACKAGE=phplotdocs
+PACKAGE=phplotman
 
 # XSL Style Sheet for HTML:
 XSL_HTML=style.xsl
@@ -361,7 +361,7 @@ examples/pielabeltype5.png: examples/pielabeltype5.php examples/pielabeltypedata
 
 # === For building the variable list documentation ===
 
-$(VARIABLE_LIST): variables.list gen.vardoc 
+$(VARIABLE_LIST): variables.list gen.vardoc
 	$(PHP) gen.vardoc < variables.list > $(VARIABLE_LIST)
 
 # ===
