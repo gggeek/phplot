@@ -20,8 +20,8 @@
  * of the existing stylesheet rules, or create new ones.
  */
 
-/* add xmlrpc css customizations... */
-@import "xmlrpc.css";
+/* add phplot css customizations... */
+@import "phplot.css";
 
 @import "core.css";
 @import "tables.css";
