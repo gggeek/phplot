@@ -1,5 +1,5 @@
 This is the Change Log for phplottest, the PHPlot Test Suite
-The project home page is http://sourceforge.net/projects/phplot/
+
 -----------------------------------------------------------------------------
 
 2016-01-01
@@ -65,7 +65,7 @@ The project home page is http://sourceforge.net/projects/phplot/
       more format types, and added all examples from the reference manual
       SetXLabelType page. (Several of these turned out to be wrong.)
     * tests.ini: Renamed 1 test.
-    
+
 2015-10-22
     New tests for multi-format printf in label formatting (FR#56).
     * labelformats[789].php: New tests for 1, 2, and 3 format strings.
