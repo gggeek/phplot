@@ -2547,6 +2547,9 @@ class phplot
      *
      * @param string $error_message  Text of the error message
      * @return bool  False, but only if there is an error handler that returned TRUE.
+     *
+     * @todo calling trigger_error with E_USER_ERROR is deprecated since php 8.4.
+     *       We should most likely throw an Exception instead
      */
     protected function PrintError($error_message)
     {
@@ -2556,6 +2559,8 @@ class phplot
         }
         $this->in_error = true;
 
+        $details = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
+        $error_message .= ' in method ' . $details[1]['function'] . ' line ' . $details[1]['line'] .',';
         // Output an image containing the error message:
         if (!$this->suppress_error_image) {
             // img will be empty if the error occurs very early - e.g. when allocating the image.
@@ -2565,7 +2570,7 @@ class phplot
                 Header('HTTP/1.0 500 Internal Server Error');
             }
         }
-        trigger_error($error_message, E_USER_ERROR);
+        @trigger_error($error_message, E_USER_ERROR);
         // This is only reached if the error handler returns TRUE
         unset($this->in_error);
         return false;
