@@ -12,7 +12,7 @@ $tp = array_merge(array(
 require_once 'phplot.php';
 
 # Check for PHPlot method and skip the test if it is missing:
-if (!method_exists('PHPlot', 'SetDrawDataBorders')) {
+if (!method_exists('Phplot\Phplot\phplot', 'SetDrawDataBorders')) {
     echo "Skipping test because it requires SetDrawDataBorders()\n";
     exit(2);
 }

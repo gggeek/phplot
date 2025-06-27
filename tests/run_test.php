@@ -28,8 +28,6 @@
 
 # Name of the product being tested:
 define('PRODUCT', 'PHPlot');
-# Name of the file containing test validation data:
-define('TEST_DATA_FILE', 'tests.ini');
 # Name of the test log file, located in the results directory:
 define('LOGFILENAME', "test.log");
 
@@ -37,6 +35,9 @@ define('LOGFILENAME', "test.log");
 $php_exe = '';           # Path to PHP interpreter to be used for testing
 $php_version = '';       # Version of PHP being used for testing
 $result_dir = '';        # Directory to hold output files
+$verbosity = 1;            # Verbosity level
+$force = false;          # Force mode (used for removal of results dir)
+$test_data_file = 'tests.ini'; # Name of the file containing test validation data
 $n_test = 0;             # Number of the current test being run
 $total_tests = 0;        # Total number of tests to run
 $n_pass = 0;             # Number of tests which passed
@@ -44,8 +45,7 @@ $n_skip = 0;             # Number of tests which were skipped
 $n_fail = 0;             # Number of tests which failed
 $fail_list = array();    # Array (list) of tests which failed
 $skip_list = array();    # Array (list) of tests which were skipped
-$verbose = 1;            # Verbosity level
-$val_data = array();     # Validation data read from TEST_DATA_FILE
+$val_data = array();     # Validation data read from $test_data_file
 
 # Default values for the test validation data:
 $val_data_defaults = array(
@@ -58,14 +58,17 @@ $val_data_defaults = array(
 );
 
 # Display script usage and exit:
-function usage()
+function usage($retcode)
 {
     fwrite(STDERR, <<<END
-Usage: php run_test.php  script_file... | - | -all | -match patn
+Usage: php run_test.php  [-f] [-v] -[q] script_file... | - | --all | --match patn
   Use '-' to read script filenames from standard input.
-  Use -all to run all tests listed in the test configuration file.
+  Use --all to run all tests listed in the test configuration file (tests.ini).
   Use -match patn to specify a wildcard match pattern (like shell
      wildcards). This will limit the test to only the matching names.
+  Use -f to force the removal of the test results directory if it already exists.
+  Use -v to increase verbosity, -v -v for even more.
+  Use -q to reduce verbosity.
 
 Environment variables used:
     PHP (required) - points to the PHP CLI program to use for testing.
@@ -76,7 +79,7 @@ must be found in the current directory.
 
 END
 );
-    exit(1);
+    exit($retcode);
 }
 
 # Report a pre-test failure and exit:
@@ -87,11 +90,14 @@ function fail($why)
 }
 
 # Write a string to both standard output and to the log file.
-function lecho($s)
+function lecho($s, $level = 1)
 {
+    global $verbosity;
     global $log_f;
-    fwrite(STDOUT, $s);
-    fwrite($log_f, $s);
+    if ($verbosity >= $level) {
+        fwrite(STDOUT, $s);
+        fwrite($log_f, $s);
+    }
 }
 
 # Write a formatted message to both standard output and to the log file.
@@ -115,10 +121,10 @@ function lprintfts() // Variable args
 }
 
 # Verify global environment and set up for running the tests:
-function setup()
+function setup($force = false)
 {
     global $php_exe, $php_version, $result_dir, $val_data;
-    global $log_f, $log_filename;
+    global $log_f, $log_filename, $test_data_file;
 
     # Get environment variables:
     # Environment variables may be available via _ENV or _SERVER, but
@@ -161,27 +167,37 @@ function setup()
     }
 
     # The results directory must not already exist, to prevent overwriting.
-    # @todo allow a `-f` cli option to have php remove that directory automatically if it exists
     if (file_exists($result_dir)) {
         $message = "Results directory $result_dir";
         if (is_dir($result_dir)) {
-            $message .= " already exists.\n"
-            . " This would result in output files overwriting previous tests.";
+            if ($force) {
+                array_map('unlink', glob("$result_dir/*"));
+                if (rmdir($result_dir)) {
+                    $message = null;
+                } else {
+                    $message .= " already exists, and it can not be deleted.";
+                }
+            } else {
+                $message .= " already exists.\n"
+                    . " This would result in output files overwriting previous tests.";
+            }
         } else {
             $message .= " exists and is not a directory.";
         }
-        fail("$message\n Please remove the results directory, or use the "
-           . " RESULTDIR environment variable to point results elsewhere.");
+        if ($message !== null) {
+            fail("$message\n Please remove the results directory, or use the "
+                . " RESULTDIR environment variable to point results elsewhere.");
+        }
     }
     if (!mkdir($result_dir))
         fail("Failed to create results directory $result_dir");
 
     # Read the test configuration data:
-    if (!is_readable(TEST_DATA_FILE))
-        fail("Can't find test configuration file " . TEST_DATA_FILE .  "\n");
-    $val_data = parse_ini_file(TEST_DATA_FILE, True);
+    if (!is_readable($test_data_file))
+        fail("Can't find test configuration file " . $test_data_file .  "\n");
+    $val_data = parse_ini_file($test_data_file, True);
     if (empty($val_data))
-        fail("Unable to read test configuration file " . TEST_DATA_FILE . "\n");
+        fail("Unable to read test configuration file " . $test_data_file . "\n");
 
     # Open the log file. Everything from here will be written to stdout
     # and to the log file.
@@ -191,10 +207,37 @@ function setup()
         fail("Failed to open log file: $log_filename\n");
 }
 
+function find_tests()
+{
+    global $match_pattern, $tests_to_run, $total_tests, $val_data;
+
+    # Apply a match pattern (--match pattern) to limit the tests to run:
+    if (!empty($match_pattern)) {
+        if (count($tests_to_run)) {
+            fail("Incompatible cli options or arguments in use.");
+        }
+
+        # Each 'section' in the config file becomes a key in the array.
+        # The section name plus .php is the test script name.
+        foreach (array_keys($val_data) as $test_name)
+            $tests_to_run[] = $test_name . '.php';
+
+        $tests_to_run = array_values(array_filter($tests_to_run,
+            function($s) use($match_pattern) {return fnmatch($match_pattern, $s);}
+        ));
+    }
+    $total_tests = count($tests_to_run);
+
+    if ($total_tests === 0) {
+        fail("No tests to run.");
+    }
+}
+
 # Cleanup from testing:
 function cleanup()
 {
     global $result_dir;
+
     # Quietly try to remove the result directory, which will only work if
     # it is empty.
     @rmdir($result_dir);
@@ -204,10 +247,11 @@ function cleanup()
 function preface()
 {
     global $php_exe, $result_dir, $log_filename, $php_version, $total_tests;
+
     lecho("====== This is the " . PRODUCT . " Test Suite ======\n");
     lprintfts("Setting up for testing");
     lecho("  Tests will be run using PHP interpreter: $php_exe\n");
-    lecho("  PHP interpreter used for testing reports is: PHP $php_version\n");
+    lecho("  PHP interpreter used for testing reports is version: PHP $php_version\n");
     lecho("  Result files will be saved in: $result_dir\n");
     lecho("  Testing log will be written to: $log_filename\n");
     $pl = $total_tests == 1 ? '' : 's';
@@ -219,6 +263,7 @@ function summarize($total_run_time)
 {
     global $n_pass, $n_fail, $n_skip, $result_dir, $log_filename, $log_f;
     global $fail_list, $skip_list;
+
     lprintfts("Testing complete - Elapsed time %.2f seconds", $total_run_time);
     lprintf("  Passed:  %4d\n", $n_pass);
     lprintf("  Failed:  %4d\n", $n_fail);
@@ -278,12 +323,11 @@ function test_skip($test_name, $message, $runtime)
 # Test helper: Run command line and check for status.
 # If the script won't run, return False after storing a message.
 # If the script ran, return True, but if the script returned an error status
-# than append a message to $error.
+# then append a message to $error.
 # Note: return True means the test ran (pass, fail, or skip). Return False
 # means the test did not run (so don't bother checking the output).
 # The actual test's exit status is stored in $rval.
-function run_command($cmd, $script_file, $output_file, $error_file,
-    &$error, &$rval)
+function run_command($cmd, $script_file, $output_file, $error_file, &$error, &$rval)
 {
     # Set up process streams. stdin is unused. (Wanted to connect it to
     # php://stdin but that results in an odd 'can't seek on pipe' warning.)
@@ -387,7 +431,7 @@ function get_test_validation($test_name)
 # Run a test script. The validation data explains what to check for.
 function run_test($test_name, $script_file, $output_file, $error_file)
 {
-    global $php_exe, $result_dir;
+    global $php_exe, $result_dir, $verbosity;
 
     $error = '';
     $message = '';
@@ -401,15 +445,14 @@ function run_test($test_name, $script_file, $output_file, $error_file)
     # We need to run the script, then touch the 'done_file', to be able
     # to check for exit().
     # Force error reporting level to the highest value for the tests.
-    $phpcmd = "ini_set('include_path', '.:../src');error_reporting(E_ALL|E_STRICT); require '$script_file'; "
+    $phpcmd = "ini_set('include_path', '.:../src'); error_reporting(E_ALL|E_STRICT); require '$script_file'; "
             . "touch('$done_file');";
     $cmd = "$php_exe -r \"$phpcmd\"";
 
     # Run the test command. False return means abort, True means the
-    # the script ran (although it might have failed, or be a skipped test).
+    # script ran (although it might have failed, or be a skipped test).
     $start_time = microtime(TRUE);
-    if (!run_command($cmd, $script_file, $output_file, $error_file,
-                     $error, $rval)) {
+    if (!run_command($cmd, $script_file, $output_file, $error_file, $error, $rval)) {
         test_fail($test_name, $error);
         return;
     }
@@ -438,7 +481,7 @@ function run_test($test_name, $script_file, $output_file, $error_file)
         $made_image_file = True;
     } else {
         $output_text = check_file($output_file);
-        if (!empty($output_text))
+        if (!empty($output_text) && $verbosity > 1)
             $message .= "Test standard output:\n------\n" . $output_text
                      . "\n======\n";
         $made_image_file = False;
@@ -446,7 +489,7 @@ function run_test($test_name, $script_file, $output_file, $error_file)
 
     # Collect error output.
     $error_text = check_file($error_file);
-    if (!empty($error_text))
+    if (!empty($error_text) && $verbosity > 1)
         $message .= "Test error output:\n------\n" . $error_text . "\n======\n";
 
     # Get the validation data for the test. (This warns if there isn't any,
@@ -505,7 +548,7 @@ function run_test($test_name, $script_file, $output_file, $error_file)
 # and error streams, and calls a function to perform the test.
 function do_test($filename)
 {
-    global $result_dir, $verbose, $n_test, $n_pass, $n_fail;
+    global $result_dir, $n_test;
 
     # Get the test name (xyz) from the filename (/path/to/xyz.ext).
     # This is also used to build the stdout and stderr names.
@@ -521,23 +564,24 @@ function do_test($filename)
     $output_file = $result_dir . DIRECTORY_SEPARATOR . $test_name .  '.out';
     $error_file  = $result_dir . DIRECTORY_SEPARATOR . $test_name .  '.err';
 
-    if ($verbose > 1)
-        lecho("Test: $test_name\n"
-           . "  Script: $filename\n"
-           . "  Output to: $output_file\n"
-           . "  Errors to: $error_file\n");
+    lecho("Test: $test_name\n"
+       . "  Script: $filename\n"
+       . "  Output to: $output_file\n"
+       . "  Errors to: $error_file\n", 3);
 
     # Run the test, and handle the result (pass, fail, or skip):
     $n_test++;
     run_test($test_name, $filename, $output_file, $error_file);
 }
 
-# Main: Process all tests and options on the command line.
-#   -all means all tests from config. - means read names from stdin.
-#   A -match pattern can be used to limit tests.
-if ($argc <= 1) usage();
-chdir(__DIR__);
-setup();
+# *** live code starts here ***
+
+# Process all tests and options on the command line.
+#   --all means all tests from config. - means read names from stdin.
+#   A --match pattern can be used to limit tests.
+if ($argc <= 1) usage(1);
+
+# @todo allow `-c $config_file` option
 $match_pattern = '';
 $tests_to_run = array(); // Will contain filenames (testname.php)
 for ($arg = 1; $arg < $argc; $arg++) {
@@ -545,28 +589,33 @@ for ($arg = 1; $arg < $argc; $arg++) {
     if ($name == '-') {
         while (($line = fgets(STDIN)) !== False)
             if (($filename = trim($line)) != '') $tests_to_run[] = $filename;
-    } elseif ($name == '-all') {
-        # Each 'section' in the config file becomes a key in the array.
-        # The section name plus .php is the test script name.
-        foreach (array_keys($val_data) as $test_name)
-            $tests_to_run[] = $test_name . '.php';
-    } elseif ($name == '-match') {
+    } elseif ($name == '-all' || $name == '--all') {
+        $match_pattern = '*';
+    } elseif ($name == '-match' || $name == '--match') {
         if (++$arg >= $argc) break;
         $match_pattern = $argv[$arg];
+    } elseif ($name == '-f') {
+        $force = true;
+    } elseif ($name == '-q') {
+        $verbosity--;
+    } elseif ($name == '-v') {
+        $verbosity++;
+    } elseif ($name == '-h' || $name == '--help') {
+        usage(0);
     } else {
         $tests_to_run[] = $name;
     }
 }
-# Apply a match pattern (-match pattern) to limit the tests to run:
-if (!empty($match_pattern)) {
-    $tests_to_run = array_values(array_filter($tests_to_run,
-                 create_function('$s',
-                     "return fnmatch('$match_pattern', \$s);")));
-}
-$total_tests = count($tests_to_run);
+
+chdir(__DIR__);
+setup($force);
+find_tests();
 preface();
-$start_time = microtime(TRUE);
-foreach ($tests_to_run as $name) do_test($name);
-summarize(microtime(TRUE) - $start_time);
+
+$start_time = microtime(true);
+foreach ($tests_to_run as $name) {
+    do_test($name);
+}
+summarize(microtime(true) - $start_time);
 cleanup();
 exit($n_fail);

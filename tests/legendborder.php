@@ -24,7 +24,7 @@ require_once 'phplot.php';
 # To work with the test driver, it must write to stdout and exit(2) if skipping.
 function checkfor($method_name)
 {
-    if (method_exists('PHPlot', $method_name)) return;
+    if (method_exists('Phplot\Phplot\phplot', $method_name)) return;
     echo "Skipping test because it requires '$method_name'\n";
     exit(2);
 }

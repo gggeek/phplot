@@ -15,8 +15,8 @@ $shading = 0; // Shading; 0 and NULL for no shading, or > 0 for shading.
 */
 
 # Check for PHPlot methods and skip the test if missing:
-if (isset($border_color) && !method_exists('PHPlot', 'SetPieBorderColor')
- || isset($border_on)    && !method_exists('PHPlot', 'SetDrawPieBorders')) {
+if (isset($border_color) && !method_exists('Phplot\Phplot\phplot', 'SetPieBorderColor')
+ || isset($border_on)    && !method_exists('Phplot\Phplot\phplot', 'SetDrawPieBorders')) {
     echo "Skipping test because required PHPlot methods are missing\n";
     exit(2);
 }

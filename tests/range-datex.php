@@ -25,7 +25,7 @@ extract($tp);
 $dtformat = '%Y-%m-%d %H:%M:%S';
 
 # Check for needed methods, depending on test parameters:
-if (isset($mintick) && !method_exists('PHPlot', 'TuneXAutoTicks')) {
+if (isset($mintick) && !method_exists('Phplot\Phplot\phplot', 'TuneXAutoTicks')) {
     echo "Skipping test because it requires TuneXAutoTicks()\n";
     exit(2); // Exit code for 'skip'
 }

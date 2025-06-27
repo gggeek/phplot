@@ -17,7 +17,7 @@ require_once 'phplot.php';
 extract($tp);
 
 # Skip the test if horizontal error plots are not yet implemented.
-if ($horizontal && !method_exists('PHPlot', 'DrawXErrorBars')) {
+if ($horizontal && !method_exists('Phplot\Phplot\phplot', 'DrawXErrorBars')) {
     echo "Skipping test because horizontal error plots are not implemented\n";
     exit(2);
 }

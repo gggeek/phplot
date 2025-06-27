@@ -59,7 +59,7 @@ for ($x = 0; $x <= $nx; $x++) {
     $data[] = array('', $x, $y);
 }
 
-if (!method_exists('PHPlot', 'TuneXAutoTicks')) {
+if (!method_exists('Phplot\Phplot\phplot', 'TuneXAutoTicks')) {
     echo "Skipping test because it requires TuneXAutoTicks()\n";
     exit(2); // Exit code for 'skip'
 }

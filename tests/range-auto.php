@@ -31,7 +31,7 @@ $uses['TuneYAutoTicks'] =
    isset($mintick) || isset($tick_mode) || isset($intinc);
 
 foreach ($uses as $method => $needed) {
-    if ($needed && !method_exists('PHPlot', $method)) {
+    if ($needed && !method_exists('Phplot\Phplot\phplot', $method)) {
         echo "Skipping test because it requires $method()\n";
         exit(2); // Exit code for 'skip'
     }

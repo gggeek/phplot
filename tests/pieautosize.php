@@ -17,7 +17,7 @@ $title = 'Pie Autosize Test: Label scale pos='
        . (isset($label_pos) ? $label_pos : "not set")
        . ', Autosize is ';
 # Detect presence of autosize feature (PHPlot>=5.6.0):
-$do_autosize = method_exists('PHPlot', 'SetPieAutoSize');
+$do_autosize = method_exists('Phplot\Phplot\phplot', 'SetPieAutoSize');
 if (!$do_autosize) {
     $title .= "(not available).\n"
             . "Pie should be sized right up to plot area edge.";
