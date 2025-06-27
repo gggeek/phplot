@@ -9,10 +9,8 @@
  * full-color (24-bit) images.
  * PHPlot currently requires PHP 5.3 or later.
  *
- * $Id$
- *
- * @version 8.0.0-rc1
- * @copyright 1998-2022 Afan Ottenheimer
+ * @version 8.0.0.3
+ * @copyright 1998-2025 Afan Ottenheimer
  * @license GNU Lesser General Public License, version 2.1
  * @link https://github.com/PHPlot/phplot PHPlot Web Site with downloads, tracker, discussion
  * @link https://github.com/PHPlot/phplot PHPlot Project Web Site with links to documentation
@@ -38,6 +36,8 @@
  * ---------------------------------------------------------------------
  */
 
+namespace Phplot\Phplot;
+
 /**
  * Class for creating a plot
  *
@@ -57,9 +57,6 @@
  * the type of image produced matches the type of the background image.
  *
  */
-
-namespace Phplot\Phplot;
-
 class phplot
 {
     /** PHPlot version constant as a string */

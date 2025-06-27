@@ -26,7 +26,7 @@ incompatibilities, see the NEWS.txt file.
 ## REQUIREMENTS:
 
 You need a recent version of PHP, and you are advised to use the latest
-stable release.  This version of PHPlot was tested with PHP-5.6.15,
+stable release. This version of PHPlot was tested with PHP-5.6.15,
 PHP-5.5.30, PHP-5.4.45, PHP-7.0.0, PHP-8.1.2
 (Windows testing was limited to PHP-5.4.x.)
 
@@ -50,8 +50,8 @@ is built in to the GD library.
 
 ## INSTALLATION:
 
-Unpack the distribution. (If you are reading this file, you have probably
-already done that.)
+Unpack the distribution (if you are reading this file, you have probably
+already done that).
 
 Installation of PHPlot simply involves copying two script files somewhere
 your PHP application scripts will be able to find them. The scripts are:
@@ -100,39 +100,39 @@ PHP has many build-time and configuration options, and these can affect
 the operation of PHPlot (as well as any other application or library). Here
 are some known issues:
 
-  + If PHP is built with Thread Safety on (ZTS), the GD extension is
-unable to find TrueType fonts unless the full path is given. (This might
-be a PHP bug.) The text in the PHPlot Reference Manual section
-"TrueType Font Selection" concerning finding fonts without a path does not
-work on these systems. This has been found to affect the version of PHP
-distributed with Slackware, but not Ubuntu. It affects the thread-safe PHP
-Windows release, but not the non-thread-safe (NTS) Windows release.
+* If PHP is built with Thread Safety on (ZTS), the GD extension is
+  unable to find TrueType fonts unless the full path is given. (This might
+  be a PHP bug.) The text in the PHPlot Reference Manual section
+  "TrueType Font Selection" concerning finding fonts without a path does not
+  work on these systems. This has been found to affect the version of PHP
+  distributed with Slackware, but not Ubuntu. It affects the thread-safe PHP
+  Windows release, but not the non-thread-safe (NTS) Windows release.
 
-  + Slackware Linux used to include a PHP built with --enable-gd-jis-conv
-(JIS-mapped Japanese font support). This prevented the usual UTF-8 encoding
-of characters from working in TrueType Font (TTF) text strings. This does
-not affect recent Slackware, though (14.0 and up).
+* Slackware Linux used to include a PHP built with --enable-gd-jis-conv
+  (JIS-mapped Japanese font support). This prevented the usual UTF-8 encoding
+  of characters from working in TrueType Font (TTF) text strings. This does
+  not affect recent Slackware, though (14.0 and up).
 
-  + The Ubuntu Linux PHP GD package (php5-gd) was built to use the external
-shared GD library, not the one bundled with PHP. This can result in small
-differences in images, and some unsupported features (such as advanced
-truecolor image operations). Also, although this Ubuntu GD library was
-built with fontconfig support, PHP does not use it, so you still need to
-specify TrueType fonts with their actual file names. These also affect
-Ubuntu-derived distributions such as Linux Mint.
+* The Ubuntu Linux PHP GD package (php5-gd) was built to use the external
+  shared GD library, not the one bundled with PHP. This can result in small
+  differences in images, and some unsupported features (such as advanced
+  truecolor image operations). Also, although this Ubuntu GD library was
+  built with fontconfig support, PHP does not use it, so you still need to
+  specify TrueType fonts with their actual file names. These also affect
+  Ubuntu-derived distributions such as Linux Mint.
 
-  + Some PHP installations may have a memory limit set too low to support
-large images, especially truecolor images.
+* Some PHP installations may have a memory limit set too low to support
+ large images, especially truecolor images.
 
-  + The default TrueType font can be changed by external factors. If you
-enable TrueType fonts, but don't select a font name, PHPlot can find a
-default TrueType font on many systems, including Windows. However, the
-selected font can change if you install or remove software. For example, on
-Windows, PHPlot may select the Arial font. But then, if you install
-LibreOffice, the default font will change to Liberation Sans. This will
-change plot appearance.  This happens because LibreOffice installs the
-Liberation font family in the Windows fonts directory, and the Liberation
-Sans font precedes Arial in PHPlot's list of candidate default fonts.
+* The default TrueType font can be changed by external factors. If you
+  enable TrueType fonts, but don't select a font name, PHPlot can find a
+  default TrueType font on many systems, including Windows. However, the
+  selected font can change if you install or remove software. For example, on
+  Windows, PHPlot may select the Arial font. But then, if you install
+  LibreOffice, the default font will change to Liberation Sans. This will
+  change plot appearance.  This happens because LibreOffice installs the
+  Liberation font family in the Windows fonts directory, and the Liberation
+  Sans font precedes Arial in PHPlot's list of candidate default fonts.
 
 
 
