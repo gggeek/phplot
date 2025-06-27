@@ -24,7 +24,7 @@
 require_once 'phplot.php';
 
 // Extend PHPlot class to allow access to protected variable(s):
-class PHPlot_pv extends PHPlot {
+class PHPlot_pv extends Phplot\Phplot\phplot {
     public function HAS_default_colors()
     {
         return isset($this->default_colors);

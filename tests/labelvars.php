@@ -53,7 +53,7 @@ if ($tp['x']) {
   $enable_y_data_labels = FALSE;
 
   for ($i = 0; $i < 12; $i++)
-     $data[$i] = array( strftime('%b', mktime(12, 0, 0, $i + 1, 1)),
+     $data[$i] = array( @strftime('%b', mktime(12, 0, 0, $i + 1, 1)),
           $i, $values[$i]);
 
 } else {
@@ -64,7 +64,7 @@ if ($tp['x']) {
   $enable_y_data_labels = TRUE;
 
   for ($i = 0; $i < 12; $i++)
-     $data[$i] = array( strftime('%b', mktime(12, 0, 0, $i + 1, 1)),
+     $data[$i] = array( @strftime('%b', mktime(12, 0, 0, $i + 1, 1)),
           $values[$i]);
 }
 

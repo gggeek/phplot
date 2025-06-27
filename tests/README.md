@@ -67,18 +67,11 @@ included file LICENSES.
 
 ### SETUP:
 
-The test suite driver expects to find PHPlot in the current directory or
-PHP search path.  You should copy (or link) PHPlot scripts into the current
-directory for testing.  Relying on PHP's include path to find PHPlot is
-probably a bad idea, especially if you have multiple versions of PHPLot.
-
-You need to copy or link these two scripts: phplot.php rgb.inc.php
-
 Several environment variables can be used by the test suite:
-   PHP    : The path to the PHP interpreter (PHP CLI) for testing.
+   PHP : The path to the PHP interpreter (PHP CLI) for testing.
       This is required. The test driver will not run if this is not defined.
    RESULTDIR : Directory path for saving results. Optional; defaults to
-      "results" in the current directory.
+      "results" in the tests directory.
       This directory must not already exist.
    VIEWER : The path to an image viewer program.
       The program needs to accept one or two image filenames on the command

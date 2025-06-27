@@ -31,7 +31,7 @@ result in an error if the older one is in use.
 # ====== Test support functions ======
 
 # Extend the class to allow access to protected method.
-class PHPlot_test extends PHPlot
+class PHPlot_test extends Phplot\Phplot\phplot
 {
     // CheckDataValueLabels()
     function test_CheckDataValueLabels($flag, &$x, &$y, &$h, &$v)

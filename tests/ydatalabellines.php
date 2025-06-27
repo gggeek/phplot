@@ -37,7 +37,7 @@ $data = array();
 $data_type = 'text-data-yx';
 
 for ($pt = 0; $pt < $n_y; $pt++) {
-    $row = array(strftime('%b', mktime(12, 12, 12, $pt+1, 1, 2000)));
+    $row = array(@strftime('%b', mktime(12, 12, 12, $pt+1, 1, 2000)));
     for ($r = 0; $r < $groups; $r++) {
         $row[] = mt_rand(0, $max_x);
     }

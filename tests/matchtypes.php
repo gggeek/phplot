@@ -7,6 +7,7 @@
 #   'bars' and 'stackedbars'
 #   'squarefilled' and 'stackedsquarefilled'
 require_once 'phplot.php';
+require_once 'phplot_truecolor.php';
 
 // Save the plot images to files? "never", "always", or "onfailure".
 $save_plots = "onfailure";
@@ -20,7 +21,7 @@ for ($i = 0; $i < 50; $i++) {
 
 // Wrapper for simple plot type test. Invoke the object as a function
 // to return the image as a raw data string.
-class testplot extends PHPlot_truecolor
+class testplot extends Phplot\Phplot\Phplot_truecolor
 {
     function __construct($plot_type, $data, $data_type)
     {

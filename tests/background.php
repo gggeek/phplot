@@ -15,13 +15,14 @@ $tp = array_merge(array(
   'truecolor' => False,  # If true, use a Truecolor image
         ), $tp);
 require_once 'phplot.php';
+require_once 'phplot_truecolor.php';
 
 # Use a bar graph because it is easier to see on the weird background.
 $data = array(
   array('Jan', 1000), array('Feb', 2000), array('Mar', 3000),
   array('Apr', 2500), array('May', 1500), array('Jun',  500),
 );
-if ($tp['truecolor']) $plot = new phplot_truecolor(800, 600);
+if ($tp['truecolor']) $plot = new Phplot\Phplot\phplot_truecolor(800, 600);
 else $plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetPlotType('bars');
 $plot->SetDataType('text-data');

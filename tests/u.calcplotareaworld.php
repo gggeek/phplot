@@ -18,7 +18,7 @@ $n_pass = 0;
 $n_fail = 0;
 
 # This test is specific to behavior at PHPlot >= 6.0.0
-if (!defined('PHPlot::version_id') || PHPlot::version_id < 60000) {
+if (!defined('Phplot\Phplot\phplot::version_id') || Phplot\Phplot\phplot::version_id < 60000) {
     echo "Skipping test because it was designed for version >=6.0.0\n";
     exit(2);
 }
@@ -33,7 +33,7 @@ function vecho($s)
 }
 
 # Extend PHPlot to access protected methods and variables for testing:
-class PHPlot_test extends PHPlot
+class PHPlot_test extends Phplot\Phplot\phplot
 {
     # CalcPlotAreaWorld + Prerequisites
     function test_CalcPlotAreaWorld()

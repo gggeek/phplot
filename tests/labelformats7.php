@@ -7,7 +7,7 @@ require_once 'phplot.php';
 if (empty($n_formats) || $n_formats < 1 || $n_formats > 3) $n_formats = 1;
 
 # Skip this test with older PHPlot versions:
-if ($n_formats > 1 && PHPlot::version_id < 60200) {
+if ($n_formats > 1 && Phplot\Phplot\phplot::version_id < 60200) {
     echo "Skipping test because it requires version >= 6.2.0\n";
     exit(2);
 }

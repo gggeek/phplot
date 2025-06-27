@@ -16,7 +16,7 @@ $n_fail = 0;
 $n_skip = 0;
 
 # Extend PHPlot class to allow access to label formatting function:
-class PHPlot_test extends PHPlot
+class PHPlot_test extends Phplot\Phplot\phplot
 {
     // Set label type. Arbitrarily uses 'x' label formatting.
     function set_label_type() // Variable args
@@ -40,7 +40,7 @@ function check_supported_3printf($cases)
     global $test_verbose, $n_tests, $n_skip;
 
     # Make sure PHPlot supports multiple printf formats:
-    if (PHPlot::version_id < 60200) {
+    if (Phplot\Phplot\phplot::version_id < 60200) {
         $n_cases = count($cases) / 2;
         if ($test_verbose)
             echo "Skipping $n_cases cases due to unsupported feature\n";
@@ -57,9 +57,10 @@ function test_cases($plot, $cases)
 {
     global $test_verbose, $n_tests, $n_pass, $n_fail;
 
-    reset($cases);
-    while (list(, $input) = each($cases)) {
-        list(, $expected) = each($cases);
+    $i = 0;
+    while (array_key_exists($i+1, $cases)) {
+        $input = $cases[$i];
+        $expected = $cases[$i+1];
         $n_tests++;
         $title = "  Case $n_tests: format '$input'";
         $error = '';
@@ -71,6 +72,7 @@ function test_cases($plot, $cases)
             $n_fail++;
             echo "$error\n";
         }
+        $i = $i + 2;
     }
 }
 

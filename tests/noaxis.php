@@ -7,6 +7,8 @@
 #  case 3 : Hide X and Y axis lines
 #  case 4 : Hide X and Y axis lines and maximize plot area usage.
 
+require_once 'phplot.php';
+
 if (!isset($case)) $case = 0;
 
 $data = array(

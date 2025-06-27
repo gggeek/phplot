@@ -8,7 +8,7 @@
 require_once 'phplot.php';
 
 // Extend PHPlot class to allow access to protected variable(s):
-class PHPlot_pv extends PHPlot {
+class PHPlot_pv extends Phplot\Phplot\phplot {
     public function GET_stream_boundary() { return $this->stream_boundary; }
     public function GET_stream_frame_header() { return $this->stream_frame_header; }
 }

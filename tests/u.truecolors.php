@@ -14,6 +14,7 @@
 # The test below automatically detects the situation and adapts to it.
 
 require_once 'phplot.php';
+require_once 'phplot_truecolor.php';
 require_once 'usupport.php';
 
 # True to report test cases and all results:
@@ -33,7 +34,7 @@ function test_init()
 {
     global $returns_alpha, $p, $q, $test_verbose;
 
-    $p = new phplot_truecolor(); // Global
+    $p = new Phplot\Phplot\phplot_truecolor(); // Global
     $q = new Phplot\Phplot\phplot(); // Global
 
     # Determine if SetRGBColor returns a 3 or 4 element array for the base

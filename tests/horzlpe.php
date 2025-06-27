@@ -21,7 +21,7 @@ if (!isset($data_type)) $data_type = 'text-data';
 # Skip the test with older PHPlot versions that do not support the
 # horizontal plot types under test.
 if (($data_type == 'text-data-yx' || $data_type == 'data-data-yx')
-   && (!defined('PHPlot::version_id') || PHPlot::version_id < 60000)) {
+   && (!defined('Phplot\Phplot\phplot::version_id') || Phplot\Phplot\phplot::version_id < 60000)) {
     echo "Skipping test: missing horizontal plot type support\n";
     exit(2);
 }

@@ -41,7 +41,7 @@ function get_nsteps($range, $nsteps)
 }
 
 # Extend PHPlot to access protected methods for testing:
-class PHPlot_test extends PHPlot
+class PHPlot_test extends Phplot\Phplot\phplot
 {
     function test_CalcStep125($range, $min_ticks)
     {

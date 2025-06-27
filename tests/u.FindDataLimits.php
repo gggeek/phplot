@@ -14,7 +14,7 @@ $n_pass = 0;
 $n_fail = 0;
 
 // Extend PHPlot to access protected method and variables.
-class PHPlot_test extends PHPlot
+class PHPlot_test extends Phplot\Phplot\phplot
 {
     // CheckDataArray()
     function CALL_CheckDataArray()

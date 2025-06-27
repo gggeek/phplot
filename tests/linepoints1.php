@@ -6,7 +6,7 @@
 require_once 'phplot.php';
 
 // Extend PHPlot class to allow access to protected variable(s):
-class PHPlot_pv extends PHPlot {
+class PHPlot_pv extends Phplot\Phplot\phplot {
     public function GET_point_shapes() { return $this->point_shapes; }
 }
 

@@ -7,6 +7,7 @@
 # this script creates JPEG not PNG, because most of the image is the original
 # photograph and PNG results in an overlarge file.
 require_once 'phplot.php';
+require_once 'phplot_truecolor.php';
 
 # Tunable parameters:
 $param = array(
@@ -74,7 +75,7 @@ function plot_histogram($image_filename, $param)
     $histo = get_histogram($image_filename);
     if (empty($histo)) return;
     for ($i = 0; $i < 256; $i++) $data[$i] = array('', $histo[$i]);
-    $p = new phplot_truecolor($plot_image_width, $plot_image_height);
+    $p = new Phplot\Phplot\phplot_truecolor($plot_image_width, $plot_image_height);
     $p->SetFileFormat('jpg');
     $p->SetBgImage($image_filename, 'scale');
     $p->SetDataType('text-data');

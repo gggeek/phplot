@@ -111,7 +111,7 @@ function lprintfts() // Variable args
     $argv = func_get_args();
     $format = array_shift($argv);
     $line = vsprintf($format, $argv);
-    lecho(strftime('%Y-%m-%d %H:%M:%S') . ' ' . $line . "\n");
+    lecho(@strftime('%Y-%m-%d %H:%M:%S') . ' ' . $line . "\n");
 }
 
 # Verify global environment and set up for running the tests:
@@ -161,6 +161,7 @@ function setup()
     }
 
     # The results directory must not already exist, to prevent overwriting.
+    # @todo allow a `-f` cli option to have php remove that directory automatically if it exists
     if (file_exists($result_dir)) {
         $message = "Results directory $result_dir";
         if (is_dir($result_dir)) {
@@ -169,7 +170,7 @@ function setup()
         } else {
             $message .= " exists and is not a directory.";
         }
-        fail("$message\nPlease remove the results directory, or use the\n"
+        fail("$message\n Please remove the results directory, or use the "
            . " RESULTDIR environment variable to point results elsewhere.");
     }
     if (!mkdir($result_dir))
@@ -206,7 +207,7 @@ function preface()
     lecho("====== This is the " . PRODUCT . " Test Suite ======\n");
     lprintfts("Setting up for testing");
     lecho("  Tests will be run using PHP interpreter: $php_exe\n");
-    lecho("  PHP interpreter used for testing reports as: PHP $php_version\n");
+    lecho("  PHP interpreter used for testing reports is: PHP $php_version\n");
     lecho("  Result files will be saved in: $result_dir\n");
     lecho("  Testing log will be written to: $log_filename\n");
     $pl = $total_tests == 1 ? '' : 's';
@@ -568,4 +569,4 @@ $start_time = microtime(TRUE);
 foreach ($tests_to_run as $name) do_test($name);
 summarize(microtime(TRUE) - $start_time);
 cleanup();
-exit(0);
+exit($n_fail);

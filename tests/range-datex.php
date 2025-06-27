@@ -36,7 +36,7 @@ $data = array( array('', $xmin, 0), array('', $xmax, 100));
 # Build a title including the options:
 if ($xmin > 86400) {
     # Assume these are dates.
-    $range = strftime($dtformat, $xmin) . ' : ' . strftime($dtformat, $xmax);
+    $range = @strftime($dtformat, $xmin) . ' : ' . @strftime($dtformat, $xmax);
 } else {
     $range = "$xmin : $xmax";
 }

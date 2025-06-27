@@ -7,7 +7,7 @@ require_once 'phplot.php';
 define('TEST_FONT', 'FreeUniversal-Regular.ttf');
 
 // Extend PHPlot class to allow access to protected variable(s):
-class PHPlot_pv extends PHPlot {
+class PHPlot_pv extends Phplot\Phplot\phplot {
     public function GET_default_ttfont() { return $this->default_ttfont; }
 }
 
