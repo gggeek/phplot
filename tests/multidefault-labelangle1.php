@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing PHPlot - Multi-plot X data label angle issue
 # This shows an issue with X data label angle when doing multiple plotss.
 # X data label angle defaults to X label angle, but the applied default is

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: areas+borders - squaredarea, borders, colors, raised X axis
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(
@@ -9,4 +9,3 @@ $tp = array(
   'x_axis' => 10,
   );
 require 'areaborders00.php';
-

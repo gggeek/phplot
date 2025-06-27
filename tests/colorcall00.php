@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Color callback - text-data plots, baseline
 # This is the baseline script. Other scripts define the variables below,
 # then include this script.

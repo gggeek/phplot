@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # number_foramt unit test - change locale and format numbers.
 # For Linux, the locale is changed by setting the environment variable
 # LC_ALL. When PHPlot uses setlocale(LC_ALL, '') it loads the locale

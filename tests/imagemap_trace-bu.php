@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Bubbles plot, with image map area outlines shown.
 # This produces a plot image with the areas that would be in an image map
 # outlined. It does not produce HTML or an image map.

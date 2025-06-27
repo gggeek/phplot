@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Squared and Squared Area (1g)
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

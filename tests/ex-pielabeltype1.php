@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Pie Chart Label Types - baseline, default label type
 # This requires PHPlot >= 5.6.0
 require_once 'phplot.php';

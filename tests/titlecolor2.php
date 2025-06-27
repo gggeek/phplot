@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Title Colors. Case 2 - main defaults, set color for X, Y
 $c1 = NULL;
 $c2 = 'red';

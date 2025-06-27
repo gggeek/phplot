@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Test Suite Support - create a valid data array
 /*
    make_data_array():
@@ -121,7 +121,7 @@ function make_data_array($plot_type, $data_type, $nx, $ny, $max)
         Set the next $open to this $close.
   Calculations are in integer cents, then stored as dollars (a/100).
 */
- 
+
 function make_data_array_ohlc($data_type, $nx, $max)
 {
     $need_x = ($data_type == 'data-data');

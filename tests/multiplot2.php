@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: multiple identical plots, 2x3 pie charts
 # See the script included at the bottom for details.
 $n_across = 2;

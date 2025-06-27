@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Unit test support functions
 # If global $test_debug is set to True, the compare functions are verbose.
 # They write to stdout, not stderr. Stderr output indicates an error to

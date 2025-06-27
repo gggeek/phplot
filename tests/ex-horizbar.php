@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example - Horizontal Bars
 require_once 'phplot.php';
 

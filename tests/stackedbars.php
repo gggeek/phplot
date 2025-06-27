@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Test stacked bar plots, master script
 # Originally from the PHPlot Reference Manual, Example: Stacked Bars...
 # This is a parameterized test. Other scripts can set $tp and then include

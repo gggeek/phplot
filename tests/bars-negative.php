@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Bars, negative values, as strings
 require_once 'phplot.php';
 

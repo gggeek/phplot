@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - tick/data label variant formatting - baseline
 # This tests the use of angle, format, and position controls on  X and Y data
 # and tick labels, using features added after PHPlot-5.0.7.

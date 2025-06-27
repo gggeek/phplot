@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # SetLegendStyle - TrueTrype, increased line spacing
 $tp = array(
   'suffix' => ' (TrueType, extra line spacing)',   # Title part 2

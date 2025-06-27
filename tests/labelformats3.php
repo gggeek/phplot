@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Test types of label formatting 3 (data:2:suffix, data:1:suffix)
 require_once 'phplot.php';
 # This requires TTF to get the char set

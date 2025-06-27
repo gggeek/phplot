@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Color callback - data-data-error linepoints plot with callback, variation
 # See the script named below for details.
 $plot_type = 'linepoints';

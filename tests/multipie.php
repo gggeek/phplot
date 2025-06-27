@@ -1,12 +1,12 @@
 <?php
-# $Id$
+
 # PHPlot test - Multiple Pie Charts, with label and other variations
 require_once 'phplot.php';
 
 
 $data = array(
-    array('Gold',        20), 
-    array('Silver',      13), 
+    array('Gold',        20),
+    array('Silver',      13),
     array('Copper',       7),
     array('Tin',         18),
     array('Bronze',      10),

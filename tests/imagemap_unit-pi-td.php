@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Unit test: Image map with pie chart, text-data case
 # See the script named below for details
 $data_type = 'text-data';

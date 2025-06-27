@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Date/time range on X axis
 
 #            H, M, S, mo, da, yr

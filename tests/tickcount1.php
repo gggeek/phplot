@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Wrong ticks on X and Y - 1
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Bar chart tuning variables - narrower unshaded stackedbars
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

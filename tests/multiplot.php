@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: multiple identical plots, baseline/master, 2x2 bar chart
 # Idea is that only SetPlotAreaPixels should be needed between plots, and
 # all plots should be identical.

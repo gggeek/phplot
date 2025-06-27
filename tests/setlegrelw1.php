@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing legend relative position - case world-1
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

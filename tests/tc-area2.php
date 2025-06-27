@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Truecolor area plot with partial transparency.
 # This shows how area plot works, by making the fill areas
 # overlap with partially transparent colors.
@@ -19,7 +19,7 @@ function mkdata(&$data, $y0, $y1, $y2)
     $label = gx('Rd', $y0, $y1) . "\n"
            . gx('Gn', $y1, $y2) . "\n"
            . gx('Bu', $y2, 0);
-           
+
     $data[] = array('',     $y0, $y1, $y2);
     $data[] = array($label, $y0, $y1, $y2);
     $data[] = array('',     $y0, $y1, $y2);

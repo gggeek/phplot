@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Demo - from phplot.sourceforge.net
 # This version is for the test suite. It uses a different font.
 

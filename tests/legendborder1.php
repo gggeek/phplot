@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Legend border control - border on w/background
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

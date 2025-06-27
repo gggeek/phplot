@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Setting tick increment and/or number of ticks
 require_once 'phplot.php';
 # This is a parameterized test. Other scripts can set $tp and then include

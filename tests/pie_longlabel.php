@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Fix for SetPlotAreaPixels with pie charts.
 require_once 'phplot.php';
 

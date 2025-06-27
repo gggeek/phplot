@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Multi-line data labels, GD at 0 deg
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

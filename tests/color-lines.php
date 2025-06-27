@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - All line colors
 require_once 'phplot.php';
 

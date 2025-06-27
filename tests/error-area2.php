@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Error test: area plot with differing point counts
 require_once 'phplot.php';
 $data = array(

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - log axis
 require_once 'phplot.php';
 

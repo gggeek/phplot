@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot error test - cannot use coordinate translation before DrawGraph
 require_once 'phplot.php';
 $data = array( array('A', 1), array('B', 2));

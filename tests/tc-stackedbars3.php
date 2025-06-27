@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Truecolor stacked bars plot with deep shading
 $plotype = 'stackedbars';
 $shading = 15;

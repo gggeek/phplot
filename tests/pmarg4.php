@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Partial margin specification with SetPlotAreaPixels - 4
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

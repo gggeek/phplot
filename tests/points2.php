@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Point plot - scatter plot
 require_once 'phplot.php';
 

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Truecolor Lines plot with gamma adjustment
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

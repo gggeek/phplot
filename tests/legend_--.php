@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Legend tests, including SetLegendStyle() - Baseline - 1
 # This uses config.php to identify TrueType font locations and names.
 require_once 'config.php';
@@ -62,7 +62,7 @@ $p->SetYTickIncrement(1.0);
 if (isset($tp['textalign'])) {
   if (isset($tp['colorboxalign']))
     $p->SetLegendStyle($tp['textalign'], $tp['colorboxalign']);
-  else 
+  else
     $p->SetLegendStyle($tp['textalign']);
 }
 if (isset($tp['px']) && isset($tp['py']))

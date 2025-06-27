@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing PHPlot: Y Data Label Lines, for horizontal plots
 # This test is based on datalabellines.php, but for horizontal plots with
 # X and Y swapped in the data array. However, there are no horizontal bubble

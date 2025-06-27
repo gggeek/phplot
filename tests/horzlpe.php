@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing PHPlot - Horizontal lines/points/linepoints+error plots - master
 # This tests new horizontal lines, points, and linepoints plots, added at
 # PHPlot-6.0.0. Because the lines/points/linepoints and error plot variations

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Date/time range on X axis
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot bug 1813071: Wrong title height for multi-line TTF text
 # Note: This overlaps the title_text* tests somewhat, but with more fonts.
 require_once 'phplot.php';

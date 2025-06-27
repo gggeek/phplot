@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Bar chart with bar color depending on value
 require_once 'phplot.php';
 

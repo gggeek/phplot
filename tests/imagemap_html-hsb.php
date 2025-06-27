@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Test - Image map and embedded image - horizontal stacked bars
 $out_name = basename(__FILE__, '.php');
 $plot_type = 'stackedbars';

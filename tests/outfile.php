@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing PHPlot: Output file and output file types
 # This tests the output file parameter in the PHPlot constructor,
 # SetFileFormat, and SetOutputFile.

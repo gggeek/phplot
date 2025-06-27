@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Legend shape marker tests - master script
 require_once 'config.php';
 # This is a parameterized test. Other scripts can set $tp and then include

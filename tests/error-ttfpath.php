@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Error test - bad TTF font or path.
 # This is a parameterized test with 1 parameter: 'case'.
 # Test cases:

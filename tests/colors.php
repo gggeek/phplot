@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Color Chart
 require_once 'phplot.php';
 

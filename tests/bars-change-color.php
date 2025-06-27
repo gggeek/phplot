@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Bars - change color.
 # This is a trick, which almost works. The problem is the offset. The 2nd
 # (and 3rd, if used) color bars are offset from their normal position.

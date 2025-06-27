@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Unit test: Image map with pie chart, baseline text-data-single case
 # This generates (and discards) a plot, and checks the image map data.
 # For pie charts, it just checks the number of points and syntax. It

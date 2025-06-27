@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Time values as X ticks labels
 require_once 'phplot.php';
 

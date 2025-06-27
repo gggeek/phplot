@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Legend with line markers, case: 2,2
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(
@@ -11,4 +11,3 @@ $tp = array(
   'more_legendlines' => 3,           # Additional legend lines after $ny
   );
 require 'legendlinemarker.php';
-

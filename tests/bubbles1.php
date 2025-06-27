@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Bubble plot - master - simple plot
 require_once 'phplot.php';
 

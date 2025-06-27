@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Using a Y tick anchor to force a tick at 0 (part 1)
 # This requires PHPlot >= 5.4.0
 require_once 'phplot.php';

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Missing Y values in data-data-error plots - main
 # This is a parameterized test. Other scripts can set $tp and then include
 # this script. The parameters are shown in the defaults array below:
@@ -51,4 +51,3 @@ $p->SetDrawYGrid(False);
 $p->SetDrawBrokenLines($tp['draw-broken']);
 
 $p->DrawGraph();
-

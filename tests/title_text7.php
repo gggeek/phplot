@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Title text tests - 7
 # This is a parameterized test. See the script named at the bottom for details.
 # Local:
@@ -11,4 +11,3 @@ $tp = array(
   'y_title_pos' => 'both',  # Y Title Position: plotleft plotright both none
   );
 require 'title_text.php';
-

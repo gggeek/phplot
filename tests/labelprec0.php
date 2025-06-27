@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: SetPrecisionX() and SetPrecisionY() versus label type
 # Set $horizontal = TRUE and include this script for horizontal plot.
 # Reference manual says these apply to both tick and data labels.

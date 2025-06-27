@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing PHPlot - Multi-plot label format issue
 # This shows an issue with X and Y label formats when doing multiple plots.
 # PHPlot sets the X and Y data label formats to the X and Y label formats

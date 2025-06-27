@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Bug #3296884 Undefined variable with stackedbars (down, 0s, up)
 $data = array( array('A', -1, -2), array('B', 0, 0), array('C', 1, 2));
 require_once 'phplot.php';

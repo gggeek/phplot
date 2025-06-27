@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Two plots on one image
 require_once 'phplot.php';
 

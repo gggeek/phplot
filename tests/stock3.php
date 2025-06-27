@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: "Stock market" plot, using error bars - 3
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

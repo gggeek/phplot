@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Automatic margin calculation - baseline
 # Margin is affected by:
 #   Title, X Title, Y Title : empty or 1 or multi-line, X/Y title position

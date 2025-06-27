@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Bubble plot - Scattergram with random points and values
 # This is a parameterized test. See script named below for details.
 $subtitle = "Random Z values";

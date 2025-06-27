@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test - thinbarline, horiz & vert - horiz <0
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

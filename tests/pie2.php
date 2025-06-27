@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Pie/text-data
 require_once 'phplot.php';
 

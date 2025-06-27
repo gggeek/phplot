@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Custom label formatting using row and column
 # This example produces a linepoints plot with only the maximum Y value
 # for each X value labeled. This is an example of a custom label

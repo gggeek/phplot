@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing PHPlot - Multiple plot, sticky settings for tick increment
 # This tests for a problem with under-development R6 PHPlot which calculated
 # tick steps and stored them back into the object, unlike R5. The result

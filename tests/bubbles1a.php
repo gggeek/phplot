@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Bubble plot - regressive case of no Z depth
 # This is a parameterized test. See script named below for details.
 $subtitle = "All Z values the same";

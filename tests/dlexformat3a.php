@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Data label extended custom formatting - 3a, lines/error
 # This is a parameterized test. See the script named at the bottom for details.
 $plot_type = 'lines';

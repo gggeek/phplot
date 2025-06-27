@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Box plot with data variations
 # See the script named below for details
 $data_colors = 'black';

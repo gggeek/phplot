@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 /*
      PHPlot Test Suite - Driver Script
      Copyright 2007-2015 lbayuk AT users.sourceforge.net
@@ -400,7 +400,7 @@ function run_test($test_name, $script_file, $output_file, $error_file)
     $phpcmd = "error_reporting(E_ALL|E_STRICT); require '$script_file'; "
             . "touch('$done_file');";
     $cmd = "$php_exe -r \"$phpcmd\"";
-    
+
     # Run the test command. False return means abort, True means the
     # the script ran (although it might have failed, or be a skipped test).
     $start_time = microtime(TRUE);

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Color callback - stackedbars plot with color callback
 # See the script named below for details.
 $plot_type = 'stackedbars';

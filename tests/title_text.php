@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Title issues: order dependency (bug #1816844), alignment,
 # multi- vs single-line, fonts.
 # This uses config.php to identify TrueType font locations and names.

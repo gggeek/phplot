@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Truecolor stacked bars plot with default shading
 $plotype = 'stackedbars';
 $shading = ''; // Omit SetShading();

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Stacked Squared Area plot
 require_once 'phplot.php';
 

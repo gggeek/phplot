@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test - transparency - palette, set transparent then set background
 # Note: This group of tests was created for bug #3045131
 require_once 'phplot.php';

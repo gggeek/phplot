@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing PHPlot - Multi-plot label format issue, case 2
 # See the script named below for details
 $case = 2;

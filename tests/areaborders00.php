@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Test: Area plot with data borders, and out-of-order data (master)
 # This is a parameterized test. Other scripts can set $tp and then include
 # this script. The parameters are shown in the defaults array below:

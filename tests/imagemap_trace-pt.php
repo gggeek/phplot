@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Points plot, with image map areas marked
 # This produces a plot image indicating the areas that would be in an image
 # map. It does not produce HTML or an image map.

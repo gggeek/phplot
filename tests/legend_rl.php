@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: SetLegendStyle - right, left
 $tp = array(
   'suffix' => ' (right text, left colorbox)',   # Title part 2

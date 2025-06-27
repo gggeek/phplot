@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing PHPlot - suppress error image
 # This script should produce an error on stderr, but no error image.
 require_once 'phplot.php';

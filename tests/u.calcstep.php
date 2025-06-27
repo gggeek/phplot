@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot unit test: functions used by CalcPlotAreaWorld to calculate tick step
 # This checks out CalcStep125(), CalcStepDateTime(), and CalcStepBinary()
 require_once 'phplot.php';
@@ -17,7 +17,7 @@ $n_fail = 0;
 # Decode number of seconds to time interval
 function interval($sec)
 {
-    static $convert = array('week', 604800, 'day', 86400, 
+    static $convert = array('week', 604800, 'day', 86400,
                             'hour', 3600, 'minute', 60, 'second', 1);
     $result = array();
     reset($convert);
@@ -146,7 +146,7 @@ function test_good_binary()
 }
 
 
-# Test PHPlot CalcStep125 - show valid return values 
+# Test PHPlot CalcStep125 - show valid return values
 function test_show_calcstep125()
 {
     $p = new phplot_test();
@@ -163,7 +163,7 @@ function test_show_calcstep125()
     echo "\n";
 }
 
-# Test PHPlot CalcStepdatetime - show valid return values 
+# Test PHPlot CalcStepdatetime - show valid return values
 function test_show_calcstepdatetime()
 {
     $p = new phplot_test();

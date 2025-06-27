@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Stacked bar plots with data labels, raised X axis covering some points
 require_once 'phplot.php';
 $data = array(

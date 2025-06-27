@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing PHPlot: Annotating a plot using callbacks
 # This is similar to the Annotate example in the manual.
 # Note: This example is coded for PHPlot > 5.0.7

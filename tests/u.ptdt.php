@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot unit test: Plot Types and Data Types
 # This test tries every plot type with every data type.
 # (It replaces individual, parameterized tests - last up to 78 tests - one
@@ -104,7 +104,7 @@ function make_data_array($plot_type, $data_type)
     } elseif ($data_type != 'text-data-single'  // See comment below
           && ($plot_type == 'ohlc' || $plot_type == 'candlesticks'
              || $plot_type == 'candlesticks2')) {
-    
+
         # Special case: OHLC and related plots need specific ordering.
         # Note: OHLC and text-data-single is not legal, but we need a
         # valid array for that type to make it past the 2nd level checks.
@@ -128,7 +128,7 @@ function make_data_array($plot_type, $data_type)
 					array(5, 10, 15, 20, 25),
                     array(5, 10, 15, 20, 25),
                     array(5, 10, 15, 20, 25));
-    
+
     } elseif ($data_type == 'data-data-xyz') {
         $n_cols = 4;
         # This is actually Y, Z pairs.

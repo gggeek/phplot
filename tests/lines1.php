@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Simple line graph
 require_once 'phplot.php';
 

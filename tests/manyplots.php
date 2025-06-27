@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Many plots in one image
 # 09/20/2007 From posting: "More Plots on One Image"
 # Corrected boundaries and inserted fake titles and data.

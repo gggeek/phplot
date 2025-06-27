@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Overlay OHLC chart with lines
 # From PHPlot forum 2010-12-20
 require_once 'phplot.php';

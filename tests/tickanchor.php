@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: tick anchor points, master script
 require_once 'phplot.php';
 # This is a parameterized test. Other scripts can set $tp and then include

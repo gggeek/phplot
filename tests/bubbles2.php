@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Bubble plot - truecolor with translucent bubbles
 require_once 'phplot.php';
 

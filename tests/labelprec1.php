@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: SetPrecisionX() and SetPrecisionY() versus label type
 # See the script included below for details.
 $horizontal = TRUE;

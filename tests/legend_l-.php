@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: SetLegendStyle - left text
 $tp = array(
   'suffix' => ' (Left text align)',   # Title part 2

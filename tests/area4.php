@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Test: Area plot with non-decreasing, 0, and <0 Y values
 require_once 'phplot.php';
 $data = array(

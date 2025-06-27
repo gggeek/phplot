@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Test: Pie border color and control, baseline/master
 # Note: Requires PHPlot >= 6.0.6 for SetPieBorderColor() and
 # SetDrawPieBorders().

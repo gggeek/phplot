@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Automatic margin calculation - 3a long ticks, visible
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

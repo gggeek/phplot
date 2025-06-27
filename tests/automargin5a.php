@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Automatic margin calculation - 5a manual override
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

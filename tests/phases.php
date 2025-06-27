@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Phases of a sine wave, black background.
 require_once 'phplot.php';
 

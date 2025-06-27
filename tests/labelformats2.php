@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Test types of label formatting 2 (custom, data:3)
 require_once 'phplot.php';
 

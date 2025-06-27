@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot unit test: Matching plot types with 1 data set.
 # This tests that the following plot type pairs make identical plots when
 # there is only a single data set:

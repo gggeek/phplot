@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot error test - invalid color name
 require_once 'phplot.php';
 $data = array(array('a', 1, 1), array('b', 2, 3), array('c', 3, 5));

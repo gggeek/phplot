@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Title overwrite with TTF text - bug report 3010116
 # (Copied from manyplots.php test script)
 

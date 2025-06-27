@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test - empty plot with no Y values at all
 # Note: This differs from empty-plot.php, which has a data
 # array containing y='' for each row, column. This test has
@@ -24,7 +24,7 @@ for ($r = 0; $r < 8; $r++) {
   if ($need_x) $row[] = $r + 1;  // Independent variable
   $data[] = $row;
 }
-  
+
 $p = new phplot;
 $p->SetTitle("Plot with no Y values: $plot_type, $data_type\n"
            . "Check for horizontal axis data labels");

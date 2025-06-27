@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # From: PHPlot Quickstart - 2
 //Include the code
 require_once 'phplot.php';

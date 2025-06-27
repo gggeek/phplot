@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot error test - Attempt to allocate an image too big for memory.
 require_once 'phplot.php';
 require 'esupport.php';

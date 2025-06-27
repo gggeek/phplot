@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot error test - Charts with bad data array, bug report from Drupal
 # The bug was that PHPlot detects missing or empty data array, but if the
 # array has rows and the rows have no Y values, it fails poorly.

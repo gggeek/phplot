@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Horizontal bars - case 5 options
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array_merge(array(

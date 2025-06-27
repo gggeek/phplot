@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Overlay 2 plots to get 2 different Y axis scales
 # Based on a posting 2010-07-16 to PHPlot forum
 require_once 'phplot.php';

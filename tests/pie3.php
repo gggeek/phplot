@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example:  Flat Pie with options
 require_once 'phplot.php';
 

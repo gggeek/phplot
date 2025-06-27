@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Two plots on image with auto-scaling
 require_once 'phplot.php';
 
