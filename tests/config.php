@@ -12,7 +12,7 @@
 # It may or may not work on different operating systems, or even those
 # same operating systems - depending on the available fonts.
 
-# In order to facility automatic results comparisons, the same fonts are
+# In order to facilitate automatic results comparisons, the same fonts are
 # used on all systems by default. This is the "DejaVu" font family.
 # These are not standard on Windows systems, but will be present if you
 # have Libreoffice installed. (OpenOffice.org might have the same fonts,

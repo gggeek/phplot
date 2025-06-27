@@ -71,8 +71,6 @@ jobs:
         run: rm -rf vendor
       - name: Run the test suite
         run: |
-          if [ -d ./tests/results ]; then rm -rf ./tests/results; fi
-          export PHP="$(which php)"
-          php tests/run_test.php -all
+          php tests/run_test.php --all -f
       - name: End Status
         run: echo "🍏 This job's status is ${{ job.status }}."

@@ -433,6 +433,14 @@ function run_test($test_name, $script_file, $output_file, $error_file)
 {
     global $php_exe, $result_dir, $verbosity;
 
+    # Get the validation data for the test. (This warns if there isn't any,
+    # then provides the defaults.)
+    $vd = get_test_validation($test_name);
+    if (isset($vd['skip_test'])) {
+        test_skip($test_name, $vd['skip_test'], 0);
+        return;
+    }
+
     $error = '';
     $message = '';
 
@@ -491,10 +499,6 @@ function run_test($test_name, $script_file, $output_file, $error_file)
     $error_text = check_file($error_file);
     if (!empty($error_text) && $verbosity > 1)
         $message .= "Test error output:\n------\n" . $error_text . "\n======\n";
-
-    # Get the validation data for the test. (This warns if there isn't any,
-    # then provides the defaults.)
-    $vd = get_test_validation($test_name);
 
     # Validate the test based on the configuration settings:
     $failures = array();
