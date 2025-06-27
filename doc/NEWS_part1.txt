@@ -1,5 +1,5 @@
-This is part 1 of the NEWS file for PHPlot, with previous release documentation
-through Release 5.5.0 on 2011-07-30. For current news, see NEWS.txt.
+This is part 1 of the NEWS file for PHPlot, with old release documentation
+up to Release 5.5.0 on 2011-07-30. For current news, see NEWS.md.
 
 Refer the the ChangeLog file for detailed source changes.
 -----------------------------------------------------------------------------
