@@ -71,4 +71,4 @@ release:
 # @todo move to a makefile in the `doc` dir
 phpdoc:
 	mkdir -p $(PHPDOCDIR)
-	$(PHP) $(PHPDOCUMENTOR) --template=$(TEMPLATE) -f phplot.php -t $(PHPDOCDIR)
+	$(PHP) $(PHPDOCUMENTOR) --template=$(TEMPLATE) -f src/phplot.php -t $(PHPDOCDIR)
