@@ -4,7 +4,34 @@ Refer to the ChangeLog file for detailed source changes.
 See NEWS_part1.txt for older release documentation.
 -----------------------------------------------------------------------------
 
-2022-03-11 Release 8.0.1
+## [UNRELEASED]
+
+### Overview:
+
+### Cautions, Important Notes, and Compatibility Issues:
+
+* Directory name change from `/test/` to `/tests/` and from `/phplotdoc/` to `/doc/manual/`
+
+* The source code for the manual is not included anymore in GitHub tarballs or when installing via Composer.
+  If you want to have it available in your local installation, use `prefer-source` in your Composer configuration
+
+### Bugs Fixed:
+
+(none)
+
+### New features
+
+(none)
+
+
+## 2023-08-15 Release 8.0.0.2
+
+### Bugs Fixed:
+
+* avoid php deprecation warnings by ensuring integer values in `ProcessTextTTF` and `DrawBar`
+
+
+## 2023-03-17 Release 8.0.0.1
 
 This is the release of PHPlot tested with the Composer PSR-4 specification
 https://getcomposer.org/doc/04-schema.md#psr-4 . PSR-4 is recommended by
@@ -22,9 +49,9 @@ Note that the Namespaces starts with an uppercase "P" and the class starts
 with a lowercase "p." This is to avoid changing the case of the file phplot.php
 
 
-2022-12-28 Release 8.0.0-RC1
+## 2022-12-28 Release 8.0.0-RC1
 
-=== Overview:
+### Overview:
 
 This is the RC1 release of PHPlot tested with PHP 8.1 and linted with PSR-12.
 This brings PHPLot better into alignment with community standards as of 2023:
@@ -33,44 +60,40 @@ This brings PHPLot better into alignment with community standards as of 2023:
   * Matching Composer standards (e.g. phplot -> src, phplotest -> test)
   * creating a composer.json
 
-=== Cautions, Important Notes, and Compatibility Issues:
+### Cautions, Important Notes, and Compatibility Issues:
 
----
-Directory name change from /phplot/ to /src/ and from /phplottest/ to /test/
+* Directory name change from `/phplot/` to `/src/` and from `/phplottest/` to `/test/`
 
----
-Moving to a specified namespace means a change in defining the PHPlot object.
+* Moving to a specified namespace means a change in defining the PHPlot object.
 
-If you get the error:
-   `PHP Fatal error:  Uncaught Error: Class "PHPlot" not found`
-look at specifying the full namespace. E.g. if you have
-   `$plot = new phplot(800, 600);`
-try changing to
-   `$plot = new Phplot\Phplot\phplot(800, 600);`
+  If you get the error:
+    `PHP Fatal error:  Uncaught Error: Class "PHPlot" not found`
+  look at specifying the full namespace. E.g. if you have
+    `$plot = new phplot(800, 600);`
+  try changing to
+    `$plot = new Phplot\Phplot\phplot(800, 600);`
 
----
-PSR-12 standards states that all subclasses get moved to their own file, thus
-phplot_truecolor.php is a new file, which used to be part of file phplot.php.
+* PSR-12 standards states that all subclasses get moved to their own file, thus
+  `phplot_truecolor.php` is a new file, which used to be part of file `phplot.php`.
 
-if you had
-  `require_once 'phplot.php';`
-and also wanted to use truecoloer add the following line
-  `require_once 'phplot_truecolor.php';`
+  If you had
+    `require_once 'phplot.php';`
+  and also wanted to use truecoloer add the following line
+    `require_once 'phplot_truecolor.php';`
 
-see area2.php for an example.
+  see area2.php for an example.
 
------------------------------------------------------------------------------
 
-015-11-01 Release 6.2.0
+## 015-11-01 Release 6.2.0
 
-=== Overview:
+### Overview:
 
 This is the current stable release of PHPlot. This is the first release that
 will work with the upcoming PHP-7. This release also adds two new plot types.
 
 The PHPlot Reference Manual has been updated to match this release.
 
-=== Cautions, Important Notes, and Compatibility Issues:
+### Cautions, Important Notes, and Compatibility Issues:
 
 PHP-7 deprecated use of older-style class constructor method names, where
 the constructor name matches the class name.  The PHPlot class constructor
@@ -110,8 +133,7 @@ versions out there):
 + Division by zero no longer results in E_WARNING, but you end up with one
 of the special float values +INF, -INF, or NAN instead.
 
-
-=== Bugs Fixed in 6.2.0:
+### Bugs Fixed in 6.2.0:
 
 Fixed bug #170 "replace eval() ...":
 This was a request to remove use of eval() from SetDashedStyle(), because
@@ -128,8 +150,7 @@ Any class that extends PHPlot must now use the correct syntax to call the
 parent constructor: parent::__construct(...). If they used the old syntax
 $this->PHPlot(...) they will not work (even with PHP-5.x).
 
-
-=== New features in 6.2.0:
+### New features in 6.2.0:
 
 Feature Request #55 "Method documentation in PHPDoc format":
 PHPlot now uses "phpdoc"-style comments in the code, which apparently is
@@ -154,11 +175,10 @@ and 'stackedsquaredarea', this was extended to the existing, similar plot
 types 'area' and 'stackedarea'. Data borders are off by default for all 4
 plot types.
 
------------------------------------------------------------------------------
 
-2013-05-11 Release 6.1.0
+## 2013-05-11 Release 6.1.0
 
-=== Overview:
+### Overview:
 
 This is the current stable release of PHPlot. This release includes two new
 plot type features (which were not completed in time to make it into
@@ -166,21 +186,18 @@ PHPlot-6.0.0).
 
 The PHPlot Reference Manual has been updated to match this release.
 
-
-=== Cautions, Important Notes, and Compatibility Issues:
+### Cautions, Important Notes, and Compatibility Issues:
 
 There are no new compatibility issues in this release. However, if
 upgrading from PHPlot-5.8.0 or older, please read the Cautions, Important
 Notes, and Compatibility Issues from the PHPlot-6.0.0 release. Everything
 there is still applicable.
 
-
-=== Bugs Fixed in 6.1.0:
+### Bugs Fixed in 6.1.0:
 
 (none)
 
-
-=== New features in 6.1.0:
+### New features in 6.1.0:
 
 Feature Request #47 "Extend horizontal plots to more types":
 This feature request was mostly implemented in PHPlot-6.0.0, except for
@@ -193,11 +210,9 @@ A new plot type 'boxes' is added. This produces a Box Plot, which is used
 to present a 5-number statistical summary of a data set.
 
 
------------------------------------------------------------------------------
+## 2013-04-03 Release 6.0.0
 
-2013-04-03 Release 6.0.0
-
-=== Overview:
+### Overview:
 
 This is the current stable release of PHPlot. This release includes a
 significant rewrite how PHPlot automatically calculates the plot area range
@@ -208,8 +223,7 @@ The PHPlot Reference Manual has been updated to match this release. A
 previously-experimental feature to help create HTML image maps is now
 fully documented in the manual.
 
-
-=== Cautions, Important Notes, and Compatibility Issues:
+### Cautions, Important Notes, and Compatibility Issues:
 
 There are some important compatibility issues you need to be aware of
 before upgrading to PHPlot-6.0.0 from any previous version. Many scripts
@@ -282,8 +296,7 @@ ignores the number of ticks, regardless of the order. (The new behavior is
 consistent with the PHPlot design goal that you can use the various Set*()
 functions in any order and get the same plot.)
 
-
-=== Bugs Fixed in 6.0.0:
+### Bugs Fixed in 6.0.0:
 
 Fixed bug #101 Fix automatic Y range calculations":
 PHPlot now calculates the Y (and X) ranges using a completely different
@@ -321,8 +334,7 @@ that PHPlot used as a default, causing font selection to fail.  The new
 font installation path has been added to the search list, and now PHPlot
 can find the default TrueType font on Ubuntu.
 
-
-=== New features in 6.0.0:
+### New features in 6.0.0:
 
 Feature request #29 "Finer control over plot element colors":
 This was an open-ended feature request that is partially implemented and
@@ -375,11 +387,10 @@ the option of showing short line segments (with correct color and width) in
 the legend, rather than color boxes. This applies to lines and squared
 plots only.
 
------------------------------------------------------------------------------
 
-2012-04-06 Release 5.8.0
+## 2012-04-06 Release 5.8.0
 
-=== Overview:
+### Overview:
 
 This is the current stable release of PHPlot. This release adds several new
 features, including the ability to generate "streaming plots" - a video
@@ -387,22 +398,19 @@ stream showing updated plot data.
 
 The PHPlot Reference Manual has been updated to match this release.
 
-
-=== Cautions, Important Notes, and Compatibility Issues:
+### Cautions, Important Notes, and Compatibility Issues:
 
 There are no known compatibility issues in upgrading from PHPlot-5.7.0 to
 this release. For issues with previous releases, see below in this file.
 
-
-=== Bugs Fixed in 5.8.0:
+### Bugs Fixed in 5.8.0:
 
 Fix bug #3506408 "Data Label Lines vs new plot types":
 Data label lines do work with bubble plots. This is now documented. Data
 label lines did not work well with OHLC plot types. This was never documented
 to work, and is now disabled.
 
-
-=== New features in 5.8.0:
+### New features in 5.8.0:
 
 Feature request #3488042 "Display only some data value labels":
 Custom label formatting functions now have access to the data point row and
@@ -418,11 +426,10 @@ Feature request #3515519 "Support object serialize/unserialize":
 You can now serialize and unserialize a PHPlot object, subject to some
 minor restrictions. Details are in the PHPlot Reference Manual.
 
------------------------------------------------------------------------------
 
-2012-02-25 Release 5.7.0
+## 2012-02-25 Release 5.7.0
 
-=== Overview:
+### Overview:
 
 This is the current stable release of PHPlot. This release includes several
 bug fixes, new color controls for labels, a new feature for application-level
@@ -430,8 +437,7 @@ error handling, and an experimental feature for creating plot image maps.
 
 The PHPlot reference manual has been updated to match this release.
 
-
-=== Cautions, Important Notes, and Compatibility Issues:
+### Cautions, Important Notes, and Compatibility Issues:
 
 This release includes a change in how the color is set for data value
 labels. (These are the labels inside the plot area that identify the tops
@@ -446,9 +452,7 @@ the zero-size segment. In PHPlot-5.7.0 this has been fixed. This will
 change the appearance of some stackedbars plots.  See the bug report "Top
 dropshadow [sic] of stacked bars..."
 
-
-=== Bugs Fixed in 5.7.0:
-
+### Bugs Fixed in 5.7.0:
 
 #3396931 "Top dropshadow of stacked bars is always the same color":
   PHPlot will no longer draw a color 'cap' at the top or end of a bar stack
@@ -483,7 +487,7 @@ dropshadow [sic] of stacked bars..."
   SetDataValueLabelColor(). The defaults have been set up to be compatible
   (except for data value labels). Details are in the PHPlot Reference Manual.
 
-=== New features in 5.7.0:
+### New features in 5.7.0:
 
 #3442041 "Provide data for generating image maps":
   An experimental feature has been added to allow a callback function to
@@ -501,11 +505,9 @@ dropshadow [sic] of stacked bars..."
   in the PHPlot Reference Manual.
 
 
------------------------------------------------------------------------------
+## 2012-01-02 Release 5.6.0
 
-2012-01-02 Release 5.6.0
-
-=== Overview:
+### Overview:
 
 This is the current stable release of PHPlot. This release includes
 significant changes to pie charts. There are new ways to label pie charts,
@@ -513,8 +515,7 @@ and PHPlot does a better job calculating the size and positioning the labels.
 
 The PHPlot reference manual has been updated to match this release.
 
-
-=== Cautions, Important Notes, and Compatibility Issues:
+### Cautions, Important Notes, and Compatibility Issues:
 
 Pie charts will change appearance when you upgrade to PHPlot-5.6.0 from any
 previous release. This is due to changes resulting from bug #3403297,
@@ -554,9 +555,7 @@ not acceptable, one or more of these steps might help:
     defined for pie charts. (Previous releases did define a world coordinate
     space for pie charts, but the values were meaningless.)
 
-
-
-=== Bugs Fixed in 5.6.0:
+### Bugs Fixed in 5.6.0:
 
 #3403297 Pie chart sizing and label issues:
 In addition to the fixes listed here, new features were added as a result
@@ -582,7 +581,7 @@ of this bug fix (see New features below).
 + Plot area borders now work with pie charts. Use SetPlotBorderType() to
   enable them. The default is not to draw borders.
 
-=== New features in 5.6.0:
+### New features in 5.6.0:
 
 A number of new features were added as a result of bug #3403297, described
 above. The new features are:
@@ -600,7 +599,6 @@ above. The new features are:
   half its width.
 
 
-
 #413925 Table of values:
 This very old feature request was implemented by adding a new script to the
 "contrib" directory.  The data_table.php script contains a function to draw
@@ -608,4 +606,5 @@ a simple table of values on a PHPlot image. Examples are provided.
 
 
 -----------------------------------------------------------------------------
+
 For older releases, see NEWS_part1.txt

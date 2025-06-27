@@ -15,9 +15,9 @@ The PHPlot project page on https://github.com/PHPlot/phplot is the place to go f
 
 ## What about documentation?
 
-A detailed [README.txt](doc/README.txt) is available in the 'doc' directory.
+A detailed [README](doc/README.md) is available in the 'doc' directory.
 
-Changes are documented in [doc/NEWS.txt](doc/NEWS.txt).
+Changes are documented in [doc/NEWS.md](doc/NEWS.md).
 
 See the directory `doc/manual/examples` for examples.
 
@@ -32,7 +32,7 @@ The PDF version of the manual is available here: [PHPlot Reference Manual (PDF)]
 (**Note:** the Reference Manual might not be 100% up to date with the latest code releases.)
 
 See [doc/manual/README](doc/manual/README) for how to build the manual locally (you will have to clone the source code 
-from GitHub for that, as the manual sources are not included in the release tarballs).
+from GitHub for that, as the manual sources are not included in the release tarballs or when installing via Composer).
 
 ## How much does it cost?
 
