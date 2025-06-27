@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Bug 1827263, spoiled chart if close to zero - case 2
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

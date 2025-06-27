@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot error test - fail before image creation.
 require_once 'phplot.php';
 

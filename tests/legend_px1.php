@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Legend Position - pixel coords
 $tp = array(
   'suffix' => ' (Upper left at pixel 30,50)',   # Title part 2

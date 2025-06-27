@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot: Callback with method, extended class.
 require_once 'phplot.php';
 

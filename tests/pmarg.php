@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Test partial margin specification with SetMarginPixels or SetPlotAreaPixels
 # Requires PHPlot > 5.0.6
 # Mostly this is copied from the unit test u.pmarg.php which tests many

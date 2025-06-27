@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # SetLegendStyle - Larger GD fonts, with extra line spacing
 $tp = array(
   'suffix' => ' (Large GD font, extra line spacing)',   # Title part 2

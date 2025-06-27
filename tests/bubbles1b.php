@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Bubble plot - Sequential values with matching min/max
 # This is a parameterized test. See script named below for details.
 $subtitle = "16 bubbles with size range 4-64";

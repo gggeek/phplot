@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Horizontal and Vertical Stacked Bars with Data Value Labels - baseline
 # This is a parameterized test. Other scripts can set $tp and then include
 # this script. The parameters are shown in the defaults array below:
@@ -21,7 +21,7 @@ extract($tp);  # Bring all config variables into local context
 $data = array(
     array('A', 100, 200, 300, 400, 500, 600, 700, 800, 900),
     array('B',  10,  20,  30,  40,  50,  60,  70,  80,  90),
-    array('C',  80,  90, 100, 110, 120, 130, 140, 150, 160),  
+    array('C',  80,  90, 100, 110, 120, 130, 140, 150, 160),
     array('D', 900, 800, 700, 600, 500, 400, 300, 200, 100),
     array('E',  10,  20,  40,  80, 160, 320,  10,  15,  20),
 );

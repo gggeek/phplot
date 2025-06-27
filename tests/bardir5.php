@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Bar chart bar direction test - thinbarline, range includes Y=0
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

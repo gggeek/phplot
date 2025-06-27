@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Color callback - lines plot with callback
 # See the script named below for details.
 $plot_type = 'lines';

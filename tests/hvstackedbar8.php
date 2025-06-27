@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Vertical Stacked Bars with Data Value Labels - Formatted
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

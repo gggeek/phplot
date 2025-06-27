@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Unit Test - streaming plots
 # Notes:
 # As the tests under the PHP CLI, there is no way to capture the output

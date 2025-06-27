@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Linepoints plot with Data Value Labels
 require_once 'phplot.php';
 

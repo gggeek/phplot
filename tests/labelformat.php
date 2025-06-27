@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot: label format
 require_once 'phplot.php';
 

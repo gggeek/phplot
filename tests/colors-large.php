@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Using the 'large' color map, bug 2803900.
 require_once 'phplot.php';
 

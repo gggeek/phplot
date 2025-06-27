@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - "N" Lines with parameters - 2
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Point chart with error bars
 require_once 'phplot.php';
 

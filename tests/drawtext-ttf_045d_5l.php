@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Unit test: PHPlot DrawText function - TrueType at 45 degrees, multiple lines
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

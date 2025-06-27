@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Area plot with too few X values
 require_once 'phplot.php';
 if (!isset($plottype)) $plottype = 'area';

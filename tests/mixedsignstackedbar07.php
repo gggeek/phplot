@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Stacked Bars - horizontal, bipolar, unshaded, axis > 0
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

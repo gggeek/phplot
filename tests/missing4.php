@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Lines with missing data - 4
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

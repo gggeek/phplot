@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Linepoints plot with legend using color boxes or shape markers
 require_once 'phplot.php';
 

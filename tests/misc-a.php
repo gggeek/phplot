@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Miscellaneous options: color map, line spacing, grid line style
 # This is a parameterized test. Other scripts can set $tp and then include
 # this script. The parameters are shown in the defaults array below:
@@ -15,7 +15,7 @@ $tp = array_merge(array(
 require_once 'phplot.php';
 
 #                          Land area in 10^6 sq km
-#                                  
+#
 $data = array(
   array('Monday',      10, 23,  7, 15),
   array('Tuesday',     25,  7, 12,  9),

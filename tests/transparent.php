@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Transparent, GIF output (it works with PNG too)
 # This really needs to be displayed in a browser above something to see.
 # This is a parameterized test. Other scripts can set $tp and then include

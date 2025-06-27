@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Unit test: PHPlot DrawText function - GD, 0deg, one lines
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

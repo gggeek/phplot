@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Log/log scales
 # Note: This checks for a bug in PHPlot-5.8.0 and earlier where it
 # only checked Y, not X for 0 when log scale was on, and so it missed

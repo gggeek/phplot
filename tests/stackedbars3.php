@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Test stacked bar plots - deep shading
 $tp = array(
   'compat' => True,            # Backward-compatible image

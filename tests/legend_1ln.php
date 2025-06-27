@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: SetLegendStyle - single line, left with no colorboxes
 $tp = array(
   'suffix' => ' (single line, left, no colorboxes)',   # Title part 2

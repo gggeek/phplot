@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Test - Image map and embedded image - Box plot
 # This writes an HTML file to the directory named by the environment
 # variable RESULTDIR (if defined), and does a simple pattern match to check.

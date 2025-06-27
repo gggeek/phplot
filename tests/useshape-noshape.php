@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: 'none' as point shape vs legend with LegendUseShapes(True)
 # This is bug #166: A linepoints plot with legend, legend using point
 # shape markers (LegendUseShapes(True)), and one or more data sets is set

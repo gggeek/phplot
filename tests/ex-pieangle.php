@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Pie chart with varying start angle and direction
 # Note: This requires PHPlot-6.0.0 or higher.
 require_once 'phplot.php';

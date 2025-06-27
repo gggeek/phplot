@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Missing Y values in data-data-error plots: case 1
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

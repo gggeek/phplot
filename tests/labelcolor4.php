@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: label (tick, axis data, data value) color variations - case 4
 # This is a parameterized test. See the script named at the bottom for details.
 $colors = array(

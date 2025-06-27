@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - data-data ordering
 require_once 'phplot.php';
 

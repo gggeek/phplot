@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot unit test - default TT font.
 # This test requires a specific font (see TEST_FONT) be present in the images/
 # directory. The listed font is redistributable under the Open Fonts License.

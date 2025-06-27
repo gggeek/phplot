@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot error test - bad option checking (bug in PHPlot<=5.0.4, inadequate check)
 require_once 'phplot.php';
 

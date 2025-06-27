@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Test types of label formatting: multi-format printf, case 1
 # For PHPlot >= 6.2
 # Other scripts can set n_formats=1,2,3 then include this file.

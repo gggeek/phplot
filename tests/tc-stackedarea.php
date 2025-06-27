@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Truecolor stacked area plot
 require_once 'phplot.php';
 

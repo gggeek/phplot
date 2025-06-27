@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Unit tests for color functions
 # This doesn't actually output a graph. It checks internal functions.
 
@@ -60,7 +60,7 @@ function xd($r, $g, $b)
 #  $expected : Expected result, 3 or 4 element array (see xd() above)
 #  $arg : Argument to SetRGBColor
 # Increments the test, pass, and fail counters based on the results.
-function test($name, $expected, $arg) 
+function test($name, $expected, $arg)
 {
     global $p, $test_verbose, $n_tests, $n_pass, $n_fail;
 

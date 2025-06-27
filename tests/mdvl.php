@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Data Value Labels on more plot types - master
 # This is a parameterized test. Other scripts can set $tp and then include
 # this script. The parameters are shown in the defaults array below:

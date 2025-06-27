@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Bug #3296884 Undefined variable with stackedbars, first stack 0s
 /* From bug report:
    #3296884 Undefined variable with stackedbars       2011-05-03

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Legend Position - world coords
 $tp = array(
   'suffix' => ' (At data 1,5)',   # Title part 2

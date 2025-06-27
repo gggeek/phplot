@@ -1,6 +1,6 @@
 <?php
 # Error test support routines
-# $Id$
+
 
 # Error handler - report the error and exit:
 function test_catch_exit($errno, $errstr, $errfile, $errline)

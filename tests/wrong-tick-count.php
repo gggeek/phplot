@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Wrong ticks on X and Y
 require_once 'phplot.php';
 

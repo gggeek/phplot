@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing PHPlot - Bad data range with SetPlotAreaWorld
 # See the script named below for details
 $subtitle = 'Ymin>Data_Max, Ymax unset'; // Subtitle for plot

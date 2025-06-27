@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test - empty plot tests (no data = no graph with no error)
 # This is a parameterized test. Set plot_type, optionally data_type and
 # call this script.
@@ -23,9 +23,9 @@ for ($r = 0; $r < $rows; $r++) {
   for ($c = 0; $c < $cols; $c++) $row[] = ''; // Dependent variable values
   $data[] = $row;
 }
-  
+
 require_once 'phplot.php';
-$p = new phplot;
+$p = new Phplot\Phplot\phplot();
 $p->SetTitle("Empty Plot: $plot_type, $data_type");
 $p->SetPlotType($plot_type);
 $p->SetDataType($data_type);

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Return image encoded as base64
 require_once 'phplot.php';
 $data = array();

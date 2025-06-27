@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: single row stacked bars should look like regular bars?
 require_once 'phplot.php';
 

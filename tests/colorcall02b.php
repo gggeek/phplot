@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Color callback - linepoints plot with color callback, variation
 # See the script named below for details.
 $plot_type = 'linepoints';

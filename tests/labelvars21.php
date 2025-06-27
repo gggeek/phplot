@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - tick/data label variant formatting - case 21
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

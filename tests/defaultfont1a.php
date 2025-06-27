@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Default TT font (1a): No default path or font set, usettf
 require_once 'phplot.php';
 

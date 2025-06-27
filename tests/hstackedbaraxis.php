@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Horizontal Stacked Bar with moved Y axis
 require_once 'phplot.php';
 $data = array(

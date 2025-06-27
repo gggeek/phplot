@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Basic OHLC. Variable number of points. Testing widths.
 $n = 50;
 $plot_type = 'ohlc';

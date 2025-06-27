@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Test: bug 2914403 Pie + X/Y titles: Undefined property error
 # The bug was that X and Y titles were supposed to be ignored, but if
 # set then an undefined property error occurred.

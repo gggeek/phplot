@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Horizontal plot Y axis default - thinbarline, all data < 0
 require_once 'phplot.php';
 $data = array(

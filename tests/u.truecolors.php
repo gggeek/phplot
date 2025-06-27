@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Unit tests for color functions - truecolor version
 # This doesn't actually output a graph. It checks internal functions.
 

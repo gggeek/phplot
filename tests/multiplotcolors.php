@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Multiplot vs data colors (bug), baseline
 require_once 'phplot.php';
 

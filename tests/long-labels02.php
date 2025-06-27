@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # X label size and angle test - GD font 2
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

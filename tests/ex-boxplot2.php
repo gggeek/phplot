@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example - Box Plot with outliers and line styles
 require_once 'phplot.php';
 

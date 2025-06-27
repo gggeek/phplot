@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Linepoints error plot, with image map areas marked
 # See the script named below for details
 $plot_type = 'linepoints';

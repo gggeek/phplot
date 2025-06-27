@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Data Value Labels on more plot types - case 7
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

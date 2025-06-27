@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Plot range test, implied independent variable (bar plot)
 #
 # The purpose of this test is just to see how the X axis adapts to

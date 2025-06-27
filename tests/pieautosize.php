@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test - Pie Chart Sizing - auto vs manual - baseline
 require_once 'phplot.php';
 

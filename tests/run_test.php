@@ -1,29 +1,30 @@
 <?php
-# $Id$
-/*
-     PHPlot Test Suite - Driver Script
-     Copyright 2007-2015 lbayuk AT users.sourceforge.net
-     Refer to the file LICENSES in the PHPlot test suite for details
 
-There are 3 types of tests: graphic, unit, and error. The purpose of a
-graphic test is to produce a plot image. The purpose of a unit test is to
-test some internal function. The purpose of an error test is to verify that
-error conditions are correctly detected and handled.
-
-Test validation is controlled through a configuration file called: tests.ini
-This file is in PHP "ini" format. Each section names a test script, without
-the .php extension. For each test, the configuration file contains
-instructions to the test driver for validating the test.
-
-(Graphics test generally must be validated by looking at the image,
-although if the test fails with an error message the driver will detect
-that. Unit tests generally self-validate. Error tests are validated by
-checking the error output.)
-
-See the test directory README file for more information about tests.ini
-and test script design.
-
-*/
+/**
+ *    PHPlot Test Suite - Driver Script
+ *    Copyright 2007-2015 lbayuk AT users.sourceforge.net
+ *    Refer to the file LICENSES in the PHPlot test suite for details
+ *
+ * There are 3 types of tests: graphic, unit, and error. The purpose of a
+ * graphic test is to produce a plot image. The purpose of a unit test is to
+ * test some internal function. The purpose of an error test is to verify that
+ * error conditions are correctly detected and handled.
+ *
+ * Test validation is controlled through a configuration file called: tests.ini
+ * This file is in PHP "ini" format. Each section names a test script, without
+ * the .php extension. For each test, the configuration file contains
+ * instructions to the test driver for validating the test.
+ *
+ * (Graphics test generally must be validated by looking at the image,
+ * although if the test fails with an error message the driver will detect
+ * that. Unit tests generally self-validate. Error tests are validated by
+ * checking the error output.)
+ *
+ * See the test directory README file for more information about tests.ini
+ * and test script design.
+ *
+ * @todo this script could be simplified a lot by using the symfony console and process components
+ */
 
 # Name of the product being tested:
 define('PRODUCT', 'PHPlot');
@@ -127,6 +128,8 @@ function setup()
     # (Can't find any way to have it default to the one we are using.)
     $php_exe = getenv("PHP");
     if (empty($php_exe))
+        # @todo if on unix, run `which php` to find a php executable available. Or even use process extensions
+        #       to figure out the current executable's location
         fail("PHP environment variable is undefined. It must be set\n"
            . " to point to the PHP CLI interpreter program.");
 
@@ -397,10 +400,10 @@ function run_test($test_name, $script_file, $output_file, $error_file)
     # We need to run the script, then touch the 'done_file', to be able
     # to check for exit().
     # Force error reporting level to the highest value for the tests.
-    $phpcmd = "error_reporting(E_ALL|E_STRICT); require '$script_file'; "
+    $phpcmd = "ini_set('include_path', '.:../src');error_reporting(E_ALL|E_STRICT); require '$script_file'; "
             . "touch('$done_file');";
     $cmd = "$php_exe -r \"$phpcmd\"";
-    
+
     # Run the test command. False return means abort, True means the
     # the script ran (although it might have failed, or be a skipped test).
     $start_time = microtime(TRUE);
@@ -532,6 +535,7 @@ function do_test($filename)
 #   -all means all tests from config. - means read names from stdin.
 #   A -match pattern can be used to limit tests.
 if ($argc <= 1) usage();
+chdir(__DIR__);
 setup();
 $match_pattern = '';
 $tests_to_run = array(); // Will contain filenames (testname.php)

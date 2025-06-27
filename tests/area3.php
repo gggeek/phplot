@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Test: area plot with raised X axis
 require_once 'phplot.php';
 $data = array(

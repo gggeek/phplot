@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Plot range test, implied independent variable (bar plot)
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

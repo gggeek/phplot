@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Test: stacked area plot with 0 and <0 Y values.
 require_once 'phplot.php';
 $data = array(

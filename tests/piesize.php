@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test - Pie Chart Sizing and Label Variations - baseline
 require_once 'config.php'; // Configure fonts
 # This is a parameterized test. Other scripts can set $tp and then include
@@ -54,8 +54,8 @@ extract($tp);  # Import all parameters as local variables
 
 if ($data_choice == 1) {
     $data = array(
-        array('Gold',        20), 
-        array('Silver',      13), 
+        array('Gold',        20),
+        array('Silver',      13),
         array('Copper',       7),
         array('Tin',         18),
         array('Bronze',      10),

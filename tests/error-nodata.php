@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot error test: bug 1446523, part 2 only: No data array
 require_once 'phplot.php';
 

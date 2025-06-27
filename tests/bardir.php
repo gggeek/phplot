@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Bar chart bar direction test - baseline, range includes Y=0
 # This tests for a bug though 5.1.0 that bars were drawn up from
 # plot_min_y if y=0 was not in the graph and all Y<0.

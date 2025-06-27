@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Suppress axis lines - case 2
 # See the script included below for details.
 $case = 2;

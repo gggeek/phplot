@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Error (notice level) formatting pie label in PT locale
 # Bug #3488064 "Pie label failures in locales with comma decimal"
 require_once 'phplot.php';
@@ -12,16 +12,16 @@ putenv("LC_ALL=pt_BR");
 
 # Note: This is the same data as ex-pie1 in the manual (without labels)
 $data = array(
-  array('', 7849), 
-  array('', 299), 
-  array('', 5447), 
-  array('', 944), 
-  array('', 541), 
-  array('', 3215), 
-  array('', 791), 
-  array('', 19454), 
-  array('', 311), 
-  array('', 9458), 
+  array('', 7849),
+  array('', 299),
+  array('', 5447),
+  array('', 944),
+  array('', 541),
+  array('', 3215),
+  array('', 791),
+  array('', 19454),
+  array('', 311),
+  array('', 9458),
   array('', 9710),
 );
 

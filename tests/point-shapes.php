@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Points
 require_once 'phplot.php';
 

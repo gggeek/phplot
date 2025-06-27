@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Title Colors. Case 1 - 3 different colors (main, X, Y)
 # Other scripts can set $c1, $c2, and/or $c3 to a color or NULL to set the
 # main, X, and/or Y titles, then include this script.

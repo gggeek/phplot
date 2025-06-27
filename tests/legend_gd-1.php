@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # SetLegendStyle - Larger GD fonts
 $tp = array(
   'suffix' => ' (Large GD font, right align)',   # Title part 2

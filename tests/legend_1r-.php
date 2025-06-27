@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: SetLegendStyle - single line, right
 $tp = array(
   'suffix' => ' (single line, right)',   # Title part 2

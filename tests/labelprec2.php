@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: SetPrecisionY() vs pie chart
 # Reference Manual says SetPrecisionY is overriden by SetPieLabelType
 # Set $override = TRUE and include this script to test the override.

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Test: for reference manual, tick increment calculation
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

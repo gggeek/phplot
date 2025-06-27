@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: Squared Area plot
 require_once 'phplot.php';
 

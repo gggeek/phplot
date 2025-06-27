@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Truecolor Lines plot with controllable parameters
 
 # This is a parameterized test. Other scripts can set $tp and then include

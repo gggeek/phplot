@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Truecolor pie chart without shading
 # Parameters that can be set externally:
 if (!isset($shading)) $shading = 0; // Shading, empty string to omit

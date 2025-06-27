@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Truecolor linepoints, looking at point shapes
 require_once 'phplot.php';
 

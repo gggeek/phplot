@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Stacked Bars with zero segments - case 6
 # This is a parameterized test. See the script named at the bottom for details.
 $horizontal = True;

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Unit test for CheckDataValueLabel label position and alignment
 require_once 'phplot.php';
 require 'usupport.php';
@@ -10,7 +10,7 @@ $error = '';
 $tests = 0;
 $fails = 0;
 
-/* 
+/*
 Notes:
 
 Usage of CheckDataValueLabels() changed after phplot-5.7.0. Through SVN rev

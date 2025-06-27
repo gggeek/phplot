@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Version constants (PHPlot>=5.4.0)
 # This is a unit test. No image is produced.
 require_once 'phplot.php';
@@ -50,7 +50,7 @@ if (!defined('PHPlot::version')) {
 # This was added in 6.0.0, so don't fail the test if it is missing.
 if (defined('PHPlot::version_id')) {
     $version_from_id = ((int)(PHPlot::version_id / 10000)) . '.' .
-           ((int)(PHPlot::version_id / 100) % 100) . '.' . 
+           ((int)(PHPlot::version_id / 100) % 100) . '.' .
            (int)(PHPlot::version_id % 100);
 
     if ($version_from_id != $version_from_constant) {

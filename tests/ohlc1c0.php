@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Candlestick. Variable number of points. Testing widths.
 require_once 'phplot.php';
 

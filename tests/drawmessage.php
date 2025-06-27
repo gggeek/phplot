@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Test: DrawMessage() message image - master script
 require_once 'config.php'; // For TT fonts
 require_once 'phplot.php';
@@ -56,4 +56,3 @@ if (!empty($set_border)) {
 if (!empty($noprint)) $p->SetPrintImage(False);
 $p->DrawMessage($message, $options);
 if (!empty($noprint)) echo $p->EncodeImage('raw');
-

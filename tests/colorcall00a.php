@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Color callback - bar plot with callback
 # See the script named below for details.
 $plot_type = 'bars';

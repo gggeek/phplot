@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Many Plots test with 20 smaller plots
 # This is a parameterized test. See the script named at the bottom for details.
 $n_plots = 20;              // Number of plots to draw

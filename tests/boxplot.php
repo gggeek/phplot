@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Box plot with data variations
 # A calling script can set these variables:
 #  $data_colors  = color array for SetDataColors()

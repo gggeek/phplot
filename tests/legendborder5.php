@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Legend border control - Defaults on, color overrides grid color
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(
@@ -8,4 +8,3 @@ $tp = array(
   'grid_color' => 'red',            # Grid color
   );
 require 'legendborder.php';
-

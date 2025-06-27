@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Test stacked bar plots - no shading
 # Originally from the PHPlot Reference Manual, Example: Stacked Bars...
 # This is a parameterized test. See the script named at the bottom for details.

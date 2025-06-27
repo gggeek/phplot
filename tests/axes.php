@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - axes controls
 require_once 'phplot.php';
 

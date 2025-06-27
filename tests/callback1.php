@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot: callback
 
 # Array of known callbacks, from PHPlot source:

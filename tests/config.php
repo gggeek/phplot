@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # config.php : Site configuration for PHPlot tests
 # This file contains system-dependent settings for testing PHPlot.
 # The settings are:

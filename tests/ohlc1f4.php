@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Candlestick2. Variable number of points. Testing widths.
 $plot_type = 'candlesticks2';
 $line_widths = array(4,4);

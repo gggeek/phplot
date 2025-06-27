@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - Data Value Labels on more plot types - case 11
 # This is a parameterized test. See the script named at the bottom for details.
 require_once 'config.php'; // For TTF

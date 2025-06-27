@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Example: OHLC (Financial) plot, basic lines, using
 # external data file, text-data format.
 define('DATAFILE', 'ohlcdata.csv'); // External data file

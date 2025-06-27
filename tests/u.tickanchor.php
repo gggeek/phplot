@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Unit test for X/Y tick anchors
 require_once 'phplot.php';
 $cases = 0;

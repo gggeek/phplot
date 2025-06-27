@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot unit test: Format Types for labels
 # This test verifies the examples on the reference page for SetXLabelType.
 # It also tests 2-format and 3-format printf extensions in PHPlot-6.2.

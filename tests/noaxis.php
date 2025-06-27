@@ -1,6 +1,5 @@
 <?php
 # Testing phplot - Suppress axis lines - baseline/master
-require_once 'phplot.php';
 # Test case is selected by $case.
 #  case 0 : Baseline, axis lines visible
 #  case 1 : Hide X axis only
@@ -18,7 +17,7 @@ $data = array(
   array('E', 3, 1),
 );
 
-$p = new phplot;
+$p = new Phplot\Phplot\phplot();
 $p->SetDataType('text-data');
 $p->SetDataValues($data);
 $p->SetPlotType('bars');

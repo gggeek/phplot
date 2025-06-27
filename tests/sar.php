@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Testing phplot - "SAR Data" (whatever that is), from a posting on Help
 # "What I would like to see is ALL the data in the graph (all ticks), but only
 # X-axis labels for every four hours,ie. 04:00, 08:00, 12:00, 16:00, 20:00

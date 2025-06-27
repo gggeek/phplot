@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Miscellaneous options: color map, line spacing, grid line style
 # This is a parameterized test. See the script named at the bottom for details.
 

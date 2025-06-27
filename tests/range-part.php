@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Plot auto-range test with partial range specification
 # This tests use of SetPlotAreaWorld() to set one or both ends of the Y
 # range, and how it interacts with the automatic range calculation.

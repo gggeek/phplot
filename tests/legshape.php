@@ -1,12 +1,12 @@
 <?php
-# $Id$
+
 # Legend shape marker tests - master script
 require_once 'config.php';
 # This is a parameterized test. Other scripts can set $tp and then include
 # this script. The parameters are shown in the defaults array below:
 if (!isset($tp)) $tp = array();
 $tp = array_merge(array(
-  'title' => 'Legend w/Shape Markers',  # First or only line 
+  'title' => 'Legend w/Shape Markers',  # First or only line
   'suffix' => 'Baseline - defaults with color boxes',  # Title line 2
   'useshapes' => False,     # True for shape markers, false for color boxes
   'fontsize' => NULL,       # Use TT font at this size
@@ -17,7 +17,7 @@ $tp = array_merge(array(
                             #  both textalign and colorboxalign.
   'colorboxalign' => NULL,  # Color box alignment: left | right | none
   'colorboxwidth' => NULL,  # Color box width horizontal scale adjust
-        ), $tp); 
+        ), $tp);
 require_once 'phplot.php';
 extract($tp); // Import all parameters
 

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Horizontal Plots with missing data - plot type thinbarline
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Test - Image map and embedded image - ohlc
 $out_name = basename(__FILE__, '.php');
 $plot_type = 'ohlc';

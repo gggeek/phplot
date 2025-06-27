@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # compare_tests : Check test output from PHPlot testing
 
 # Default image viewer command. This needs to accept 1 or 2 image file
@@ -68,7 +68,7 @@ function recompare_files($file1, $file2)
   // Build command lines to convert them:
   $cmd1 = $converters[$ext1] . ' 2> /dev/null < ' . $file1;
   $cmd2 = $converters[$ext2] . ' 2> /dev/null < ' . $file2;
-  
+
   // Convert, compare, and return the result:
   return (`$cmd1` === `$cmd2`);
 }

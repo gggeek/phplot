@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Bug 1437912 - Bar Chart Labels not centered
 # This is a parameterized test. Other scripts can set $tp and then include
 # this script. The parameters are shown in the defaults array below:

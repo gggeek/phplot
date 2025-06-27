@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Unit test: PHPlot DrawText function - Alignment.
 # This is a unit test. It does not draw a graph, but does produce an image file.
 # The image shows text with all 9 cases of alignment:

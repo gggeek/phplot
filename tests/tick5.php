@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Test - Ticks, Lengths and Labels - Ticks/labels on all 4 sides
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

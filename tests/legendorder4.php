@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Legend order reversal, stackedarea reversed
 $reverse = True;
 $plot_type = 'stackedarea';

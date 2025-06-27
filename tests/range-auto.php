@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Plot auto-range test
 # This is a parameterized test. Other scripts can set $tp and then include
 # this script. The parameters are shown in the defaults array below:
@@ -25,7 +25,7 @@ require_once 'phplot.php';
 extract($tp);
 
 # Check for needed methods, depending on test parameters:
-$uses['TuneYAutoRange'] = 
+$uses['TuneYAutoRange'] =
    isset($zm) || isset($adjust_mode) || isset($adjust_amount);
 $uses['TuneYAutoTicks'] =
    isset($mintick) || isset($tick_mode) || isset($intinc);

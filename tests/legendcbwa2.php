@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Legend color box width adjust, case 2
 $cbwa = 5;
 $tp = array(

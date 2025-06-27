@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot unit test: bad data arrays, empty rows, edge cases
 require_once 'phplot.php';
 

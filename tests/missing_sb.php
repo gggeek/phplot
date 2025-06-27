@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot test: Plots with missing data - plot type stackedbars
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(
