@@ -1,34 +1,29 @@
-This is the README file for PHPlot
-The project web site is https://github.com/PHPlot/phplot
-The project home page is https://github.com/PHPlot/phplot
------------------------------------------------------------------------------
-
-OVERVIEW:
+## OVERVIEW:
 
 PHPlot is a PHP class for creating scientific and business charts.
 
 The release documentation contains only summary information. For more
 complete information, download the PHPlot Reference Manual from the
-Sourceforge project web site. You can also view the manual online at
+Sourceforge project website. You can also view the manual online at
 https://github.com/PHPlot/phplot
 
 For information about changes in this release, including any possible
 incompatibilities, see the NEWS.txt file.
 
 
-CONTENTS:
+## CONTENTS:
 
    LICENSE  . . . . . . . . . . . . LGPL 2.1 License file
-   ChangeLog  . . . . . . . . . . . Lists changes to the sources
-   NEWS.txt . . . . . . . . . . . . Highlights changes in releases
-   NEWS_*.txt . . . . . . . . . . . Older NEWS files
-   README.txt   . . . . . . . . . . This file
-   contrib  . . . . . . . . . . . . "Contributed" directory, add-ons
-   phplot.php   . . . . . . . . . . The main PHPlot source file
-   rgb.inc.php  . . . . . . . . . . Optional extended color table
+   doc/ChangeLog  . . . . . . . . . Lists changes to the sources
+   doc/NEWS.txt . . . . . . . . . . Highlights changes in releases
+   doc/NEWS_*.txt . . . . . . . . . Older NEWS files
+   doc/README.md   . . . . . . . .. This file
+   src/contrib  . . . . . . . . . . "Contributed" directory, add-ons
+   src/phplot.php   . . . . . . . . The main PHPlot source file
+   src/rgb.inc.php  . . . . . . . . Optional extended color table
 
 
-REQUIREMENTS:
+## REQUIREMENTS:
 
 You need a recent version of PHP, and you are advised to use the latest
 stable release.  This version of PHPlot was tested with PHP-5.6.15,
@@ -43,7 +38,7 @@ module. Refer to the PHP documentation for more information - see the
 Image Functions chapter in the PHP Manual. We test PHPlot mostly with the
 PHP-supported, bundled GD library.
 
-If you want to display PHPlot charts on a web site, you need a PHP-enabled
+If you want to display PHPlot charts on a website, you need a PHP-enabled
 web server. You can also use the PHP CLI interface without a web server.
 
 PHPlot supports TrueType fonts, but does not include any TrueType font files.
@@ -53,7 +48,7 @@ likely includes TrueType fonts.) By default, PHPlot uses a simple font which
 is built in to the GD library.
 
 
-INSTALLATION:
+## INSTALLATION:
 
 Unpack the distribution. (If you are reading this file, you have probably
 already done that.)
@@ -69,17 +64,17 @@ and on your PHP include path. You can add to the include path in the PHP
 configuration file; consult the PHP manual for details.
 
 
-UPGRADING:
+## UPGRADING:
 
 To upgrade PHPlot, follow the same instructions as for installing. There
 may be changes between releases which can alter the appearance of your plots.
 Please check the top section in NEWS.txt for details.
 
 
-KNOWN ISSUES:
+## KNOWN ISSUES:
 
 Here are some of the problems we know about in PHPlot. See the bug tracker
-on the PHPlot project web site for more information.
+on the PHPlot project website for more information.
 
 #173 Area fill plots with data borders and overlapping areas
   New in release 6.2.0 are data borders for area and squaredarea plot types.
@@ -99,7 +94,7 @@ on the PHPlot project web site for more information.
   expected.
 
 
-PHP Issues:
+## PHP Issues:
 
 PHP has many build-time and configuration options, and these can affect
 the operation of PHPlot (as well as any other application or library). Here
@@ -146,21 +141,23 @@ provide feedback, please use the Issues tab at
      https://github.com/PHPlot/phplot
 
 
-TESTING:
+## TESTING:
 
 You can test your installation by creating the following two files somewhere
 in your web document area. First, the HTML file:
 
 ------------ simpleplot.html ----------------------------
-<html>
-<head>
-<title>Hello, PHPlot!</title>
-</head>
-<body>
-<h1>PHPlot Test</h1>
-<img src="simpleplot.php">
-</body>
-</html>
+
+    <html>
+    <head>
+    <title>Hello, PHPlot!</title>
+    </head>
+    <body>
+    <h1>PHPlot Test</h1>
+    <img src="simpleplot.php">
+    </body>
+    </html>
+
 ---------------------------------------------------------
 
 Second, in the same directory, the image file producing PHP script file.
@@ -168,13 +165,15 @@ Depending on where you installed phplot.php, you may need to specify a path
 in the 'require' line below.
 
 ------------ simpleplot.php -----------------------------
-<?php
-require 'phplot.php';
-$plot = new phplot();
-$data = array(array('', 0, 0), array('', 1, 9));
-$plot->SetDataValues($data);
-$plot->SetDataType('data-data');
-$plot->DrawGraph();
+
+    <?php
+    require 'phplot.php';
+    $plot = new phplot();
+    $data = array(array('', 0, 0), array('', 1, 9));
+    $plot->SetDataValues($data);
+    $plot->SetDataType('data-data');
+    $plot->DrawGraph();
+
 ---------------------------------------------------------
 
 Access the URL to 'simpleplot.html' in your web browser. If you see a
@@ -182,7 +181,7 @@ simple graph, you have successfully installed PHPlot. If you see no
 graph, check your web server error log for more information.
 
 
-COPYRIGHT and LICENSE:
+## COPYRIGHT and LICENSE:
 
 PHPlot is Copyright (C) 1998-2015 Afan Ottenheimer
 

@@ -7,6 +7,7 @@ PHPlot allows PHP developers to create pie charts, bar graphs, line graphs, poin
 PHP application.
 
 ![sample graph](demo.png)
+([view source](https://phplot.sourceforge.net/demosource.php))
 
 ## Where do I start?
 
@@ -14,13 +15,24 @@ The PHPlot project page on https://github.com/PHPlot/phplot is the place to go f
 
 ## What about documentation?
 
-The PHPlot Reference Manual contains everything you need to know about PHPlot, and more. 
-The manual is available at https://github.com/PHPlot/PHPlot/tree/master/doc/manual/main.xml
-See the directory `doc/manual` for how to build the documentation and see the directory `doc/manual/examples` for examples.
+A detailed [README.txt](doc/README.txt) is available in the 'doc' directory.
 
-There is also a [README.txt](doc/README.txt) available in the `doc` directory.
+Changes are documented in [doc/NEWS.txt](doc/NEWS.txt).
 
-Changes are documented in [doc/NEWS.txt](doc/NEWS.txt)
+See the directory `doc/manual/examples` for examples.
+
+### Reference manual
+
+The PHPlot Reference Manual contains everything you need to know about PHPlot, and more.
+
+You can read the HTML version of the manual online here: [PHPlot Reference Manual (HTML)](https://phplot.sourceforge.net/phplotdocs/).
+
+The PDF version of the manual is available here: [PHPlot Reference Manual (PDF)](https://phplot.sourceforge.net/phplotdocs/) (about 2.5 MB).
+
+(**Note:** the Reference Manual might not be 100% up to date with the latest code releases.)
+
+See [doc/manual/README](doc/manual/README) for how to build the manual locally (you will have to clone the source code 
+from GitHub for that, as the manual sources are not included in the release tarballs).
 
 ## How much does it cost?
 
