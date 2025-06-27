@@ -1,26 +1,28 @@
 # PHPlot
 
-What is PHPlot?
+## What is PHPlot?
 
 PHPlot is a graph library for dynamic scientific, business, and stock-market charts and graphs. 
 PHPlot allows PHP developers to create pie charts, bar graphs, line graphs, point graphs, etc. from a 
 PHP application.
 
-Where do I start?
+![sample graph](demo.png)
 
-The PHPlot project page on github.com/PHPlot/phplot is the place to go for downloads, help, and more.
+## Where do I start?
 
-What about documentation?
+The PHPlot project page on https://github.com/PHPlot/phplot is the place to go for downloads, help, and more.
+
+## What about documentation?
 
 The PHPlot Reference Manual contains everything you need to know about PHPlot, and more. 
-The manual is available at https://github.com/PHPlot/PHPlot/tree/master/phplotdocs
-See the directory `phplotdocs` for how to build the documentation and see the directory `phplottest` for examples.
+The manual is available at https://github.com/PHPlot/PHPlot/tree/master/doc/manual/main.xml
+See the directory `doc/manual` for how to build the documentation and see the directory `doc/manual/examples` for examples.
 
-There is also a [README.txt](src/README.txt) available in the `src` directory.
+There is also a [README.txt](doc/README.txt) available in the `doc` directory.
 
-Changes are documented in [NEWS.txt](src/NEWS.txt)
+Changes are documented in [doc/NEWS.txt](doc/NEWS.txt)
 
-How much does it cost?
+## How much does it cost?
 
 Trick question! It is completely free for you to use. You can also redistribute it unmodified without restriction. 
 

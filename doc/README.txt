@@ -1,6 +1,6 @@
 This is the README file for PHPlot
-The project web site is https://github.com/AJRepo/PHPlot/
-The project home page is https://github.com/AJRepo/PHPlot/
+The project web site is https://github.com/PHPlot/phplot
+The project home page is https://github.com/PHPlot/phplot
 -----------------------------------------------------------------------------
 
 OVERVIEW:
@@ -10,7 +10,7 @@ PHPlot is a PHP class for creating scientific and business charts.
 The release documentation contains only summary information. For more
 complete information, download the PHPlot Reference Manual from the
 Sourceforge project web site. You can also view the manual online at
-https://github.com/AJRepo/PHPlot/
+https://github.com/PHPlot/phplot
 
 For information about changes in this release, including any possible
 incompatibilities, see the NEWS.txt file.
@@ -143,7 +143,7 @@ Sans font precedes Arial in PHPlot's list of candidate default fonts.
 
 If you think you found a problem with PHPlot, or want to ask questions or
 provide feedback, please use the Issues tab at
-     https://github.com/AJRepo/PHPlot/
+     https://github.com/PHPlot/phplot
 
 
 TESTING:

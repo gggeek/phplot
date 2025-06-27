@@ -1,8 +1,8 @@
 This is part 1 of the NEWS file for PHPlot, with previous release documentation
 through Release 5.5.0 on 2011-07-30. For current news, see NEWS.txt.
 
-The project web site is https://github.com/AJRepo/PHPlot/
-The project home page is https://github.com/AJRepo/PHPlot//
+The project web site is https://github.com/PHPlot/phplot
+The project home page is https://github.com/PHPlot/phplot
 Refer the the ChangeLog file for detailed source changes.
 -----------------------------------------------------------------------------
 
@@ -1092,7 +1092,7 @@ Bug Fixes in 5.0.4:
 #1208054 Localization of number formatting in 'data' format type. PHPlot
   will attempt to format the numbers in a way appropriate to your locale.
   You can also force the formatting with the new function SetNumberFormat.
-  Credit to David Hern·ndez Sanz.
+  Credit to David Hern√°ndez Sanz.
 
 #937944 X/Y Tick counts: PHPlot could draw one two few Y tick counts, and
   one too many X tick counts. This is not a perfect fix, and more work is
@@ -1104,7 +1104,7 @@ New Features in 5.0.4:
 New function SetLegendStyle allows control of the alignment of text and
   color boxes within the legend.  Also allows removing the color boxes.
   Based on bug #1208054.
-  Credit to David Hern·ndez Sanz.
+  Credit to David Hern√°ndez Sanz.
 
 New function SetNumberFormat. See bug report #1208054 above.
 
@@ -1190,7 +1190,7 @@ ChangeLog file for information about all changes and bug fixes.
 
 
 Testing:
- 
+
 Since its output is visual (graphics), and it has so many interconnected
 modes and options, PHPlot is difficult to test. But at least we are now
 trying. I have a collection of PHPlot scripts (currently about 60) and a
@@ -1217,4 +1217,3 @@ future bug reports will be written against untested cases.
 2004-10-24 Released 5.0rc2
 
 --------------------
-
