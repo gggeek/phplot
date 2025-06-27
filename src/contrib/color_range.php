@@ -1,7 +1,6 @@
 <?php
 /*
    PHPlot / contrib / color_range
-   $Id$
    PHPlot contrib code - public domain - no copyright - use as you wish
 
    Original contribution from: Josep Sanz <josep dot sans at w3 dot es>

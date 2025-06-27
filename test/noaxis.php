@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Testing phplot - Suppress axis lines - baseline/master
 require_once 'phplot.php';
 # Test case is selected by $case.

@@ -1,4 +1,4 @@
-# $Id$
+
 # Makefile for PHPlot Programmer's Reference Manual (Docbook-xml version)
 # This uses xsltproc to generate HTML output.
 # And it uses xsltproc, xmllint, and Apache fop for PDF output.
@@ -361,7 +361,7 @@ examples/pielabeltype5.png: examples/pielabeltype5.php examples/pielabeltypedata
 
 # === For building the variable list documentation ===
 
-$(VARIABLE_LIST): variables.list gen.vardoc 
+$(VARIABLE_LIST): variables.list gen.vardoc
 	$(PHP) gen.vardoc < variables.list > $(VARIABLE_LIST)
 
 # ===

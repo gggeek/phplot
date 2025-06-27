@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot Example: Pie Chart Label Types - Labels from data array
 # This requires PHPlot >= 5.6.0
 require_once 'phplot.php';

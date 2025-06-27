@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Testing phplot - Default TT font (3b): Set font with file basename only
 require_once 'phplot.php';
 require_once 'config.php'; // TTF setup

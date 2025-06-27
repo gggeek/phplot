@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Testing legend relative position - margin adjustment case 2
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

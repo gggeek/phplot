@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot test: Bug 1827263, spoiled chart if close to zero - case 1
 require_once 'phplot.php';
 

@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Partial margin specification with SetMarginsPixels - 1
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(

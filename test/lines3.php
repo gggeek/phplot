@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Testing phplot - Lines
 require_once 'phplot.php';
 

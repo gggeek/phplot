@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot test: Legend order reversal, master / stackedbars baseline
 #  Parameters can be set by a calling test:
 #    $reverse = True or False

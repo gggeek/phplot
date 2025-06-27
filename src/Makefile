@@ -1,5 +1,4 @@
 # Makefile for release of PHPLot
-# $Id$
 
 # Project name:
 PROJ=phplot
@@ -72,4 +71,3 @@ release:
 phpdoc:
 	mkdir -p $(PHPDOCDIR)
 	$(PHP) $(PHPDOCUMENTOR) --template=$(TEMPLATE) -f phplot.php -t $(PHPDOCDIR)
-

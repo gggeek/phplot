@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Unit tests for FindDataLimits, related to bug reports: 2786354, 2786350
 # This doesn't output a graph. It checks the behavior of FindDataLimits
 # for various data sets.
@@ -112,14 +111,14 @@ test('data-data baseline', 'data-data', 'lines', array(
 
 # Other simple cases:
 test('text-data.2', 'text-data', 'lines', array(
-         array('a', 1, 100, 100, -200), 
+         array('a', 1, 100, 100, -200),
          array('b', 2, 100, 200,  300)),
      array(0.0, 2.0, -200.0, 300.0));
 
 test('data-data.3', 'data-data', 'lines', array(
-         array('a', 1, 100, 100, -200), 
-         array('b', 2, 100, 200,  300), 
-         array('c', 5, 400, 200,  0), 
+         array('a', 1, 100, 100, -200),
+         array('b', 2, 100, 200,  300),
+         array('c', 5, 400, 200,  0),
          array('d', 8, 100, 800, 30)),
      array(1.0, 8.0, -200.0, 800.0));
 
@@ -131,8 +130,8 @@ test('text-data.4', 'text-data', 'lines', array(
 
 # Missing data point cases
 test('Missing Y data point, text-data', 'text-data', 'lines', array(
-         array('a', 100, 100, 50), 
-         array('b', 100, 200, ''), 
+         array('a', 100, 100, 50),
+         array('b', 100, 200, ''),
          array('c', 100, '',  300)),
      array(0.0, 3.0, 50.0, 300.0));
 

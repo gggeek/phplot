@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot test: Box plot, missing values
 require_once 'phplot.php';
 

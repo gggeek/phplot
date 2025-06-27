@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # OHLC Plot with skipped values
 # Set $plottype to 'ohlc' (default), 'candlesticks', or 'candlesticks2',
 # Set $datatype to 'text-data' (default) or 'data-data',

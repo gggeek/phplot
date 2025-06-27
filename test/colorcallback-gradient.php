@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot Example: Creative use of data colors
 require_once 'phplot.php';
 

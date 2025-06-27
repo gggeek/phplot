@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # PHPlot test: Fractional tick labels
 # This uses binary auto-tick mode on the Y axis, with a small Y range,
 # and a custom label formatting function to display the labels as

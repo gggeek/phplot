@@ -1,5 +1,4 @@
 <?php
-# $Id$
 # Test: stackedbars with labels, moved X axis, set YMIN
 # This is a parameterized test. See the script named at the bottom for details.
 $tp = array(
