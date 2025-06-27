@@ -1,9 +1,10 @@
-phplottest - PHPlot Test Suite
+# PHPlot Test Suite
 Last Updated: 2015-10-16
------------------------------------------------------------------------------
-OVERVIEW:
 
-This README describes phplottest, the test suite for PHPlot.
+-----------------------------------------------------------------------------
+## OVERVIEW:
+
+This README describes the test suite for PHPlot.
 PHPlot is a PHP module for producing charts or plots. For information
 about PHPlot, see https://www.github.com/PHPlot/PHPlot/
 
@@ -42,8 +43,8 @@ packaged release of the test suite.
 For copyright and license information on the PHPlot Test Suite, see the
 included file LICENSES.
 
------------------------------------------------------------------------------
-CONTENTS:
+
+### CONTENTS:
 
    README             This file
    LICENSES           Copyright and license information
@@ -61,13 +62,10 @@ CONTENTS:
    transparent.html   Wrapper page to display the transparent tests output.
    usupport.php       Test support library for unit tests.
 
-   phplot.php         Not included. Link/copy to the version of PHPlot to test.
-   rgb.inc.php        Not included. Link/copy to the version of PHPlot to test.
-
    All other *.php    Test scripts
 
------------------------------------------------------------------------------
-SETUP:
+
+### SETUP:
 
 The test suite driver expects to find PHPlot in the current directory or
 PHP search path.  You should copy (or link) PHPlot scripts into the current
@@ -104,15 +102,18 @@ The file tests.ini contains a list of all tests, and validation data. This
 is used by the test driver to determine which tests to run and what to
 expect in their output. More information can be found below.
 
------------------------------------------------------------------------------
-RUNNING TESTS:
+
+## RUNNING TESTS:
 
 To run all the tests use the 'run_test.php' script with the "-all" option.
 Remember to set the PHP environment variable first (see above).
 On Linux, you might use a command like this:
+
      export PHP=/usr/bin/php
      php run_test.php -all
+
 On Windows, you might use something like this:
+
      SET PHP=c:\php\php.exe
      %PHP% run_test.php -all
 
@@ -126,8 +127,8 @@ results directory.
 
 To run selected tests, you can use: .../php run_test.php script_name...
 
------------------------------------------------------------------------------
-ANALYZING RESULTS:
+
+## ANALYZING RESULTS:
 
 After testing, you can view the image output files if you want in the
 'results' directory. That directory also contains tests.log, a copy of what
@@ -167,8 +168,8 @@ files can differ but not have any easily apparent visual differences.
 Toggling back and forth between the two images makes it easier to find the
 changes.)
 
------------------------------------------------------------------------------
-DESIGNING TESTS:
+
+## DESIGNING TESTS:
 
 As stated above, the tests generally fall into 3 types: graphics tests
 (produce a plot), unit tests (check an internal function and self-verify),
@@ -250,7 +251,9 @@ Adding the test to the tests.ini configuration file:
 
 Add a section to the file for the test. If the script is named
 "my-testcase1.php", the entry starts like this:
+
        [my-testcase1]
+
 Where the "section name" is the basename of the test script, without
 extension.
 
@@ -266,12 +269,14 @@ additional information in tests.ini so the driver can validate your test.
 For a unit test that includes its own validation code (that is, it checks
 results and exits with a non-zero status if it fails), the only directive
 you need is:
+
      [my-unit-testcase]
      create_image=False
 
 If you are writing an error test, you need to tell the driver that the test
 is supposed to exit with an error status, and you should provide a match
 pattern for the error text written to standard error. For example:
+
      [my-error-testcase]
      create_image=False       (see note)
      exit_error=True
@@ -323,8 +328,8 @@ therefore only check for versions 6.0.0 or later.
 Before using exit(2), the script should write a short (1-line) message to
 stdout explaining why it is being skipped.
 
------------------------------------------------------------------------------
-THE tests.ini CONFIGURATION FILE:
+
+## THE tests.ini CONFIGURATION FILE:
 
 The tests.ini file contains configuration data for each test script in the
 PHPlot test suite. The file is parsed by the PHP parse_ini_file() function
@@ -411,8 +416,8 @@ Note that you can use "return" from anywhere in your script's global
 context (not inside a function) to get the same effect as running through
 to the end.
 
------------------------------------------------------------------------------
-ISSUES:
+
+## ISSUES:
 
 Transparent Background:
 
@@ -424,5 +429,3 @@ but only if the -p option is used.
 If necessary, the output files need to be placed on a web page with a
 background color or image. There is a file 'transparent.html' which loads 4
 images from the transparent*.php tests to show transparency.
-
------------------------------------------------------------------------------
