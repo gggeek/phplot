@@ -4,6 +4,9 @@ Note: This is a more complete ChangeLog than the one in Appendix A of the
 manual, which only contains summaries of changes.
 -----------------------------------------------------------------------------
 
+2025-06-07
+    * add docbook-css, incorporate all chapters in a single xml file
+
 2016-01-01
     * main.xml: Indicate next version 6.2.1; extend copyright years to 2016.
 

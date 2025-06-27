@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Reference: generate figure showing automatic range adjustment (B)
 # See the script named below for details
 $case = 'b';

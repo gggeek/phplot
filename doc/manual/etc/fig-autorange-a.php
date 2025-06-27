@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # PHPlot Reference: generate figures showing automatic range adjustment
 # This generates one of 3 figures (see $case below), each with 4 plots
 # showing the cumulative steps for automatic range calculation.
