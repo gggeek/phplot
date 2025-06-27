@@ -9,8 +9,6 @@
  * full-color (24-bit) images.
  * PHPlot currently requires PHP 5.3 or later.
  *
- * $Id$
- *
  * @version 8.0.0-rc1
  * @copyright 1998-2022 Afan Ottenheimer
  * @license GNU Lesser General Public License, version 2.1

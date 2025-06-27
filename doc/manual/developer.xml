@@ -1,4 +1,4 @@
-<!-- $Id$
+<!--
      Developer's Guide chapter for PHPlot Reference Manual
 -->
 <part label="III" id="part3">
@@ -83,7 +83,7 @@ The calculated plot area margins shown can be overridden by using
     <para>
 The main title is positioned relative to the top of the image.
 Starting with PHPlot-5.0.5, the X and Y titles are positioned relative
-to the plot area. 
+to the plot area.
 PHPlot-5.0.4 and earlier positioned the X and Y titles
 relative to the image edges.
 The difference should not be visible with automatic margins, but if the
@@ -225,7 +225,7 @@ the class member function <xref linkend="pad_array"/>.
     <para>
 Calculates the X and Y axis positions in world coordinates. These can be
 supplied by the user, in which case they are only changed if they are
-outside the data range. If axis positions are not supplied by the user, 
+outside the data range. If axis positions are not supplied by the user,
 CalcAxisPositions applies defaults as described in
 <xref linkend="SetXAxisPosition"/> and <xref linkend="SetYAxisPosition"/>.
 Called by <xref linkend="DrawGraph"/>.
@@ -795,7 +795,7 @@ Called by <xref linkend="DrawStackedBars"/> and
 This was added in PHPlot-5.2.0, moving common code from those 4 functions.
     </para>
     <para>
-Starting with PHPlot-5.7.0, the arguments were changed as shown to accommodate 
+Starting with PHPlot-5.7.0, the arguments were changed as shown to accommodate
 a new callback which provides access to drawing coordinates.
 In previous releases, the usage was
 <function>DrawBar($x1, $y1, $x2, $y2, $data_color, $alt_color,
@@ -916,7 +916,7 @@ coordinates and then calls <xref linkend="DrawShape"/>. It has no knowledge of
 the available dot shapes.
     </para>
     <para>
-Starting with PHPlot-5.7.0, the arguments were changed as shown to accommodate 
+Starting with PHPlot-5.7.0, the arguments were changed as shown to accommodate
 a new callback which provides access to drawing coordinates.
 In previous releases, the usage was
 <function>DrawDot($x_world, $y_world, $record, $color)</function>.
@@ -930,7 +930,7 @@ The old $record argument is equivalent to the new $column argument.
   <listitem>
     <para>
 Draws a points plot, or the points for a linepoints plot, including error plots.
-Called by <xref linkend="DrawGraph"/> when the plot type is 
+Called by <xref linkend="DrawGraph"/> when the plot type is
 <link linkend="plottype-points">points</link>,
 and by <xref linkend="DrawLinePoints"/> for the
 points portion of a <link linkend="plottype-linepoints">linepoints</link> plot.
@@ -1301,11 +1301,11 @@ line from the label to the point, if enabled and supported by the plot type.
 This function is used by vertical plots.
 It is called by plot drawing routines for all plot types except
 <literal>pie</literal>:
-<xref linkend="DrawArea"/>, 
+<xref linkend="DrawArea"/>,
 <xref linkend="DrawBars"/>,
-<xref linkend="DrawDots"/>, 
-<xref linkend="DrawThinBarLines"/>, 
-<xref linkend="DrawLines"/>, 
+<xref linkend="DrawDots"/>,
+<xref linkend="DrawThinBarLines"/>,
+<xref linkend="DrawLines"/>,
 <xref linkend="DrawSquared"/>, and
 <xref linkend="DrawStackedBars"/>.
     </para>
@@ -1328,7 +1328,7 @@ Called by <xref linkend="DrawXDataLabel"/>.
 
 <varlistentry>
   <term><anchor id="DrawXErrorBars"
-xreflabel="DrawXErrorBars"/>DrawXErrorBars($x, $y $error_plus, $error_minus, $color)</term> 
+xreflabel="DrawXErrorBars"/>DrawXErrorBars($x, $y $error_plus, $error_minus, $color)</term>
   <listitem>
     <para>
 Draws an error bar set for the point at world coordinates ($x, $y).
@@ -1446,7 +1446,7 @@ This function was removed in PHPlot-6.1.0 and replaced with
 </varlistentry>
 
 <varlistentry>
-  <term><anchor id="DrawYErrorBars" xreflabel="DrawYErrorBars"/>DrawYErrorBars($x, $y $error_plus, $error_minus, $color)</term> 
+  <term><anchor id="DrawYErrorBars" xreflabel="DrawYErrorBars"/>DrawYErrorBars($x, $y $error_plus, $error_minus, $color)</term>
   <listitem>
     <para>
 Draws an error bar set for the point at world coordinates ($x, $y).
@@ -1531,7 +1531,7 @@ This implements the format type selected with
 <xref linkend="SetXLabelType"/>, <xref linkend="SetYLabelType"/>,
 <xref linkend="SetXDataLabelType"/>, <xref linkend="SetYDataLabelType"/>,
 and <xref linkend="SetPieLabelType"/>.
-If no formatting is in effect for that label type ($which_pos), it returns the 
+If no formatting is in effect for that label type ($which_pos), it returns the
 label string $which_lab as-is. Otherwise, it formats it as directed. This
 can be a floating point number (formatted with <xref linkend="number_format"/>),
 a date/time value, or it can be formatted with <function>sprintf</function>
@@ -1603,7 +1603,7 @@ allocating a new color.
 This was added in PHPlot-5.2.0, replacing the second half of
 <xref linkend="SetIndexColor"/>.
 The $default_color_index argument was added in PHPlot-5.7.0, and the $color
-argument was changed to a reference (so an unset variable can be passed 
+argument was changed to a reference (so an unset variable can be passed
 without an error).
     </para>
   </listitem>
@@ -1667,7 +1667,7 @@ Gets the color index to be used for a data element (a point or line
 segment, for example).
 This is used by multiple plot drawing functions to get the data color,
 accounting for a custom data color callback if defined.
-$row and $idx are the indexes for the data point. $vars is an array argument 
+$row and $idx are the indexes for the data point. $vars is an array argument
 that maintains information across calls - the caller allocates an empty
 array, and this function updates it.
 The color index to use is returned in $data_color.
@@ -1686,7 +1686,7 @@ for error bar plots. It returns two color index values: $data_color for the
 data element, and $error_color for the error bar.
 This is used by error plot drawing functions, and accounts for a custom
 data color callback if defined.
-$row and $idx are the indexes for the data point. $vars is an array argument 
+$row and $idx are the indexes for the data point. $vars is an array argument
 that maintains information across calls - the caller allocates an empty
 array, and this function updates it.
 $extra contains extra information for a data color callback.
@@ -1798,7 +1798,7 @@ This was added in PHPlot-5.4.0.
   <listitem>
     <para>
 Given a font array variable, returns the proper spacing in pixels between lines
-of text using that font. This works for both GD and TrueType fonts. See also 
+of text using that font. This works for both GD and TrueType fonts. See also
 <xref linkend="SetLineSpacing"/>.
 Used by <xref linkend="ProcessTextGD"/>, <xref linkend="ProcessTextTTF"/>,
 and <xref linkend="DrawLegend"/>.

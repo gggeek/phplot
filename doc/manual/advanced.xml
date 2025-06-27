@@ -1,4 +1,4 @@
-<!-- $Id$
+<!--
      PHPlot Advanced Programming Topics
      Note: The "callbacks" section used to be its own chapter. Other material
      was moved from the "concepts" chapter. The IDs (for cross-references) for
@@ -774,7 +774,7 @@ PHPlot-5.1.0 and later.)
 </para>
 
 <para>
-Some callbacks are expected to return a value. This is documented in 
+Some callbacks are expected to return a value. This is documented in
 <xref linkend="callbacks-names"/>. In all other cases, the return value
 from a callback function is ignored.
 (Callbacks which return a value were implemented in PHPlot-5.1.3.)
@@ -1076,7 +1076,7 @@ will be explained in more detail.
 </para>
 
 <para>
-The emphasis here is on using callbacks, but annotation is also possible 
+The emphasis here is on using callbacks, but annotation is also possible
 without callbacks.
 You can use <xref linkend="SetPrintImage"/>(False) to disable automatic
 output of your image. Then, when <xref linkend="DrawGraph"/> returns, you
@@ -1806,7 +1806,7 @@ to balance two conflicting goals:
   <itemizedlist>
     <listitem>
       <para>
-Including zero in the data range improves the utility of plots, 
+Including zero in the data range improves the utility of plots,
 as it facilitates comparing relative changes and differences.
       </para>
     </listitem>
@@ -2197,7 +2197,7 @@ These methods are described in more detail above.
 <para>
 By default, PHPlot will automatically decide which method to use.
 It will use the <literal>'date'</literal> method if the corresponding axis
-tick labels use date/time formatting (as set with 
+tick labels use date/time formatting (as set with
 <xref linkend="SetXLabelType"/><literal>('time')</literal> or
 <xref linkend="SetYLabelType"/><literal>('time')</literal>).
 Otherwise is will use the <literal>'decimal'</literal>  method.
@@ -3077,7 +3077,7 @@ other applicable settings.
     </listitem>
     <listitem>
       <para>
-Use <literal>$plot->DrawGraph()</literal> when complete. 
+Use <literal>$plot->DrawGraph()</literal> when complete.
 This creates the plot, but does not produce any output.
       </para>
     </listitem>
@@ -3717,7 +3717,7 @@ For frame timing, you can use the PHP functions <function>microtime()</function>
 and <function>time_sleep_until()</function>.
 Call <literal>microtime(TRUE)</literal> once, to get a
 precise timestamp as a floating point number. Then, within your main loop,
-use <literal>time_sleep_until($timestamp)</literal> to put your script to 
+use <literal>time_sleep_until($timestamp)</literal> to put your script to
 sleep until the time to start of the next frame.
 </para>
 
@@ -4435,7 +4435,7 @@ Here is an example of generating one area in an image map from a bubbles
 plot. You must provide the URL, alternate text, and
 optionally a title (tooltip text).  This appends the image map line to a
 string.  sprintf() is used to convert the coordinates to integers for
-cleaner HTML. 
+cleaner HTML.
 <programlisting><![CDATA[$coords = sprintf("%d,%d,%d", $x, $y, $diam / 2);
 $image_map .= "  <area shape=\"circle\" coords=\"$coords\""
             . " title=\"$title_text\" alt=\"$alt_text\" href=\"$url\">\n";

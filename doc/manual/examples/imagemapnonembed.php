@@ -1,8 +1,8 @@
 <?php
-# $Id$
+
 # PHPlot example: Image Map and Non-embedded Plot Image
 # This scripts creates a PHPlot plot image and an image map, without using
-# embedded (data-url) images. The down-side is that this script has to 
+# embedded (data-url) images. The down-side is that this script has to
 # run twice, and generate the plot twice: once for the HTML wrapper page
 # with image map, and once to create the actual image.
 # This takes a 'mode' CGI parameter (HTTP GET) and generates a plot

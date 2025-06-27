@@ -1,5 +1,5 @@
 # PHPlot class member variable listing
-# $Id$
+
 # This is a manually maintained list of PHPlot class variables.
 # It is processed by a script 'gen.vardoc' to generate Docbook-xml format
 # text for the reference manual.
@@ -191,7 +191,7 @@ ttf_path	'.'	SetTTFPath	TrueType font directory
 use_ttf	FALSE	SetUseTTF	Default font type, True for TrueType, False for GD
 x_axis_position		SetXAxisPosition	Position of X axis (in world coordinates)
 x_axis_y_pixels		CalcTranslation	Device coordinate for the X axis
-x_data_label_angle		CheckLabels	Effective X data label text angle (Added in PHPlot-5.1.0) 
+x_data_label_angle		CheckLabels	Effective X data label text angle (Added in PHPlot-5.1.0)
 x_data_label_angle_u	''	SetXDataLabelAngle	X data label text angle (see also x_data_label_angle) (Added in PHPlot-6.0.0)
 x_data_label_pos		SetXDataLabelPos CheckLabels	Position of X data labels. (Default was 'plotdown', but is now applied at graph drawing time.)
 x_label_angle	0	SetXLabelAngle	X tick label text angle (and default for x_data_label_angle)

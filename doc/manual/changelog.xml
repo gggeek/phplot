@@ -1,4 +1,4 @@
-<!-- $Id$
+<!--
      Change Log Appendix for PHPlot Reference Manual
 -->
 <appendix id="changelog">
@@ -636,7 +636,7 @@ A new example was added, showing a bar chart with data labels.
     <listitem>
       <para>
 Released manual dated 2006-11-11 to sourceforge.net. This is the first
-release of the manual on SourceForge. It corresponds to PHPlot-5.0rc2 with 
+release of the manual on SourceForge. It corresponds to PHPlot-5.0rc2 with
 several patches applied.
       </para>
     </listitem>

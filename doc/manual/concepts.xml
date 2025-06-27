@@ -1,4 +1,4 @@
-<!-- $Id$
+<!--
      Concepts chapter for PHPlot Reference Manual
 -->
 <chapter id="concepts">
@@ -326,7 +326,7 @@ and indicate our data will be represented in the 'text-data' format
 The data array $data is where we store the values to be plotted.
 We haven't shown where the data came from, but in a typical application
 it might be from a database query.
-How the data array is constructed is described in 
+How the data array is constructed is described in
 <xref linkend="conc-datatypes" />.
 </para>
 
@@ -391,7 +391,7 @@ The following data types are available in PHPlot:
 
 <variablelist>
 <!--  Note: Keep these in the same order as the table in
-      conc-plottype-datatype below. 
+      conc-plottype-datatype below.
 -->
   <varlistentry>
     <term><anchor id="text-data" xreflabel="text-data"/>text-data</term>
@@ -2519,7 +2519,7 @@ being in the range 0 to 255 inclusive, for example
     </para>
   </listitem>
 </orderedlist>
-Additional color forms can be found in <xref linkend="adv-truecolor-forms"/>. 
+Additional color forms can be found in <xref linkend="adv-truecolor-forms"/>.
 Those forms are more useful with truecolor images.
 </para>
 <note>
@@ -3593,7 +3593,7 @@ Your formatting function will accept 1 or 2 arguments (or more - see below).
 }
 ]]></programlisting>
 The function will be called with $label set to the value of the label to be
-formatted, and is expected to return the formatted label text. $arg is a 
+formatted, and is expected to return the formatted label text. $arg is a
 pass-through argument that has whatever value you used with
 <function>SetXLabelType</function> (etc.). In the above example, this is
 $data. You need to declare this second argument in your function only if
@@ -4429,10 +4429,10 @@ produce an image, it should not produce an error image either.
 
 <para>
 If a failure occurs when error images are disabled with
-<xref linkend="SetFailureImage"/>, PHPlot will still trigger a user-level error 
+<xref linkend="SetFailureImage"/>, PHPlot will still trigger a user-level error
 condition, which will normally record the error message in the server log,
 and terminate the script. However, there will be no feedback to the user that
-the error occurred. 
+the error occurred.
 If using <literal>SetFailureImage(False)</literal> to disable error images,
 you should place this call right after creating the PHPlot object, because
 an error which occurs before the call will produce an error image.

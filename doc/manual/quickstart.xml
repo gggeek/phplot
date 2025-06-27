@@ -1,4 +1,4 @@
-<!-- $Id$
+<!--
      Getting Started chapter for PHPlot Reference Manual
      Original material is from 'quickstart.html' distributed with PHPlot.
 -->
@@ -22,7 +22,7 @@ are not their fault.
 <para>
 Many web sites need to create real-time or dynamic charts and graphs from
 live data sets. Many users have found PHP a great way for this dynamic
-creation of images using the <link linkend="def-gd">GD</link> library. 
+creation of images using the <link linkend="def-gd">GD</link> library.
 The advantage of using the server to create an image (that is, using a
 server-side scripting language rather than a client-side language such as
 Java) is that one does not have to worry about browser compatibility or
@@ -129,7 +129,7 @@ More information about PHPlot can be found at
 You create a PHPlot object by first including the code to be used,
 and then defining the variable:
 <programlisting><![CDATA[<?php
-require_once 'phplot.php';  // here we include the PHPlot code 
+require_once 'phplot.php';  // here we include the PHPlot code
 $plot = new phplot;    // here we define the variable
 
 //Rest of code goes below

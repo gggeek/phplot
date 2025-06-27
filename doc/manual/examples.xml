@@ -1,4 +1,4 @@
-<!-- $Id$
+<!--
      Examples chapter for PHPlot Reference Manual
 
      Notes to editors:
@@ -1216,7 +1216,7 @@ Here are some examples showing the usage of <xref linkend="SetLegendPosition"/>
 to position the legend on the plot. The first two arguments ($x, $y)
 indicate a point on the legend box, relative to the legend box size, with
 (0,0) being the upper left corner, and (1,1) being the lower right corner.
-The third argument $relative_to indicates the positioning mode: image, plot, 
+The third argument $relative_to indicates the positioning mode: image, plot,
 world, or title. The next two arguments ($x_base, $y_base), along with the
 positioning mode, indicate where to place the legend point given in the
 first two arguments. The last two optional arguments ($x_offset, $y_offset)

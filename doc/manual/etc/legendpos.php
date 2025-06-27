@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Legend Position Example template
 # This generates the pictures and text for SetLegendPosition examples.
 require_once 'phplot.php';
