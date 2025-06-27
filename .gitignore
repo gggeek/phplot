@@ -1,7 +1,1 @@
-/vendor
-/composer.lock
 /.idea
-/phpunit.xml
-/.phpunit.result.cache
-/phpcs.xml
-/.phpcs-cache
