@@ -46,8 +46,10 @@ function test_color_range($color1, $color2, $nsteps, $expected)
        . ') To (' . implode(', ', $color2) . ") with $nsteps steps";
 
     $colors = color_range($color1, $color2, $nsteps);
-    if ($colors == $expected) echo "Pass: $info\n";
-    else echo "FAIL: $info\n" . print_r($colors, True) . "\n";
+    if ($colors == $expected)
+        echo "Pass: $info\n";
+    else
+        echo "FAIL: $info\n" . print_r($colors, True) . "\n";
     if (($n = count($colors)) != $nsteps)
         echo "FAIL: Bad count $n expecting $nsteps\n";
 }

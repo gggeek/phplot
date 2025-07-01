@@ -1,9 +1,10 @@
 <?php
-
 /*
    PHPlot / contrib / prune_labels
    PHPlot contrib code - public domain - no copyright - use as you wish
+*/
 
+/**
 Reduce the number of data labels along the X axis,  when the density is too
 high.  This simply blanks out M-1 of every M labels in the data array.
 There are other ways to do this, but we need to keep the labels uniformly

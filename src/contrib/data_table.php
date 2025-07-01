@@ -244,5 +244,5 @@ function draw_data_table($img, $settings)
             $col++;
         }
     }
-    return TRUE;
+    return true;
 }
