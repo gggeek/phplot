@@ -2,7 +2,7 @@
 # PHPlot / contrib / prune_labels : Test
 # Test driver for contrib / prune_labels
 
-require_once 'prune_labels.php';
+require_once __DIR__ . '/prune_labels.php';
 
 /* Testing the prune_labels function: */
 function test($count, $maxlabels)

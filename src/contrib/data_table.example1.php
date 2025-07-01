@@ -2,7 +2,8 @@
 # phplot / contrib / data_table example 1:  Stand-alone data tables
 # This example does not use PHPlot. Output is a PNG file with multiple
 # data tables, with varying parameters.
-require_once 'data_table.php';
+
+require_once __DIR__ . '/data_table.php';
 
 $data = array(
   array('January',  1,  10, 1e05),

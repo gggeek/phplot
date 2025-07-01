@@ -5,10 +5,9 @@
   Tests color.range.php functions:
       color_range($color_a, $color_b, $n_steps)
       count_data_sets($data, $data_type)
-
 */
-require_once 'color_range.php';
 
+require_once __DIR__ . '/color_range.php';
 
 # Testing count_data_sets()
 function test_count_data_sets($data, $data_type, $expected)
@@ -66,7 +65,6 @@ function test_driver_color_range()
         array(array(100,0,100), array(80,20,80), array(60,40,60),
               array(40,60,40), array(20,80,20), array(0,100,0)));
 }
-
 
 test_driver_count_data_sets();
 test_driver_color_range();

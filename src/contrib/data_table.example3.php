@@ -1,7 +1,8 @@
 <?php
 # phplot / contrib / data_table example 3:  Pie chart with data table
-require_once 'phplot.php';
-require_once 'data_table.php';
+
+require_once __DIR__ . '/../phplot.php';
+require_once __DIR__ . '/data_table.php';
 
 // Note column 0, labels, are not used by PHPlot itself, but are
 // displayed in the data table, and extracted for the legend.
@@ -19,7 +20,7 @@ $settings = array(
     'data' => $data,
 );
 
-$plot = new phplot(600, 400);
+$plot = new \Phplot\Phplot\phplot(600, 400);
 $plot->SetTitle('Pie Chart with Legend and Data Table');
 $plot->SetDataValues($data);
 $plot->SetDataType('text-data-single');

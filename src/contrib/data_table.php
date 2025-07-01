@@ -1,6 +1,6 @@
 <?php
 /*
-phplot / contrib / data_table.php: Draw a table of data values
+    phplot / contrib / data_table.php: Draw a table of data values
 
      Copyright (c) 2011, lbayuk -at- users.sourceforge.net
      All rights reserved.
@@ -25,7 +25,9 @@ phplot / contrib / data_table.php: Draw a table of data values
      CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
      ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
      POSSIBILITY OF SUCH DAMAGE.
+*/
 
+/**
 This function draws a data table. That is, using PHP GD functions, it draws
 a table containing elements from a 2-dimensional array of text and number data.
 
@@ -95,7 +97,6 @@ have one entry for each column in the table which will be drawn. This is
 different from 'headers', which has one column for each column in the
 data array. These sizes will be the same only if 'headers' has no NULL
 entries - that is, no data array columns are being skipped.
-
 */
 function draw_data_table($img, $settings)
 {

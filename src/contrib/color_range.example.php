@@ -2,8 +2,8 @@
 # PHPlot / contrib / color_range : Example
 # This is a bar chart with a color gradient for the bars in each group.
 
-require_once 'phplot.php';
-require_once 'color_range.php';
+require_once __DIR__ . '/../phplot.php';
+require_once __DIR__ . '/color_range.php';
 
 $bars_per_group = 10;
 $x_values = 4;
@@ -16,7 +16,7 @@ for ($i = 0; $i < $x_values; $i++) {
     $data[] = $row;
 }
 
-$p = new phplot(800, 600);
+$p = new \Phplot\Phplot\phplot(800, 600);
 $p->SetTitle('Example - Bar Chart with gradient colors');
 $p->SetDataType('text-data');
 $p->SetDataValues($data);

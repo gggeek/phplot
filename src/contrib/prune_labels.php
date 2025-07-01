@@ -1,4 +1,5 @@
 <?php
+
 /*
    PHPlot / contrib / prune_labels
    PHPlot contrib code - public domain - no copyright - use as you wish

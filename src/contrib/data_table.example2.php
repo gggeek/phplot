@@ -1,7 +1,8 @@
 <?php
 # phplot / contrib / data_table example 2: Line plot with data table on the side
-require_once 'phplot.php';
-require_once 'data_table.php';
+
+require_once __DIR__ . '/../phplot.php';
+require_once __DIR__ . '/data_table.php';
 
 $data = array();
 for ($i = 0; $i < 20; $i++)
@@ -16,7 +17,7 @@ $settings = array(
     'font' => 3,
 );
 
-$plot = new phplot(800, 600);
+$plot = new \Phplot\Phplot\phplot(800, 600);
 $plot->SetTitle('Line Plot with Data Table on Right Side');
 $plot->SetDataValues($data);
 $plot->SetDataType('data-data');

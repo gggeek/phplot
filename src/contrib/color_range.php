@@ -21,9 +21,7 @@
               This can be used to provide $n_intervals in color_range().
 */
 
-
-
-/*
+/**
    Fill a color map with a gradient step between two colors.
   Arguments:
     $color_a : Starting color for the gradient. Array of (r, g, b)
@@ -60,8 +58,7 @@ function color_range($color_a, $color_b, $n_steps)
     return $colors;
 }
 
-
-/*
+/**
     Determine the number of data sets (plot lines, bars per group, pie
     segments, etc.) contained in a data array.
     This can be used to determine n_steps for $color_range.
