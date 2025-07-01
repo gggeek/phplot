@@ -1,0 +1,198 @@
+#!/usr/bin/env bash
+
+set -e
+
+BUILD_DIR="${BUILD_DIR:-./build}"
+
+PHPDOCUMENTOR="${PHPDOCUMENTOR:-$BUILD_DIR/phpdocumentor}"
+# ex. template name: `clean`
+PHPDOC_TEMPLATE="${PHPDOC_TEMPLATE}"
+
+# PHP CLI to run examples:
+PHP="${PHP}:-/usr/bin/php"
+
+# XSL Transformation Processor program:
+XSLTPROC="${XSLTPROC}:-xsltproc"
+# XML formatting
+XMLFORMAT="${XMLFORMAT}:-xmllint -format"
+# FOP program:
+FOP="${FOP}:-/opt/fop/fop"
+
+# XSL Style Sheet for HTML:
+XSL_HTML=style.xsl
+# XSL Style Sheet for PDF:
+XSL_PDF=pdf.xsl
+
+###
+
+# @todo refactor the tool-setup logic: if user defined a path to the tool executable, do not install it. If the tool
+#       executable env var is empty, install it and set the value
+function setup_tools() {
+    sudo=
+    if [ "$(id -u)" != "0" ]; then
+        sudo="sudo --preserve-env=GITHUB_ACTIONS DEBIAN_FRONTEND=noninteractive"
+    fi
+
+    $sudo apt-get -y update
+
+    PHPPKG=$(apt-cache search php-cli | grep php | grep cli | grep -v -F '(default)' | awk '{print $1}')
+    if [ -z "${PHPPKG}" ]; then
+        echo "Can not find a php-cli package in the apt repositories for this server" >&2
+        exit 1
+    fi
+
+    # git, curl, gpg are needed by phive, used to install phpdocumentor
+    # phive nowadays requires ext-mbstring and ext-curl
+    # @todo besides php-cli, are there other php extensions used by phpdocumentor that we should make sure are onboard?
+    #       The list at https://packagist.org/packages/phpdocumentor/phpdocumentor says: php: ^8.1, ext-ctype, ext-hash,
+    #       ext-iconv, ext-json, ext-mbstring, ext-simplexml, ext-xml
+    # @todo what about the zip, unzip cli tools?
+    $sudo apt-get install -y \
+        curl git gpg unzip zip "${PHPPKG}" "${PHPPKG/cli/mbstring}" "${PHPPKG/cli/curl}"
+
+    # pandoc toolchain
+    #$sudo apt-get install -y \
+    #    pandoc texlive-xetex texlive-fonts-extra texlive-latex-extra
+
+    # FOP toolchain
+    $sudo apt-get install -y \
+        fop libxml2-utils xsltproc "${PHPPKG/cli/xsl}"
+
+    # ascidoctor-pdf toolchain
+    #$sudo gem install asciidoctor-pdf rouge
+
+    # Install phpdocumentor and the docbook xslt using Composer
+    # Sadly this method, as of 2023/1, does not allow installing version 3.3.0 and later
+    ## in case we are switching between php versions, always reinstall every tool with the correct version...
+    #if [ -f composer.lock ]; then
+    #    rm composer.lock
+    #fi
+    #composer install --no-dev
+    # required as of phpdoc 3.1.2
+    #sed -r -i -e "s|resource: '%kernel\\.project_dir%/vendor/phpdocumentor/reflection/src/phpDocumentor/Reflection/Php'|resource: '%kernel.project_dir%/../reflection/src/phpDocumentor/Reflection/Php'|g" ./vendor/phpdocumentor/phpdocumentor/config/reflection.yaml
+    #$sudo chown -R "$(id -u):$(id -g)" vendor
+
+    # Install the DocBook xslt
+    #if [ ! -d doc/manual/docbook-xsl ]; then
+    #    curl -fsSL -o dbx.zip "https://github.com/docbook/xslt10-stylesheets/releases/download/release/1.79.2/docbook-xsl-1.79.2.zip"
+    #    unzip dbx.zip
+    #    mv docbook-xsl-1.79.2 doc/manual/docbook-xsl
+    #    rm dbx.zip
+    #fi
+
+    # Get the eisvogel template for pandoc
+    #if [ ! -f eisvogel.latex ]; then
+    #    curl -fsSL -o ev.zip "https://github.com/Wandmalfarbe/pandoc-latex-template/releases/download/v2.1.0/Eisvogel-2.1.0.zip"
+    #    unzip ev.zip
+    #    rm -rf examples
+    #    rm ev.zip LICENSE CHANGELOG.md icon.png
+    #fi
+
+    # Install phpdocumentor via Phive
+    # @todo wouldn't it be quicker to just scan the github page for the last release and just get the phar?
+    # @todo
+    curl -fsSL -o "${BUILD_DIR}/phive" "https://phar.io/releases/phive.phar"
+    #curl -fsSL -o -O phive.phar.asc "https://phar.io/releases/phive.phar.asc"
+    #gpg --keyserver hkps://keys.openpgp.org --recv-keys 0x6AF725270AB81E04D79442549D8A98B29B2D5D79
+    #gpg --verify phive.phar.asc build/phive
+    #rm phive.phar.asc
+    chmod +x "${BUILD_DIR}/phive"
+    (cd "${BUILD_DIR}"; ./phive install --trust-gpg-keys 6DA3ACC4991FFAE5 -t "$(pwd)" phpdocumentor)
+    # phive behaves weirdly... fix that
+    if [ -L "${BUILD_DIR}/phpDocumentor" ]; then mv "${BUILD_DIR}/phpDocumentor" "${BUILD_DIR}/phpdocumentor"; fi
+
+    #$sudo chown -R "$(id -u):$(id -g)" "${BUILD_DIR}/vendor"
+}
+
+# builds the complete documentation
+function build() {
+    build_apidocs
+    build_manual
+}
+
+# builds the API docs
+function build_apidocs() {
+    if [ ! -d "${BUILD_DIR}/doc/api}" ]; then
+        mkdir -p "${BUILD_DIR}/doc/api"
+    fi
+
+    if [ -n "${PHPDOC_TEMPLATE}" ]; then
+        PHPDOC_TEMPLATE="--template ${PHPDOC_TEMPLATE}"
+    fi
+    $PHPDOCUMENTOR run --no-interaction --cache-folder "${BUILD_DIR}/.phpdoc" --title PHPlot --defaultpackagename PHPlot \
+        -d "$(realpath ./src/)" --ignore contrib -t "${BUILD_DIR}/doc/api"
+
+    # @todo ... manually mangle the index.html file to add generation date, lib version, etc...
+}
+
+# builds the manual, in all supported formats
+function build_manual() {
+    build_manual_html
+    build_manual_pdf
+}
+
+function build_manual_html() {
+    if [ ! -d "${BUILD_DIR}/doc/manual" ]; then
+        mkdir -p "${BUILD_DIR}/doc/manual}"
+    fi
+
+    # @todo ...
+}
+
+function build_manual_pdf() {
+    if [ ! -d "${BUILD_DIR}/doc/manual" ]; then
+        mkdir -p "${BUILD_DIR}/doc/manual"
+    fi
+
+    # @todo ...
+}
+
+function clean() {
+    if [ -d "${BUILD_DIR}/doc/api" ]; then rm -rf "${BUILD_DIR}/doc/api"; fi
+    if [ -f "${BUILD_DIR}/doc/manual/phplot_manual.pdf" ]; then rm "${BUILD_DIR}/doc/manual/phplot_manual.pdf"; fi
+}
+
+function distclean() {
+    clean
+
+    if [ -d "${BUILD_DIR}/.phive" ]; then rm -rf "${BUILD_DIR}/.phive"; fi
+    if [ -d "${BUILD_DIR}/.phpdoc" ]; then rm -rf "${BUILD_DIR}/.phpdoc"; fi
+    if [ -f "${BUILD_DIR}/phive" ]; then rm "${BUILD_DIR}/phive"; fi
+    if [ -f "${BUILD_DIR}/phpdocumentor" ]; then rm "${BUILD_DIR}/phpdocumentor"; fi
+
+    # @todo what about removing dpkg stuff and gems?
+}
+
+# prints this help text
+function help() {
+    # @todo allow a tag such as `# @internal` to denote functions as not available for external execution
+    declare -A DESCRIPTIONS
+    local CMD MAX LEN
+    echo "$0 <task> <args>"
+    echo "Tasks:"
+    MAX=-1
+    for CMD in $(compgen -A function); do
+        LEN=${#CMD}
+        ((LEN > MAX)) && MAX=$LEN
+        DESCRIPTIONS[$CMD]=$(grep "function $CMD(" -B 1 "${BASH_SOURCE[0]}" | grep '^#' | grep -v '@todo' | sed 's/^# *//')
+    done
+    MAX=$((MAX + 4))
+    for CMD in $(compgen -A function); do
+        if [ -z "${DESCRIPTIONS[$CMD]}" ]; then
+            echo "    ${CMD}"
+        else
+            printf "%-${MAX}s %s\n" "    ${CMD}" "${DESCRIPTIONS[$CMD]}"
+            #echo "    ${CMD}: ${DESCRIPTIONS[$CMD]}"
+        fi
+
+    done
+}
+
+if [ $# -eq 0 ]; then
+    help
+else
+    cd "$(dirname -- "$(dirname -- "$(realpath "${BASH_SOURCE[0]}")")")"
+
+    TIMEFORMAT="Task completed in %3lR"
+    time ${@}
+fi
