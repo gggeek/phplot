@@ -1,4 +1,8 @@
-This file lists changes _to the PHPlot Reference Manual_
+This file lists changes _to the PHPlot Reference Manual_, up to release 8.0.0.1.
+
+For more recent changes, see the project's git changelog, available online at
+https://github.com/PHPlot/phplot/commits/master/
+
 -----------------------------------------------------------------------------
 Note: This is a more complete ChangeLog than the one in Appendix A of the
 manual, which only contains summaries of changes.
