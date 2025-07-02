@@ -5,14 +5,11 @@
                 exclude-result-prefixes="xlink"
                 version='1.0'>
 
-<!-- $Id$ -->
 <!-- Docbook XML Style sheet for PHPlot Reference Manual -->
 <!-- Load the DocBook XML Style sheet for FO (Format Objects).
-     If your XML catalog system is working, this URL will map into a local
-     path with the latest XSL stylesheets.
-     If not, replace the http:// URL with a file:/// URL.
+     These files are downloaded via task `setup_tools`
 -->
-<xsl:import href="http://docbook.sourceforge.net/release/xsl/current/fo/docbook.xsl"/> 
+<xsl:import href="docbook-xsl/fo/docbook.xsl"/>
 
 <!-- ===== FOP-specific parameters ===== -->
 <!-- Using FOP >= 0.90, this also enables the PDF bookmark sidebar. -->
@@ -153,4 +150,3 @@ division  toc
 <xsl:param name="toc.section.depth" select="1" />
 
 </xsl:stylesheet>
-

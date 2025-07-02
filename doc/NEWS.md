@@ -15,9 +15,11 @@ See NEWS_part1.txt for older release documentation.
 * The source code for the manual is not included anymore in GitHub tarballs or when installing via Composer.
   If you want to have it available in your local installation, use `prefer-source` in your Composer configuration
 
+* The documentation is not built anymore using `make`, but rather via a "plain" shell script: `doc/taskfile`
+
 ### Bugs Fixed:
 
-(none)
+* The php files in `src/contrib` have been fixed to use the correct namespace for class `phplot`
 
 ### New features
 

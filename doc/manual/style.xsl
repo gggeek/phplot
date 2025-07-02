@@ -7,13 +7,11 @@
 <!-- Docbook XML Style sheet for PHPlot Reference Manual -->
 
 <!-- Load the DocBook XML Style sheet for separate (chunked) XHTML files.
-     If your XML catalog system is working, this URL will map into a local
-     path with the latest XSL stylesheets.
-     If not, replace the http:// URL with a file:/// URL.
+     These files are downloaded via task `setup_tools`
 -->
-<xsl:import href="http://docbook.sourceforge.net/release/xsl/current/xhtml/chunk.xsl"/>
+<xsl:import href="docbook-xsl/xhtml/chunk.xsl"/>
 
-<!-- Encoding now defaults to utf-8; change it back to normal. -->
+<!-- Encoding now defaults to utf-8; change it back to "normal". -->
 <xsl:param name="chunker.output.encoding" select="'ISO-8859-1'" />
 
 <!-- Use meaningful output filenames -->
