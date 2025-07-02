@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Stacked Area chart
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array(
   array('1960', 30, 10,  6, 38, 14,  2),
@@ -10,7 +10,7 @@ $data = array(
   array('2000', 28,  0, 18, 16, 33,  5),
 );
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain');
 
 $plot->SetPlotType('stackedarea');

@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Linepoints plot with legend using color boxes or shape markers
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # The variable $use_shapes can be set to TRUE in another
 # script which calls this script, to use shape markers
@@ -22,7 +22,7 @@ $data = array(
 );
 $legend_text = array('Morning Papers', 'Evening Papers', 'Sunday Papers');
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain'); // Improves presentation in the manual
 $plot->SetTitle("US Daily Newspaper Circulation\n"
              .  $plot_type . ' plot with SetLegendUseShapes('

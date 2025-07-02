@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Stacked Bars, unshaded
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array(
   array('Jan', 40, 5, 10, 3), array('Feb', 90, 8, 15, 4),
@@ -11,7 +11,7 @@ $data = array(
   array('Nov', 35, 6, 20, 9), array('Dec', 40, 7, 12, 9),
 );
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain');
 
 $plot->SetPlotType('stackedbars');

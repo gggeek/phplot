@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example - Horizontal Bars
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array(
   array('San Francisco CA', 20.11),
@@ -20,13 +20,13 @@ $data = array(
   array('Barrow AL', 4.2),
 );
 
-$plot = new phplot(800, 800);
+$plot = new Phplot\Phplot\phplot(800, 800);
 $plot->SetImageBorderType('plain'); // Improves presentation in the manual
 $plot->SetTitle("Average Annual Precipitation (inches)\n"
               . "Selected U.S. Cities");
 $plot->SetBackgroundColor('gray');
 #  Set a tiled background image:
-$plot->SetPlotAreaBgImage('images/drop.png', 'centeredtile');
+$plot->SetPlotAreaBgImage(__DIR__ . '/../images/drop.png', 'centeredtile');
 #  Force the X axis range to start at 0:
 $plot->SetPlotAreaWorld(0);
 #  No ticks along Y axis, just bar labels:

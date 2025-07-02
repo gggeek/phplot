@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Point chart with error bars
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array(
   array('', 1,  23.5, 5, 5), array('', 2,  20.1, 3, 3),
@@ -10,7 +10,7 @@ $data = array(
   array('', 9,  24.5, 2, 2), array('', 10, 28.1, 2, 2),
 );
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain');
 
 $plot->SetPlotType('points');

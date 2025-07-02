@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example - Bubble Plot
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # Array of custom labels for the Y axis. See the get_label callback.
 $y_labels = array("", "Age\n12 and under", "Age 13-17", "Age 18-29",
@@ -23,7 +23,7 @@ $data = array(
     array('Banana', 6,   1, 5,   2, 4,   3, 6,   4, 3,   5, 3,   6, 4),
 );
 
-$plot = new phplot(600, 600);
+$plot = new Phplot\Phplot\phplot(600, 600);
 $plot->SetTitle("Flavor Preference By Age Group");
 $plot->SetDataType('data-data-xyz');
 $plot->SetDataValues($data);

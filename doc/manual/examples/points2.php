@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Point plot - scatter plot
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array();
 $a = 0.5;
@@ -8,7 +8,7 @@ $d_theta = M_PI/48.0;
 for ($theta = M_PI * 7; $theta >= 0; $theta -= $d_theta)
   $data[] = array('', $a * $theta * cos($theta), $a * $theta * sin($theta));
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain');
 
 $plot->SetPlotType('points');

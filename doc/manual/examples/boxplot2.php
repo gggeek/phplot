@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example - Box Plot with outliers and line styles
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # Data array: each row is (label, X, Ymin, YQ1, Ymid, YQ3, Ymax, [Youtlier...])
 $data = array(
@@ -15,7 +15,7 @@ $data = array(
     array('', 9,  10, 15, 19, 22, 26, 4, 34),
 );
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetTitle('Box Plot with outliers and styles');
 $plot->SetDataType('data-data');
 $plot->SetDataValues($data);

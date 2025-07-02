@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Two plots on one image
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data1 = array(        # Data array for top plot: Imports
   array('1981', 5996),  array('1982', 5113),  array('1983', 5051),
@@ -21,7 +21,7 @@ $data2 = array(        # Data array for bottom plot: Exports
   array('1999', 940),  array('2000', 1040),
 );
 
-$plot = new phplot(800,600);
+$plot = new Phplot\Phplot\phplot(800,600);
 $plot->SetImageBorderType('plain');
 
 # Disable auto-output:

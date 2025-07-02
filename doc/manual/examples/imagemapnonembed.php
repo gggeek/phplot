@@ -9,7 +9,7 @@
 # if mode=plot, and an HTML page and image map otherwise.
 # Note: The image map links just produce popup (Javascript alert) messages,
 # for demonstration purposes.
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # This global string accumulates the image map AREA tags.
 $image_map = "";
@@ -91,7 +91,7 @@ END;
 }
 
 
-$plot = new phplot(640, 480);
+$plot = new Phplot\Phplot\phplot(640, 480);
 if ($do_html) {
     # When producing HTML, don't output the plot image:
     $plot->SetPrintImage(False);

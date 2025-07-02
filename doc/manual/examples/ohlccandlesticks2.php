@@ -1,8 +1,8 @@
 <?php
 # PHPlot Example: OHLC (Financial) plot, Filled Candlesticks plot, using
 # external data file, data-data format with date-formatted labels.
-define('DATAFILE', 'examples/ohlcdata.csv'); // External data file
-require_once 'phplot.php';
+define('DATAFILE', __DIR__ . '/ohlcdata.csv'); // External data file
+require_once __DIR__ . '/../../../src/phplot.php';
 
 /*
   Read historical price data from a CSV data downloaded from Yahoo! Finance.
@@ -33,7 +33,7 @@ function read_prices_data_data($filename)
     return $data;
 }
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain'); // Improves presentation in the manual
 $plot->SetTitle("Filled Candlesticks Financial Plot (data-data)\nMSFT Q1 2009");
 $plot->SetDataType('data-data');

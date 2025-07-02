@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Line graph, 2 lines
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # Generate data for:
 #   Y1 = sin(x)
@@ -11,7 +11,7 @@ $data = array();
 for ($x = 0; $x <= $end; $x += $delta)
   $data[] = array('', $x, sin($x), cos($x));
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain');
 
 $plot->SetPlotType('lines');

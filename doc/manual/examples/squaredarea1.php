@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Squared Area plot
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $title = "US Oil Imports by Country, Top 5\n"
        . "Non-cumulative (unstacked) Data";
@@ -24,7 +24,7 @@ $n_rows = count($data);
 $data[$n_rows] = $data[$n_rows-1];
 $data[$n_rows][0] = '';
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetTitle($title);
 $plot->SetYTitle('1000\'s of barrels per day');
 $plot->SetDataType('text-data');

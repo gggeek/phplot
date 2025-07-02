@@ -1,7 +1,7 @@
 <?php
 # PHPlot Example: Using a Y tick anchor to force a tick at 0.
 # This requires PHPlot >= 5.4.0
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # The variable $set_anchor can be set to a value in another script
 # which calls this script, to set the Y anchor to that value.
@@ -21,7 +21,7 @@ $data = array();
 for ($x = 0; $x < 500; $x++)
   $data[] = array('', $x, f($x));
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain'); // For presentation in the manual
 $plot->SetTitle("Example $case");
 $plot->SetDataType('data-data');

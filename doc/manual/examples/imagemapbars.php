@@ -1,6 +1,6 @@
 <?php
 # PHPlot example: Bar chart, embedded image with image map
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # This global string accumulates the image map AREA tags.
 $image_map = "";
@@ -35,7 +35,7 @@ function store_map($im, $passthru, $shape, $row, $col, $x1, $y1, $x2, $y2)
 }
 
 # Create and configure the PHPlot object.
-$plot = new phplot(640, 480);
+$plot = new Phplot\Phplot\phplot(640, 480);
 # Disable error images, since this script produces HTML:
 $plot->SetFailureImage(False);
 # Disable automatic output of the image by DrawGraph():

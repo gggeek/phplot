@@ -1,9 +1,9 @@
 <?php
 //Include the code
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 //Define the object
-$plot = new phplot();
+$plot = new Phplot\Phplot\phplot();
 
 //Define some data
 $example_data = array(

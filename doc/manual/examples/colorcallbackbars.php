@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Bar chart with bar color depending on value
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # Callback for picking a data color.
 # PHPlot will call this every time it needs a data color.
@@ -23,7 +23,7 @@ $data = array(
     array('Oct',  70), array('Nov',  80), array('Dec',  45),
 );
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain'); // Improves presentation in the manual
 $plot->SetPlotType('bars');
 $plot->SetDataValues($data);

@@ -1,7 +1,7 @@
 <?php
 # PHPlot Example: Using 'data:' URL scheme to embed an image
 # Unlike other examples, this outputs a complete HTML page with embedded image.
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # Generate data for: Y1 = sin(x), Y2 = cos(x)
 $end = M_PI * 2.0;
@@ -10,7 +10,7 @@ $data = array();
 for ($x = 0; $x <= $end; $x += $delta)
   $data[] = array('', $x, sin($x), cos($x));
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetFailureImage(False); // No error images
 $plot->SetPrintImage(False); // No automatic output
 $plot->SetImageBorderType('plain');

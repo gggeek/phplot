@@ -1,8 +1,8 @@
 <?php
 # PHPlot Example: OHLC (Financial) plot, basic lines, using
 # external data file, text-data format.
-define('DATAFILE', 'examples/ohlcdata.csv'); // External data file
-require_once 'phplot.php';
+define('DATAFILE', __DIR__ . '/ohlcdata.csv'); // External data file
+require_once __DIR__ . '/../../../src/phplot.php';
 
 /*
   Read historical price data from a CSV data downloaded from Yahoo! Finance.
@@ -39,7 +39,7 @@ function read_prices_text_data($filename)
     return $data;
 }
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain'); // Improves presentation in the manual
 $plot->SetTitle("OHLC (Open/High/Low/Close) Financial Plot\nMSFT Q1 2009");
 $plot->SetDataType('text-data');

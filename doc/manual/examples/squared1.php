@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: squared plot
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # To get repeatable results with 'random' data:
 mt_srand(1);
@@ -10,7 +10,7 @@ $data = array();
 for ($i = 0; $i < 100; $i++)
   $data[] = array('', $i / 4.0 + 2.0 + mt_rand(-20, 20) / 10.0);
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain');
 
 $plot->SetPlotType('squared');

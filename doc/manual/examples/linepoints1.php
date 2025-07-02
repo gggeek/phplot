@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Line-Point plot showing all the point shapes
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # This array is used for both the point shapes and legend:
 $shapes = array('bowtie', 'box', 'circle', 'cross', 'delta',
@@ -21,7 +21,7 @@ for ($i = 0; $i < $ppl; $i++) {
     $data[] = $subdata;
 }
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain');
 
 $plot->SetPlotType('linepoints');

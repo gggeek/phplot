@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example:  Flat Pie with options
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array(
   array('', 10),
@@ -10,7 +10,7 @@ $data = array(
   array('',  5),
 );
 
-$plot = new phplot(800,600);
+$plot = new Phplot\Phplot\phplot(800,600);
 $plot->SetImageBorderType('plain');
 $plot->SetDataType('text-data-single');
 $plot->SetDataValues($data);

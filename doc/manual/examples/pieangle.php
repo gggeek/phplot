@@ -1,7 +1,7 @@
 <?php
 # PHPlot Example: Pie chart with varying start angle and direction
 # Note: This requires PHPlot-6.0.0 or higher.
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $pie_slices = 6;
 $base_angle = 0;
@@ -30,7 +30,7 @@ function draw_plot($plot, $start_angle, $direction, $xbase, $ybase)
 # Make a data array with equal-size slices:
 $data = array_fill(0, $pie_slices, array('', 1));
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetDataValues($data);
 $plot->SetDataType('text-data-single');
 $plot->SetPlotType('pie');

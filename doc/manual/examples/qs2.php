@@ -1,9 +1,9 @@
 <?php
 //Include the code
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 //create a PHPlot object with 800x600 pixel image
-$plot = new phplot(800,600);
+$plot = new Phplot\Phplot\phplot(800,600);
 
 //Define some data
 $example_data = array(

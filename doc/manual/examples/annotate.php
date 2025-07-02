@@ -1,7 +1,7 @@
 <?php
 # PHPlot Example: Annotating a plot using callbacks
 # Note: This example is coded for PHPlot > 5.0.7
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # Get the Sales data. In real life, this would most likely come from
 # a database or external file. For this example, we will use 'random'
@@ -79,7 +79,7 @@ $data = get_data();
 get_best_worst($data, $best_index, $best_sales, $worst_index, $worst_sales);
 
 # Create the PHPlot object, set title, plot type, data array type, and data:
-$plot = new phplot(800, 600);
+$plot = new \Phplot\Phplot\phplot(800, 600);
 $plot->SetTitle('Monthly Widget Sales');
 $plot->SetPlotType('bars');
 $plot->SetDataType('text-data');

@@ -1,8 +1,8 @@
 <?php
 # PHPlot Example: Use DrawMessage() to display a message
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
-$plot = new phplot(600, 400);
+$plot = new Phplot\Phplot\phplot(600, 400);
 # Note: This font name is system dependent:
 $plot->SetFontTTF('generic', 'LiberationSans-Italic.ttf', 14);
 $plot->SetBackgroundColor('#ffcc99');

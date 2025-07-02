@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example - Horizontal linepoints plot with Y Data Label Lines
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array(
             array("SEA\nLEVEL", 0, ''),
@@ -15,7 +15,7 @@ $data = array(
             array('900m', 9, 35),
         );
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain'); // Improves presentation in the manual
 $plot->SetTitle('Wind Speed at Altitude');
 $plot->SetDataType('data-data-yx');

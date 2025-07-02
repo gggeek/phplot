@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Simple line graph
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array(
   array('', 1800,   5), array('', 1810,   7), array('', 1820,  10),
@@ -12,7 +12,7 @@ $data = array(
   array('', 1980, 227), array('', 1990, 249), array('', 2000, 281),
 );
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain');
 
 $plot->SetPlotType('lines');

@@ -8,7 +8,7 @@ $data = array(
   array('', 50),
 );
 
-$p = new phplot(400,300);
+$p = new Phplot\Phplot\phplot(400,300);
 $p->SetDataType('text-data-single');
 $p->SetDataValues($data);
 $p->SetPlotType('pie');

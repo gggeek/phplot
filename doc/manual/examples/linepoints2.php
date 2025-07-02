@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Linepoints plot with Data Value Labels
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array(
   array('1995', 135),
@@ -19,7 +19,7 @@ $data = array(
   array('2008', 283),
 );
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain'); // Improves presentation in the manual
 $plot->SetPlotType('linepoints');
 $plot->SetDataType('text-data');

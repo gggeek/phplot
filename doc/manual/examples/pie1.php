@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Pie/text-data-single
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # The data labels aren't used directly by PHPlot. They are here for our
 # reference, and we copy them to the legend below.
@@ -18,7 +18,7 @@ $data = array(
   array('USSR', 9710),
 );
 
-$plot = new phplot(800,600);
+$plot = new Phplot\Phplot\phplot(800,600);
 $plot->SetImageBorderType('plain');
 
 $plot->SetPlotType('pie');

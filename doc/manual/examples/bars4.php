@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Bar chart, with data labels
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array(
   array('China', 1306.31),           array('India', 1080.26),
@@ -9,7 +9,7 @@ $data = array(
   array('Bangladesh', 144.32),       array('Russia', 143.42),
 );
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain');
 $plot->SetPlotType('bars');
 $plot->SetDataType('text-data');

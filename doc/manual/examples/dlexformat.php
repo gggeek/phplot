@@ -4,7 +4,7 @@
 # for each X value labeled. This is an example of a custom label
 # formatting with access to the data array position.
 # This requires PHPlot > 5.7.0
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # Build a data array. The values are psuedo-random integers, but the first
 # and last rows have all Y=0. Return the completed data array.
@@ -60,7 +60,7 @@ $data = make_data_array(11, 6);
 $max_indexes = find_max_indexes($data);
 
 # Now plot the data:
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain'); // For presentation in the manual
 $plot->SetPlotType('linepoints');
 $plot->SetDataType('data-data');

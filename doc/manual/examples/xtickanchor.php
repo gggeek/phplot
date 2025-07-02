@@ -2,7 +2,7 @@
 # PHPlot Example: Using an X tick anchor to control grid lines
 # This example is based on a question on the PHPlot forum on 5/8/2011.
 # It requires PHPlot >= 5.4.0
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # The first data point was recorded at this date/time: (always top of an hour)
 # Example: 5/1/2011 at 10:00am
@@ -45,7 +45,7 @@ for ($i = 0; $i < $n_points; $i++) {
     $ts += 3600;
 }
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain'); // For presentation in the manual
 $plot->SetTitle('Hourly Data Example Plot');
 $plot->SetDataType('data-data');

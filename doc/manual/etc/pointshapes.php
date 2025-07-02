@@ -21,7 +21,7 @@ $data = array(array('', 1, 1));
 foreach ($shapes as $shape) {
 
     $filename = "shape-$shape.png";
-    $plot = new phplot(24, 24, $filename);
+    $plot = new Phplot\Phplot\phplot(24, 24, $filename);
     $plot->SetIsInline(True);
     $plot->SetPlotBorderType('none');
     $plot->SetDrawXAxis(False);

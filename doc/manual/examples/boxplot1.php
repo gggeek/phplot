@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example - Box Plot (without outliers)
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # The experimental results:
 $results = array(
@@ -50,7 +50,7 @@ function reduce_data($results)
     return $data;
 }
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetTitle('Box Plot (without outliers)');
 $plot->SetDataType('text-data');
 $plot->SetDataValues(reduce_data($results));

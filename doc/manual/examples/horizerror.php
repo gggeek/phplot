@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example - Horizontal Error Plot
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 # The experimental results as a series of temperature measurements:
 $results = array(98, 102, 100, 103, 101, 105, 110, 108, 109);
@@ -22,7 +22,7 @@ function reduce_data($results, $error_factor)
     return $data;
 }
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetTitle('Experiment Results');
 $plot->SetXTitle('Melting Temperature (degrees C)');
 $plot->SetDataValues(reduce_data($results, $error_factor));

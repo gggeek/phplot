@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Bar chart, annual data
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array(
   array('1985', 340),    array('1986', 682),    array('1987', 1231),
@@ -11,7 +11,7 @@ $data = array(
   array('2000', 109478), array('2001', 128375), array('2002', 140767),
 );
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain');
 
 $plot->SetPlotType('bars');

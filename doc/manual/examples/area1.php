@@ -1,6 +1,6 @@
 <?php
 # PHPlot Example: Area chart, 6 areas.
-require_once 'phplot.php';
+require_once __DIR__ . '/../../../src/phplot.php';
 
 $data = array(
   array('1960', 100, 70, 60, 54, 16,  2),
@@ -10,7 +10,7 @@ $data = array(
   array('2000', 100, 72, 72, 54, 38,  5),
 );
 
-$plot = new phplot(800, 600);
+$plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain');
 
 $plot->SetPlotType('area');
