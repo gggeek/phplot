@@ -3,13 +3,12 @@
                 version='1.0'
                 xmlns="http://www.w3.org/TR/xhtml1/transitional"
                 exclude-result-prefixes="#default">
-<!-- $Id$ -->
 <!-- Docbook XML Style sheet for PHPlot Reference Manual -->
 
 <!-- Load the DocBook XML Style sheet for separate (chunked) XHTML files.
      These files are downloaded via task `setup_tools`
 -->
-<xsl:import href="docbook-xsl/xhtml/chunk.xsl"/>
+<xsl:import href="../../docbook-xsl/xhtml/chunk.xsl"/>
 
 <!-- Encoding now defaults to utf-8; change it back to "normal". -->
 <xsl:param name="chunker.output.encoding" select="'ISO-8859-1'" />
@@ -63,7 +62,7 @@ division  toc
      with Sourceforge.net rules for use of project web space.
      If "dash dash"param footerlogo=1" is used on the xsltproc command line,
      then the extra content will be included.
-   NOTE: This is very specific to this project (see group_id).
+     NOTE: This is very specific to this project (see group_id).
 -->
 <xsl:param name="footerlogo" select="0"/>  <!-- Default value -->
 <xsl:template name="user.footer.navigation">

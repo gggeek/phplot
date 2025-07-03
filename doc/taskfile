@@ -15,16 +15,13 @@ PHP="${PHP:-/usr/bin/php}"
 XSLTPROC="${XSLTPROC:-xsltproc}"
 # XML formatting
 XMLFORMAT="${XMLFORMAT:-xmllint -format}"
-# FOP program:
+# Apache FOP program:
 FOP="${FOP:-/usr/bin/fop}"
 
-# XSL Style Sheet for HTML:
-XSL_HTML=style.xsl
-# XSL Style Sheet for PDF:
-XSL_PDF=pdf.xsl
-# A variable
+# A legacy variable - unused atm, was used to build a 'sourceforge-compatible' html-version of the manual
 XSLTPROCFLAGS=
 
+# @todo generate this list by adding a specific comment within the php sources and grepping for it
 EXAMPLES_PHP="examples/annotate.php \
   examples/area1.php \
   examples/bars1.php \
@@ -88,6 +85,7 @@ EXAMPLES_PHP="examples/annotate.php \
   examples/ytickanchor.php \
   examples/ytickanchor1.php"
 
+# @todo generate this list by adding a specific comment within the php sources and grepping for it
 EXAMPLES_IMAGES="examples/annotate.png \
   examples/area1.png \
   examples/bars1.png \
@@ -148,8 +146,9 @@ EXAMPLES_IMAGES="examples/annotate.png \
 
 ###
 
+# install the tools required to build the docs
 # @todo refactor the tool-setup logic: if user defined a path to the tool executable, do not install it. If the tool
-#       executable env var is empty, install it and set the value
+# @todo executable env var is empty, install it and set the value
 function setup_tools() {
     sudo=
     if [ "$(id -u)" != "0" ]; then
@@ -170,7 +169,6 @@ function setup_tools() {
     # @todo besides php-cli, are there other php extensions used by phpdocumentor that we should make sure are onboard?
     #       The list at https://packagist.org/packages/phpdocumentor/phpdocumentor says: php: ^8.1, ext-ctype, ext-hash,
     #       ext-iconv, ext-json, ext-mbstring, ext-simplexml, ext-xml
-    # @todo what about the zip cli tool?
     $sudo apt-get install -y \
         curl fonts-dejavu git gpg unzip zip "${PHPPKG}" "${PHPPKG/cli/curl}" "${PHPPKG/cli/gd}" "${PHPPKG/cli/mbstring}"
 
@@ -201,16 +199,16 @@ function setup_tools() {
     if [ ! -d "${BUILD_DIR}/doc/manual" ]; then
         mkdir -p "${BUILD_DIR}/doc/manual"
     fi
-    if [ ! -d "${BUILD_DIR}/doc/manual/docbook-xsl" ]; then
+    if [ ! -d "${BUILD_DIR}/docbook-xsl" ]; then
         curl -fsSL -o "${BUILD_DIR}/dbx.zip" "https://github.com/docbook/xslt10-stylesheets/releases/download/release/1.79.2/docbook-xsl-1.79.2.zip"
         (cd "${BUILD_DIR}"; unzip dbx.zip)
-        mv "${BUILD_DIR}/docbook-xsl-1.79.2" "${BUILD_DIR}/doc/manual/docbook-xsl"
+        mv "${BUILD_DIR}/docbook-xsl-1.79.2" "${BUILD_DIR}/docbook-xsl"
         rm "${BUILD_DIR}/dbx.zip"
     fi
 
     # FOP toolchain
     $sudo apt-get install -y \
-        fop libxml2-utils xsltproc "${PHPPKG/cli/xsl}"
+        default-jre fop libxml2-utils xsltproc "${PHPPKG/cli/xsl}"
 
     # ascidoctor-pdf toolchain
     #$sudo gem install asciidoctor-pdf rouge
@@ -258,17 +256,20 @@ function build_manual() {
 function build_manual_setup() {
     if [ ! -d "${BUILD_DIR}/doc/manual" ]; then
         mkdir -p "${BUILD_DIR}/doc/manual"
+    #else
+    #    # @todo decide: either we should clean the existing dir or abort if it is not empty
     fi
     if [ ! -d "${BUILD_DIR}/src" ]; then
         mkdir -p "${BUILD_DIR}/src"
+    #else
+    #    # @todo decide: either we should clean the existing dir or abort if it is not empty
     fi
     # build the manual out of a copy - it is easier than setting up proper indirect paths, or .gitignore rules
     cp -R doc/manual/* "${BUILD_DIR}/doc/manual"
     cp -R src/*.php "${BUILD_DIR}/src"
 
+    # create xml entities out of examples source code, as well as an 'index' xml file listing them
     echo "<!-- Automatically generated: entity list file -->" > "${BUILD_DIR}/doc/manual/examples_list.xml"
-
-    # create xml entities out of examples source code
     for file in $EXAMPLES_PHP; do
         if [ ! -f "${BUILD_DIR}/doc/manual/${file}" ]; then
             echo "Missing example php file doc/manual/${file}" >&2
@@ -302,7 +303,7 @@ function build_manual_setup() {
     done
 
     # generate the variables list
-    ${PHP} "${BUILD_DIR}/doc/manual/gen.vardoc.php" < "${BUILD_DIR}/doc/manual/variables.list" > "${BUILD_DIR}/doc/manual/variablelist.xml"
+    ${PHP} "${BUILD_DIR}/doc/manual/gen.vardoc.php" < "${BUILD_DIR}/doc/manual/variables.list" > "${BUILD_DIR}/doc/manual/variables_list.xml"
 }
 
 # pass in -f to force regen of data from example php files
@@ -311,7 +312,9 @@ function build_manual_html() {
         build_manual_setup
     fi
 
-    (cd "${BUILD_DIR}/doc/manual"; ${XSLTPROC} ${XSLTPROCFLAGS} "${XSL_HTML}" main.xml)
+    (cd "${BUILD_DIR}/doc/manual"; ${XSLTPROC} ${XSLTPROCFLAGS} style.xsl main.xml)
+    # highlight the source code in the generated html
+    ${PHP} doc/manual/highlight.php "${BUILD_DIR}/doc/manual"
 }
 
 # pass in -f to force regen of data from example php files
@@ -320,32 +323,63 @@ function build_manual_pdf() {
         build_manual_setup
     fi
 
-    # This uses xsltproc and xmllint for the XML to FO conversion, even
-    # though fop can do that, because fop gives useless messages if it
-    # does the XML processing ("context not available").
+    # This uses xsltproc (and xmllint) for the XML to FO conversion, even though fop can do that, because fop gives
+    # useless messages if it does the XML processing ("context not available").
     # Also xsltproc is better about using XML catalogs.
-    ${XSLTPROC} "${BUILD_DIR}/doc/manual/${XSL_PDF}" "${BUILD_DIR}/doc/manual/main.xml" > "${BUILD_DIR}/doc/manual/manual.fo0"
-    ${XMLFORMAT} "${BUILD_DIR}/doc/manual/manual.fo0" > "${BUILD_DIR}/doc/manual/manual.fo"
-    ${FOP} -catalog -fo "${BUILD_DIR}/doc/manual/manual.fo" -pdf "${BUILD_DIR}/doc/manual/phplot_manual.pdf"
-    rm "${BUILD_DIR}/doc/manual/manual.fo0" "${BUILD_DIR}/doc/manual/manual.fo"
+    (cd "${BUILD_DIR}/doc/manual"; ${XSLTPROC} pdf.xsl main.xml > manual.fo.xml)
+    # @todo is usage of xmllint necessary at all?
+    ${XMLFORMAT} "${BUILD_DIR}/doc/manual/manual.fo.xml" > "${BUILD_DIR}/doc/manual/manual.ffo.xml"
+    ${FOP} -catalog -fo "${BUILD_DIR}/doc/manual/manual.ffo.xml" -pdf "${BUILD_DIR}/doc/phplot_manual.pdf"
+    ###rm "${BUILD_DIR}/doc/manual/manual.fo.xml"
+    ###rm "${BUILD_DIR}/doc/manual/manual.ffo.xml"
 }
 
-# @todo review
 function build_manual_cleanup() {
-    rm -rf "${BUILD_DIR}/doc/manual/*.xml"
-    rm -rf "${BUILD_DIR}/doc/manual/*.xsl"
-    rm -rf "${BUILD_DIR}/doc/manual/variables.list"
-    rm -rf "${BUILD_DIR}/doc/manual/gen.vardoc.php"
-    rm -rf "${BUILD_DIR}/doc/manual/examples/*.php"
+    # @todo find  a better way to implement `delete files/dirs if they exist` without giving warnings
+    set +e
+    rm "${BUILD_DIR}/doc/manual/"*.xml
+    rm "${BUILD_DIR}/doc/manual/"*.xsl
+    rm "${BUILD_DIR}/doc/manual/"*.php
+    rm "${BUILD_DIR}/doc/manual/"*.md
+    rm "${BUILD_DIR}/doc/manual/"*.list
+    rm "${BUILD_DIR}/doc/manual/.ispell_words"
+    rm -rf "${BUILD_DIR}/doc/manual/etc"
+    rm "${BUILD_DIR}/doc/manual/examples/"*.md
+    rm "${BUILD_DIR}/doc/manual/examples/"*.php
+    rm "${BUILD_DIR}/doc/manual/examples/"*.xml
+    rm "${BUILD_DIR}/doc/manual/examples/geese.jpg"
+    set -e
 }
 
-# @todo review
+# creates a zip file for all docs
+create_archives() {
+    create_apidocs_archive
+    create_manual_html_archive
+    create_manual_pdf_archive
+}
+
+# creates a zip file of the api docs
+create_apidocs_archive() {
+    (cd "${BUILD_DIR}/doc"; zip -9 -r phplot_api_docs.zip api)
+}
+
+# creates a zip file of the manual in html format
+create_manual_html_archive() {
+    build_manual_cleanup
+    (cd "${BUILD_DIR}/doc"; zip -9 -r phplot_manual_html.zip manual)
+}
+
+# creates a zip file of the manual in pdf format
+create_manual_pdf_archive() {
+    (cd "${BUILD_DIR}/doc"; zip -9 phplot_manual_pdf.zip phplot_manual.pdf)
+}
+
 function clean() {
     if [ -d "${BUILD_DIR}/doc/api" ]; then rm -rf "${BUILD_DIR}/doc/api"; fi
-    if [ -f "${BUILD_DIR}/doc/manual/phplot_manual.pdf" ]; then rm "${BUILD_DIR}/doc/manual/phplot_manual.pdf"; fi
+    if [ -d "${BUILD_DIR}/doc/manual" ]; then rm -rf "${BUILD_DIR}/doc/manual"; fi
+    if [ -f "${BUILD_DIR}/doc/phplot_manual.pdf" ]; then rm "${BUILD_DIR}/doc/phplot_manual.pdf"; fi
 }
 
-# @todo review
 function distclean() {
     clean
 
@@ -353,8 +387,8 @@ function distclean() {
     if [ -d "${BUILD_DIR}/.phpdoc" ]; then rm -rf "${BUILD_DIR}/.phpdoc"; fi
     if [ -f "${BUILD_DIR}/phive" ]; then rm "${BUILD_DIR}/phive"; fi
     if [ -f "${BUILD_DIR}/phpdocumentor" ]; then rm "${BUILD_DIR}/phpdocumentor"; fi
+    if [ -d "${BUILD_DIR}/docbook-xsl" ]; then rm -rf "${BUILD_DIR}/docbook-xsl"; fi
 
-    if [ -d "${BUILD_DIR}/doc/manual" ]; then rm -rf "${BUILD_DIR}/doc/manual"; fi
     if [ -d "${BUILD_DIR}/src" ]; then rm -rf "${BUILD_DIR}/doc/src"; fi
 
     # @todo what about removing dpkg stuff?
@@ -381,11 +415,12 @@ function help() {
             printf "%-${MAX}s %s\n" "    ${CMD}" "${DESCRIPTIONS[$CMD]}"
             #echo "    ${CMD}: ${DESCRIPTIONS[$CMD]}"
         fi
-
     done
 }
 
-if [ $# -eq 0 ]; then
+###
+
+if [ $# -eq 0 ] || [ "$1" = '-h' ]; then
     help
 else
     cd "$(dirname -- "$(dirname -- "$(realpath "${BASH_SOURCE[0]}")")")"

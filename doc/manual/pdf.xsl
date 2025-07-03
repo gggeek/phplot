@@ -9,7 +9,7 @@
 <!-- Load the DocBook XML Style sheet for FO (Format Objects).
      These files are downloaded via task `setup_tools`
 -->
-<xsl:import href="docbook-xsl/fo/docbook.xsl"/>
+<xsl:import href="../../docbook-xsl/fo/docbook.xsl"/>
 
 <!-- ===== FOP-specific parameters ===== -->
 <!-- Using FOP >= 0.90, this also enables the PDF bookmark sidebar. -->
@@ -18,7 +18,9 @@
 <!-- Without this, it fetches draft.png from sourceforge.net every time! -->
 <xsl:param name="draft.mode">no</xsl:param>
 
-<!-- Default is to have a 4pc left indent, for some reason. Turn it off.  -->
+<xsl:param name="paper.type">A4</xsl:param>
+
+<!-- Default is to have a 4pc left indent, for some reason. Turn it off. -->
 <xsl:param name="body.start.indent">0pt</xsl:param>
 <!-- And then indent the abstract. (By default, abstract is flush left
      and body is indented - very odd.
@@ -28,9 +30,11 @@
   <xsl:attribute name="end-indent">0.5in</xsl:attribute>
 </xsl:attribute-set>
 
-<!-- Turn off hypenation because it doesn't work and reports a SEVERE error. -->
+<!-- Turn off hyphenation because it doesn't work and reports a SEVERE error. -->
 <xsl:param name="hyphenate">false</xsl:param>
 
+<xsl:param name="highlight.source">1</xsl:param>
+<xsl:param name="highlight.default.language">php</xsl:param>
 <!-- Shade program listings. (HTML uses stylesheets, but PDF can't.) -->
 <xsl:param name="shade.verbatim" select="1"></xsl:param>
 <xsl:attribute-set name="shade.verbatim.style">
@@ -61,7 +65,7 @@
 <xsl:param name="table.frame.border.thickness">1.5pt</xsl:param>
 <xsl:param name="default.table.frame">all</xsl:param>
 
-<!-- Supresss warnings on certain fonts -->
+<!-- Supress warnings on certain fonts -->
 <xsl:param name="symbol.font.family"></xsl:param>
 
 <!-- Display variablelists as "blocks", so the long defs flow better. -->
@@ -93,7 +97,7 @@
 
 <!-- Customize page header so title is even on the first page of chapters
     and Reference Entries (which are almost all only a single page anyway).
-    Otherwise there are too many pages without headers.
+    Otherwise, there are too many pages without headers.
 -->
 <xsl:template name="header.content">
   <xsl:param name="pageclass" select="''"/>
