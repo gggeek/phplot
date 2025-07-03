@@ -96,7 +96,7 @@ manual, which only contains summaries of changes.
 
       Add note to SetPieLabelType that it works there too but is not useful.
 
-      Fixed the examples under SetXLabelType.  Some of the examples had
+      Fixed the examples under SetXLabelType. Some of the examples had
       errors. These have now been copied into a unit test in the test suite
       so they can be checked. All have been corrected, and new examples were
       added. The single Examples table became too long (for PDF), so it had
@@ -292,7 +292,7 @@ manual, which only contains summaries of changes.
       + concepts.xml: Rewrote text that said PHPlot does a bad job with tick
         increments.
 
-      + developer.xml: Documented usage change to internal CalcStep().  Listed
+      + developer.xml: Documented usage change to internal CalcStep(). Listed
         3 new internal functions. Rewrote notes on $plots array because the
         table cells were too big, and added the new adjust_type key. Also
         added notes on the 2 new class arrays.
@@ -411,7 +411,7 @@ manual, which only contains summaries of changes.
       + developer.xml: Documented changes to internal functions: Removed
         DrawDotsError() and DrawLinesError(); updated DrawDots() and
         DrawLines() descriptions. Added argument to DrawYDataLabel().
-        Added DrawYDataLine().  Changed usage of DrawYErrorBar().
+        Added DrawYDataLine(). Changed usage of DrawYErrorBar().
       + concepts.xml: Updated plot type and data type sections to reflect
         new horizontal lines, points, and linepoints plots.
         Add information about data value labels for those plot types.
@@ -512,15 +512,15 @@ manual, which only contains summaries of changes.
 2012-06-29 (/trunk, merged into /branches/Rel6)
     * webform.xml: Fix bug in parameter validation in the example. It did
       not accept 0 for deposit or interest, due to incorrect use of empty()
-      vs isset().  Using 0 produces uninteresting results, but it was supposed
-      to work.  Found and reported by Sourceforge user bvn1 on the forum.
+      vs isset(). Using 0 produces uninteresting results, but it was supposed
+      to work. Found and reported by Sourceforge user bvn1 on the forum.
 
 2012-06-28 (/branches/Rel6)
      + advanced.xml, concepts.xml, developer.xml, examples.xml,
        functions.xml, reference.xml, variables.list: Changed ID values for
        sections in the Advanced chapter that used to be in Concepts, and all
        links to them. They still had the old IDs (conc-*) and now they match
-       the others (adv-*) in that chapter.  Note that the IDs are used to
+       the others (adv-*) in that chapter. Note that the IDs are used to
        name the HTML files (for the top-level sections).
 
 2012-06-26 (/branches/Rel6)
@@ -695,7 +695,7 @@ manual, which only contains summaries of changes.
    * reference.xml: Document new functions SetDataLabelColor(),
      SetDataValueLabelColor(), SetPieLabelColor(), and SetTickLabelColor().
      Add notes to SetGridColor() and SetTextColor() that these now only
-     supply default colors for labels.  Fixed some word-wrapped xref tags.
+     supply default colors for labels. Fixed some word-wrapped xref tags.
    * developer.xml: Document changes to internal GetColorIndex() args.
      Fixed some word-wrapped xref tags.
    * variables.list: Fix sorting of variable names. Add 8 new class variables.
@@ -705,7 +705,7 @@ manual, which only contains summaries of changes.
      using "after PHPlot-x.y.z", specify actual version instead.
 
    * advanced.xml: Added note that you can't have multiple callbacks for
-     the same name (same 'reason'). Based on a forum help request.  The
+     the same name (same 'reason'). Based on a forum help request. The
      reference for SetCallback() already stated this.
 
 2012-02-05
@@ -755,10 +755,10 @@ manual, which only contains summaries of changes.
 2011-12-30
    For bug report #3403297 "Pie chart sizing and label issues":
    * Makefile: Add files for new pielabeltype example.
-   * advanced.xml: Note pie charts have no world coordinates.  New section on
+   * advanced.xml: Note pie charts have no world coordinates. New section on
      tuning pie charts with 2 new variables.
-   * concepts.xml: Note pie charts have no world coordinates.  Fix 'pie
-     percentage labels', since labels need not show percentage now.  In
+   * concepts.xml: Note pie charts have no world coordinates. Fix 'pie
+     percentage labels', since labels need not show percentage now. In
      "Plot Type: pie", link to new function SetPieLabelType(). Add note that
      segments less than 1 degree are not plotted. New subsection on pie labels.
    * developer.xml: Document new internals CheckPieLabels(), DrawPieLabel(),
@@ -1101,7 +1101,7 @@ manual, which only contains summaries of changes.
         with links to references where the new defaults are described.
    * concepts.xml: Clarify thinbarline - lines are not always up or right.
         Fix some quoting, and rewrite some plot type descriptions.
-        Clarify or fix use of "axis" when describing ticks and labels.  These
+        Clarify or fix use of "axis" when describing ticks and labels. These
         might not actually be on the axis lines.
    * reference.xml: Specify new defaults in SetXAxisPosition, SetYAxisPosition.
         Also corrected text on axis position in SetYTickLabelPos, SetYTickPos,
@@ -1388,7 +1388,7 @@ manual, which only contains summaries of changes.
      Updated descriptions of SetXDataLabelPos() and SetXTickLabelPos() to
      indicate the change in interaction between these two and how the
      defaults work now.
-     Removed function SetDrawYDataLabelLines().  This was never implemented
+     Removed function SetDrawYDataLabelLines(). This was never implemented
      and isn't planned.
 
    * variables.list: Update label_format description, and defaults for X

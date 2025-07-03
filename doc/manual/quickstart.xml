@@ -1,4 +1,4 @@
-<!-- $Id$
+<!--
      Getting Started chapter for PHPlot Reference Manual
      Original material is from 'quickstart.html' distributed with PHPlot.
 -->
@@ -22,10 +22,10 @@ are not their fault.
 <para>
 Many web sites need to create real-time or dynamic charts and graphs from
 live data sets. Many users have found PHP a great way for this dynamic
-creation of images using the <link linkend="def-gd">GD</link> library. 
+creation of images using the <link linkend="def-gd">GD</link> library.
 The advantage of using the server to create an image (that is, using a
 server-side scripting language rather than a client-side language such as
-Java) is that one does not have to worry about browser compatibility or
+Javascript) is that one does not have to worry about browser compatibility or
 client operating system compatibility issues.
 </para>
 
@@ -57,9 +57,9 @@ To use PHPlot, you create a PHP object from the PHPlot class, for example:
 ]]></programlisting>
 Then you set the properties of the object, by using a series of function
 calls (actually methods of the class). These define the characteristics of
-the image, the graph or graphs, and their elements.  This includes setting
+the image, the graph or graphs, and their elements. This includes setting
 the array containing the data to be plotted, defining titles if you want
-them, and many optional elements and style settings.  You can think of this
+them, and many optional elements and style settings. You can think of this
 as "drawing" elements into the image, but in fact PHPlot just notes your
 intentions and doesn't do much until you are finished.
 </para>
@@ -88,7 +88,7 @@ or you can embed the image in a web page using an image tag, like this:
 
 <para>
 Instead of sending the image to the browser, your application can instead
-choose to write the PHPlot image to a file on the server.  This could be
+choose to write the PHPlot image to a file on the server. This could be
 useful if you want to implement server-side caching of image files.
 (PHPlot itself does not currently provide caching.)
 </para>
@@ -115,11 +115,11 @@ position the elements.
 The rest of this chapter explains how to write a PHP script which creates
 a plot using PHPlot.
 Information on PHP can be found at
-<ulink url="http://www.php.net/">www.php.net</ulink>.
+<ulink url="https://www.php.net/">www.php.net</ulink>.
 Information about the GD library which PHP uses to create images can
-be found at <ulink url="http://libgd.org/">libgd.org</ulink>.
+be found at <ulink url="https://libgd.github.io/">libgd.org</ulink>.
 More information about PHPlot can be found at
-<ulink url="http://phplot.sourceforge.net/">phplot.sourceforge.net</ulink>.
+<ulink url="https://github.com/PHPlot/phplot">github.com/PHPlot/phplot</ulink>.
 </para>
 </sect1>
 
@@ -129,7 +129,7 @@ More information about PHPlot can be found at
 You create a PHPlot object by first including the code to be used,
 and then defining the variable:
 <programlisting><![CDATA[<?php
-require_once 'phplot.php';  // here we include the PHPlot code 
+require_once 'phplot.php';  // here we include the PHPlot code
 $plot = new phplot;    // here we define the variable
 
 //Rest of code goes below

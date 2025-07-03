@@ -26,7 +26,7 @@ $plot = new Phplot\Phplot\phplot(800, 600);
 $plot->SetImageBorderType('plain'); // Improves presentation in the manual
 $plot->SetTitle("US Daily Newspaper Circulation\n"
              .  $plot_type . ' plot with SetLegendUseShapes('
-             . ($use_shapes ? 'True' : 'False') .  ')');
+             . ($use_shapes ? 'True' : 'False') . ')');
 $plot->SetPlotType($plot_type);
 $plot->SetDataType('data-data');
 $plot->SetDataValues($data);

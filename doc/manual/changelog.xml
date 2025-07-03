@@ -1,14 +1,13 @@
-<!-- $Id$
+<!--
      Change Log Appendix for PHPlot Reference Manual
 -->
 <appendix id="changelog">
 <title>Change Log</title>
 <abstract><title></title>
   <para>
-This is the summary change log for the PHPlot Reference Manual.
-(For a more detailed list of changes, see the ChangeLog file
-in the manual's Subversion repository.  For changes to PHPlot itself,
-see the ChangeLog file inside the PHPlot distribution.)
+This is the summary change log for the PHPlot Reference Manual, up to 2016-01-01. For a more detailed list of changes,
+see the ChangeLog file in the 'doc/manual' directory in the Git repository. For changes to PHPlot itself,
+see the ChangeLog file in the 'doc' directory. For more recent changes, look at the Git log).
   </para>
 </abstract>
 
@@ -617,7 +616,7 @@ bug fix).
       <para>
       </para>
 Updates were applied to the installation section to match the README
-included with 5.0rc3.  Minimum PHP level corrected to 4.3.0, and noted that
+included with 5.0rc3. Minimum PHP level corrected to 4.3.0, and noted that
 PHP 5 works, as this has now been tested. Deleted note about included
 examples and documentation; these have been removed from the release.
       </para>
@@ -636,7 +635,7 @@ A new example was added, showing a bar chart with data labels.
     <listitem>
       <para>
 Released manual dated 2006-11-11 to sourceforge.net. This is the first
-release of the manual on SourceForge. It corresponds to PHPlot-5.0rc2 with 
+release of the manual on SourceForge. It corresponds to PHPlot-5.0rc2 with
 several patches applied.
       </para>
     </listitem>

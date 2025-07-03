@@ -1,3 +1,6 @@
+<!--
+    Web Form example
+-->
 <sect1 id="ex-webform">
 <title>Example - Complete Web Form with Plot</title>
 <para>
@@ -43,7 +46,7 @@ This section presents the main script <filename>webform.php</filename>
 which displays the web form and handles form submission.
 This script does not use PHPlot. When first accessed from a browser (with
 no parameters), it displays only the form and descriptive text. When the
-form is submitted, the same script runs again.  This time, the script receives
+form is submitted, the same script runs again. This time, the script receives
 form parameters, and displays the graph in addition to the form. To display
 the graph, the script generates an image (img) tag which references the
 second script (which is described in the next section).
@@ -387,7 +390,7 @@ however, an attempt is made to draw the plot without a data array. This
 results in an error, which PHPlot handles by creating an image file with an
 error message. This method of error handling is used because the script
 cannot return a textual error message since it is referenced from a web
-page via an image (img) tag.  An alternative to this error handling is to
+page via an image (img) tag. An alternative to this error handling is to
 have the script return an HTTP error code such as error 500 (server error).
 
 <programlisting><![CDATA[# Draw the graph:

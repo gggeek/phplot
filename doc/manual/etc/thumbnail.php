@@ -1,5 +1,5 @@
 <?php
-# $Id$
+
 # Generate plot type thumbnail images For PHPlot Reference Manual
 require_once 'phplot.php';
 

@@ -1,7 +1,7 @@
-<!-- $Id$
-     Reference section for PHPlot Reference Manual
+<!--
+    Reference section for PHPlot Reference Manual
 
-  Note: Part I is <part>, Part II is a <reference>, so force the label.
+    Note: Part I is <part>, Part II is a <reference>, so force the label.
 -->
 <reference label="II" id="reference">
 <title>PHPlot Function Reference</title>
@@ -102,8 +102,8 @@ in line breaks.
         <listitem>
           <para>
 Optional associative array of settings to control the appearance of the
-message image.  If missing or empty, the defaults result in small black
-text on a white background, with word wrapping.  If provided, the options
+message image. If missing or empty, the defaults result in small black
+text on a white background, with word wrapping. If provided, the options
 array may contain the following keys and values:
             <informaltable>
               <tgroup cols="3">
@@ -370,9 +370,9 @@ Use the PHP function <function>chunk_split</function> if this is needed.
     <para>
 <literal>dataurl</literal> encoding returns the image data suitable for use as
 the value of the 'src' attribute in an HTML 'img' tag using the data URL
-scheme.  This embeds the image into the HTML, and so it does not require
-an external image file.  The data URL scheme is defined by
-<ulink url="http://www.faqs.org/rfcs/rfc2397.html">RFC 2397</ulink>.
+scheme. This embeds the image into the HTML, and so it does not require
+an external image file. The data URL scheme is defined by
+<ulink url="https://www.rfc-editor.org/info/rfc2397">RFC 2397</ulink>.
       <warning>
         <para>
 RFC 2397 makes it clear that the scheme is intended for embedding small images,
@@ -780,9 +780,9 @@ Default is no output file, meaning the image is written to standard output
         <listitem>
           <para>
 Optional name of a file to use as a starting image. This becomes the
-background for the plot.  If an input_file is given, any width and height
+background for the plot. If an input_file is given, any width and height
 given to the constructor are ignored, and the size of the image in the
-named input_file are the plot image size.  Default is no input file,
+named input_file are the plot image size. Default is no input file,
 meaning a blank image will be created at the given or default width and
 height.
           </para>
@@ -897,9 +897,9 @@ Default is no output file, meaning the image is written to standard output
         <listitem>
           <para>
 Optional name of a file to use as a starting image. This becomes the
-background for the plot.  If an input_file is given, any width and height
+background for the plot. If an input_file is given, any width and height
 given to the constructor are ignored, and the size of the image in the
-named input_file are the plot image size.  Default is no input file,
+named input_file are the plot image size. Default is no input file,
 meaning a blank image will be created at the given or default width and
 height.
           </para>
@@ -1254,8 +1254,8 @@ If a background image has been set, background color (set with
     </para>
     <para>
 Scale mode scales the supplied background image file to fit the image area
-of the entire graph.  Tile and centeredtile modes repeat the supplied
-background image file as needed to fit the image area of the graph.  The
+of the entire graph. Tile and centeredtile modes repeat the supplied
+background image file as needed to fit the image area of the graph. The
 difference is that centeredtile offsets the start position within the
 background image by half its size, which works better for some images.
     </para>
@@ -1272,11 +1272,11 @@ image will be used.
     </para>
     <para>
 If you are going to use a JPEG file for the image background, you should be
-using a truecolor PHPlot image.  Truecolor images do not have a
+using a truecolor PHPlot image. Truecolor images do not have a
 limited-size color map like palette images (which PHPlot uses by default).
 If you use  palette image with a JPEG background, the background will
 likely overflow your image's color map and leave no free color slots for PHPlot
-to use for plot elements.  The same is true if using a 24-bit color
+to use for plot elements. The same is true if using a 24-bit color
 (non-mapped) PNG file for a background if it has many colors.
 For more on truecolor PHPlot images, see <xref linkend="adv-truecolor"/>.
     </para>
@@ -1479,7 +1479,7 @@ unshaded plots (<xref linkend="SetShading"/><literal>(0)</literal>)
 have data borders, and shaded plots have a 3D-look and no data borders.
 If you want unshaded plots with no data borders, use
 <xref linkend="SetDrawDataBorders"/><literal>(FALSE)</literal> to disable
-the borders.  You can enable data borders on shaded plots with
+the borders. You can enable data borders on shaded plots with
 <xref linkend="SetDrawDataBorders"/><literal>(TRUE)</literal>.
     </para>
     <para>
@@ -1501,7 +1501,7 @@ If <parameter>$border</parameter> is not an array, but a single color
 value, then that color will be used for all data sets.
 However, the array(r,g,b) notation is not allowed in
 this case (because it looks like an array of 3 separate color values).
-You can get around this restriction if you want to specify a single color 
+You can get around this restriction if you want to specify a single color
 as an R, G, B array by wrapping the array in another array, for example:
 <literal>array(array(102, 0, 192))</literal>.
     </para>
@@ -1532,7 +1532,7 @@ and with the new
 plot types.
     </para>
     <para>
-Before PHPlot-6.0.0, unshaded bar and stackedbar plots always had data borders, 
+Before PHPlot-6.0.0, unshaded bar and stackedbar plots always had data borders,
 and shaded bar and stackedbar plots never had data borders.
     </para>
   </refsect1>
@@ -1619,7 +1619,7 @@ If <parameter>$data_colors</parameter> is not an array, but a single color
 value, then that color will be used for all data sets.
 However, the array(r,g,b) notation is not allowed in
 this case (because it looks like an array of 3 separate color values).
-You can get around this restriction if you want to specify a single color 
+You can get around this restriction if you want to specify a single color
 as an R, G, B array by wrapping the array in another array, for example:
 <literal>array(array(102, 0, 192))</literal>.
     </para>
@@ -3026,7 +3026,7 @@ If <parameter>$error_bar_colors</parameter> is not an array, but a single color
 value, then that color will be used for all data sets' error bars.
 However, the array(r,g,b) notation is not allowed in
 this case (because it looks like an array of 3 separate color values).
-You can get around this restriction if you want to specify a single color 
+You can get around this restriction if you want to specify a single color
 as an R, G, B array by wrapping the array in another array, for example:
 <literal>array(array(102, 0, 192))</literal>.
     </para>
@@ -3503,7 +3503,7 @@ table. Use <xref linkend="SetDefaultTTFont" /> to set the default TrueType font.
 
     <para>
 Simultaneous use of GD and TrueType font text is allowed in the same plot.
-To mix font types, use 
+To mix font types, use
 <xref linkend="SetFontGD"/> and <xref linkend="SetFontTTF"/> to
 specify the font and font type of an element, instead of using SetFont.
     </para>
@@ -5772,7 +5772,7 @@ $plot->SetNumXTicks(10);
 You will have an X range from 0 to 200, with 10 intervals of 20 units.
     </para>
     <para>
-If neither <function>SetNumXTicks</function> nor 
+If neither <function>SetNumXTicks</function> nor
 <xref linkend="SetXTickIncrement" /> is used, the tick interval
 is automatically calculated by PHPlot.
 See <xref linkend="adv-autorange-tick"/> for details.
@@ -5868,7 +5868,7 @@ $plot->SetNumXTicks(20);
 You will have a Y range from -10 to 10, with 20 intervals of 1 unit each.
     </para>
     <para>
-If neither <function>SetNumYTicks</function> nor 
+If neither <function>SetNumYTicks</function> nor
 <xref linkend="SetYTickIncrement" /> is used, the tick interval
 is automatically calculated by PHPlot.
 See <xref linkend="adv-autorange-tick"/> for details.
@@ -7353,7 +7353,7 @@ The following shapes are available:
                 </thead>
                 <tbody>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-bowtie.png" scale="50" format="PNG" />
@@ -7365,7 +7365,7 @@ The following shapes are available:
                     <entry>Two filled triangles pointing right and left towards the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-box.png" scale="50" format="PNG" />
@@ -7377,7 +7377,7 @@ The following shapes are available:
                     <entry>A square outline centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-circle.png" scale="50" format="PNG" />
@@ -7389,7 +7389,7 @@ The following shapes are available:
                     <entry>A hollow circle centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-cross.png" scale="50" format="PNG" />
@@ -7401,7 +7401,7 @@ The following shapes are available:
                     <entry>An X centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-delta.png" scale="50" format="PNG" />
@@ -7413,7 +7413,7 @@ The following shapes are available:
                     <entry>A filled triangle pointing up, centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-diamond.png" scale="50" format="PNG" />
@@ -7425,7 +7425,7 @@ The following shapes are available:
                     <entry>A filled diamond (square rotated 45 degrees), centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-dot.png" scale="50" format="PNG" />
@@ -7437,7 +7437,7 @@ The following shapes are available:
                     <entry>A filled circle centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-down.png" scale="50" format="PNG" />
@@ -7449,7 +7449,7 @@ The following shapes are available:
                     <entry>An unfilled triangle pointing down, centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-halfline.png" scale="50" format="PNG" />
@@ -7461,7 +7461,7 @@ The following shapes are available:
                     <entry>A short line from the point going left.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-home.png" scale="50" format="PNG" />
@@ -7473,7 +7473,7 @@ The following shapes are available:
                     <entry>A filled 5-sided shape, centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-hourglass.png" scale="50" format="PNG" />
@@ -7485,7 +7485,7 @@ The following shapes are available:
                     <entry>Two filled triangles pointing up and down towards the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-line.png" scale="50" format="PNG" />
@@ -7497,7 +7497,7 @@ The following shapes are available:
                     <entry>A horizontal line centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-plus.png" scale="50" format="PNG" />
@@ -7509,7 +7509,7 @@ The following shapes are available:
                     <entry>A plus sign centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-rect.png" scale="50" format="PNG" />
@@ -7521,7 +7521,7 @@ The following shapes are available:
                     <entry>A filled square centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-star.png" scale="50" format="PNG" />
@@ -7533,7 +7533,7 @@ The following shapes are available:
                     <entry>Four lines crossing at the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-target.png" scale="50" format="PNG" />
@@ -7545,7 +7545,7 @@ The following shapes are available:
                     <entry>A square outline with two filled squares and two open squares, centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-triangle.png" scale="50" format="PNG" />
@@ -7557,7 +7557,7 @@ The following shapes are available:
                     <entry>A filled triangle pointing down from the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-trianglemid.png" scale="50" format="PNG" />
@@ -7569,7 +7569,7 @@ The following shapes are available:
                     <entry>A filled triangle pointing down to the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-up.png" scale="50" format="PNG" />
@@ -7581,7 +7581,7 @@ The following shapes are available:
                     <entry>An unfilled triangle pointing up, centered on the point.</entry>
                   </row>
                   <row>
-                    <entry align="center"> 
+                    <entry align="center">
                       <inlinemediaobject>
                         <imageobject>
                           <imagedata fileref="images/shape-yield.png" scale="50" format="PNG" />
@@ -9147,7 +9147,7 @@ With vertical plots, this function controls the X axis data labels.
 For an example, see <xref linkend="ex-area1"/>,
 where the labels are enabled by default and displayed below the X axis.
 With horizontal plots, this function controls the X data value labels.
-For examples, see <xref linkend="example-horizbar"/> 
+For examples, see <xref linkend="example-horizbar"/>
 and <xref linkend="example-horizstackedbar" />.
     </para>
     <para>
@@ -9853,7 +9853,7 @@ Data (numeric) formatting with suffix.
 Here we use the Euro as a suffix, common usage for French, represented by a
 3 byte UTF code.
 You can use html_entity_decode() with UTF-8 as the character set
-to translate &amp;euro; into this sequence. 
+to translate &amp;euro; into this sequence.
 SetNumberFormat is used here to override the locale settings for
 thousands and decimal separators.
       <informaltable>
@@ -10094,13 +10094,13 @@ was added to allow separate control of tick and data labels.
 and the default format type for X data labels.
     </para>
     <para>
-New label format types 'printf' and 'custom' were added at PHPlot-5.0.6, 
+New label format types 'printf' and 'custom' were added at PHPlot-5.0.6,
 as well as all arguments after the first. In PHPlot-5.0.5 and earlier, you
 must use SetXTimeFormat and SetPrecisionX to set the formatting parameters.
 Starting with PHPlot-5.0.6, you have the choice of using those, or
 providing additional arguments to SetXLabelType.
 Also added was the ability to add a prefix and suffix to 'data' formatted
-labels. In PHPlot-5.0.5 and earlier, there was an undocumented class variable 
+labels. In PHPlot-5.0.5 and earlier, there was an undocumented class variable
 <parameter>data_units_text</parameter> that was applied as a suffix to 'data'
 mode labels, for both X and Y. This continues to work, but is deprecated.
     </para>
@@ -10151,7 +10151,7 @@ locale.  You can set the separator characters yourself instead with
   <refsect1>
     <title>Description</title>
     <para>
-<function>SetXScaleType</function> sets the scale type along the X axis 
+<function>SetXScaleType</function> sets the scale type along the X axis
 to be either linear (the default) or logarithmic.
     </para>
   </refsect1>
@@ -10390,7 +10390,7 @@ If the value is omitted or an empty string, the default behavior is restored.
   <refsect1>
     <title>Notes</title>
     <para>
-If neither <function>SetXTickIncrement</function> nor 
+If neither <function>SetXTickIncrement</function> nor
 <xref linkend="SetNumXTicks" /> is used, the tick interval
 is automatically calculated by PHPlot.
 See <xref linkend="adv-autorange-tick"/> for details.
@@ -11140,7 +11140,7 @@ For examples, see <xref linkend="example-bars4" />,
 <xref linkend="example-stackedbars3" />,
 and <xref linkend="example-linepoints2" />.
 With horizontal plots, this function controls the Y axis data labels.
-For examples, see <xref linkend="example-horizbar"/> 
+For examples, see <xref linkend="example-horizbar"/>
 and <xref linkend="example-horizstackedbar" />,
 where the labels are enabled by default and displayed to the left of the Y axis.
     </para>
@@ -11782,13 +11782,13 @@ was added to allow separate control of tick and data labels.
 and the default format type for Y data labels.
     </para>
     <para>
-New label format types 'printf' and 'custom' were added at PHPlot-5.0.6, 
+New label format types 'printf' and 'custom' were added at PHPlot-5.0.6,
 as well as all arguments after the first. In PHPlot-5.0.5 and earlier, you
 must use SetYTimeFormat and SetPrecisionY to set the formatting parameters.
 Starting with PHPlot-5.0.6, you have the choice of using those, or
 providing additional arguments to SetYLabelType.
 Also added was the ability to add a prefix and suffix to 'data' formatted
-labels. In PHPlot-5.0.5 and earlier, there was an undocumented class variable 
+labels. In PHPlot-5.0.5 and earlier, there was an undocumented class variable
 <parameter>data_units_text</parameter> that was applied as a suffix to 'data'
 mode labels, for both X and Y. This continues to work, but is deprecated.
     </para>
@@ -11824,7 +11824,7 @@ locale.  You can set the separator characters yourself instead with
   <refsect1>
     <title>Description</title>
     <para>
-<function>SetYScaleType</function> sets the scale type along the Y axis 
+<function>SetYScaleType</function> sets the scale type along the Y axis
 to be either linear (the default) or logarithmic.
     </para>
   </refsect1>
@@ -12050,7 +12050,7 @@ If the value is omitted or an empty string, the default behavior is restored.
   <refsect1>
     <title>Notes</title>
     <para>
-If neither <function>SetYTickIncrement</function> nor 
+If neither <function>SetYTickIncrement</function> nor
 <xref linkend="SetNumYTicks" /> is used, the tick interval
 is automatically calculated by PHPlot.
 See <xref linkend="adv-autorange-tick"/> for details.

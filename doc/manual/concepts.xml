@@ -1,4 +1,4 @@
-<!-- $Id$
+<!--
      Concepts chapter for PHPlot Reference Manual
 -->
 <chapter id="concepts">
@@ -32,7 +32,7 @@ Reference Manual.
       <listitem>
         <para>
 A component in a color system which represents the amount of transparency,
-or opacity.  At one extreme, an alpha value indicates an opaque object
+or opacity. At one extreme, an alpha value indicates an opaque object
 which covers or hides whatever was drawn before it. At the other extreme,
 it indicates a completely transparent object which has no affect on
 whatever was drawn before it.
@@ -74,7 +74,7 @@ A component of a graph, such as a label, tick mark, axis, or plot.
       <listitem>
         <para>
 A programming library used to create and manipulate images.
-GD can be found at the <ulink url="http://libgd.org/">GD Graphics
+GD can be found at the <ulink url="https://libgd.github.io/">GD Graphics
 Library home page</ulink>, but is also included with PHP releases.
 You can think of GD as a software implementation of a video card.
 GD is also available via a PHP extension, and that is what PHPlot uses to
@@ -278,7 +278,7 @@ and with PHP session variables.
 An alternative to using two scripts - one generating HTML, and one using PHPlot
 to create the plot image - is available starting with PHPlot-5.5.0. You can
 write a single script which generates HTML and also embeds the PHPlot-generated
-plot image.  See <xref linkend="ex-encodeimage"/>.
+plot image. See <xref linkend="ex-encodeimage"/>.
   </para>
 
 </note>
@@ -326,7 +326,7 @@ and indicate our data will be represented in the 'text-data' format
 The data array $data is where we store the values to be plotted.
 We haven't shown where the data came from, but in a typical application
 it might be from a database query.
-How the data array is constructed is described in 
+How the data array is constructed is described in
 <xref linkend="conc-datatypes" />.
 </para>
 
@@ -391,7 +391,7 @@ The following data types are available in PHPlot:
 
 <variablelist>
 <!--  Note: Keep these in the same order as the table in
-      conc-plottype-datatype below. 
+      conc-plottype-datatype below.
 -->
   <varlistentry>
     <term><anchor id="text-data" xreflabel="text-data"/>text-data</term>
@@ -755,7 +755,7 @@ point, although the actual values of these will be ignored.
 
 <para>
 With data type <link linkend="data-data-xyz">data-data-xyz</link>, missing
-points are represented by an empty string for the Y value.  There still must
+points are represented by an empty string for the Y value. There still must
 be a Z value entry in the array for each missing Y, although the Z value is
 ignored.
 </para>
@@ -1155,7 +1155,7 @@ For 'text-data', the data X values are assumed to be at 0.5+N for N=0,1,2...
 </para>
 <para>
 A minimum of 2 rows (X values and corresponding Y value(s)) is required for
-this plot type.  If there are fewer than 2 rows, an empty plot will be produced.
+this plot type. If there are fewer than 2 rows, an empty plot will be produced.
 </para>
 <para>
 This plot type uses the absolute value of each supplied Y, because negative
@@ -1246,7 +1246,7 @@ A box plot uses groups of 5 or more numbers to plot a statistical summary of a
 data set.
 (This is sometimes called a <emphasis>box and whisker plot</emphasis>.)
 The first 5 Y values in each row are referred to as Ymin, YQ1, Ymid, YQ3, and
-Ymax.  By convention, these represent:
+Ymax. By convention, these represent:
   <informaltable>
     <tgroup cols="2">
       <?dbhtml table-summary="Numbers in a box plot"?>
@@ -1731,7 +1731,7 @@ This plot type draws pie charts. The pie chart can have a 3-D look or be
 drawn flat.
 By default, the first pie segment starts at 0 degrees (East, or 3:00 on an
 analog clock face) and segments go around the pie in a counter-clockwise
-direction.  (The start point and direction can be changed with
+direction. (The start point and direction can be changed with
 <xref linkend="SetPieStartAngle"/> and <xref linkend="SetPieDirection"/>.)
 Each segment can be labeled. By default, the labels show the percentage of
 each segment.
@@ -1942,7 +1942,7 @@ next data set filled solid.
 The edges of the filled area are stepped lines, as with the
 <link linkend="plottype-squared">squared</link> plot type, rather than
 straight line segments, as in the <link linkend="plottype-area">area</link>
-plot type.  The area between the last line and the
+plot type. The area between the last line and the
 X axis<footnoteref linkend="fnareaplotfill" /> is also filled.
 The data must be arranged so the values are (generally) decreasing within
 each row, because later drawn filled areas will cover previously drawn areas.
@@ -1960,7 +1960,7 @@ For 'text-data', the data X values are assumed to be at 0.5+N for N=0,1,2...
 </para>
 <para>
 A minimum of 2 rows (X values and corresponding Y value(s)) is required for
-this plot type.  If there are fewer than 2 rows, an empty plot will be produced.
+this plot type. If there are fewer than 2 rows, an empty plot will be produced.
 </para>
 <para>
 This plot type uses the absolute value of each supplied Y, because negative
@@ -1996,7 +1996,7 @@ This plot type draws filled areas between lines, similar to
 <link linkend="plottype-area">area</link> except the values are accumulated
 as in <link linkend="plottype-stackedbars">stackedbars</link> plots.
 The area between the X axis and the first data set (the line resulting from
-the first Y value from each record) is filled first.  Then the area above that
+the first Y value from each record) is filled first. Then the area above that
 line, up to the sum of the first and second Y values in each record, is
 filled next. This repeats until filling the area up to the top-most line,
 which is the sum of all the Y values from each record.
@@ -2008,7 +2008,7 @@ For 'text-data', the data X values are assumed to be at 0.5+N for N=0,1,2...
 </para>
 <para>
 A minimum of 2 rows (X values and corresponding Y value(s)) is required for
-this plot type.  If there are fewer than 2 rows, an empty plot will be produced.
+this plot type. If there are fewer than 2 rows, an empty plot will be produced.
 </para>
 <para>
 This plot type uses the absolute value of each supplied Y, because negative
@@ -2079,7 +2079,7 @@ It also does not draw any segment on the wrong side of the axis
 <para>
 Segments of length zero in a bar stack are usually ignored, but they might
 be visible if the axis is moved in the direction opposite to the bar stack
-direction.  (For example, axis is at Y=2, stack contains segment values 0
+direction. (For example, axis is at Y=2, stack contains segment values 0
 and -4; the 0 segment is drawn down from the axis at Y=2 to Y=0, followed
 by the second segment down to -4).
 </para>
@@ -2162,7 +2162,7 @@ For 'text-data', the data X values are assumed to be at 0.5+N for N=0,1,2...
 </para>
 <para>
 A minimum of 2 rows (X values and corresponding Y value(s)) is required for
-this plot type.  If there are fewer than 2 rows, an empty plot will be produced.
+this plot type. If there are fewer than 2 rows, an empty plot will be produced.
 </para>
 <para>
 This plot type uses the absolute value of each supplied Y, because negative
@@ -2519,7 +2519,7 @@ being in the range 0 to 255 inclusive, for example
     </para>
   </listitem>
 </orderedlist>
-Additional color forms can be found in <xref linkend="adv-truecolor-forms"/>. 
+Additional color forms can be found in <xref linkend="adv-truecolor-forms"/>.
 Those forms are more useful with truecolor images.
 </para>
 <note>
@@ -2632,7 +2632,7 @@ maps, as they include alternate spellings (like 'gray' and 'grey').
 
 <note>
   <para>
-You are not limited to only using colors from the color map.  The color map
+You are not limited to only using colors from the color map. The color map
 contains a list of color names that PHPlot can translate into color values,
 but you can use any color at all by specifying the color value using
 one of the numeric representations described above.
@@ -2787,7 +2787,7 @@ For more information, see <xref linkend="adv-datacolor-callback"/>.
 
 <para>
 Some plot types which only support a single data set still use multiple
-data colors, but in a way that is specific to that plot type.  This is
+data colors, but in a way that is specific to that plot type. This is
 described for each applicable plot type in <xref linkend="conc-plottypes"/>.
 For example, the 3 OHLC financial plot types use the first 4 data colors for
 different parts of the marker at each data point, as well as to indicate
@@ -2814,7 +2814,7 @@ support transparency.
 If transparency is not supported, the user will see the actual color
 which was designated as transparent (so don't use red, for example).
 Most viewers support transparency in GIF format, and newer viewers should
-support transparency in PNG format.  JPEG format does not support
+support transparency in PNG format. JPEG format does not support
 transparency.
 </para>
 </sect2>
@@ -3094,7 +3094,7 @@ instead. See <xref linkend="SetLegendColorboxBorders"/>.
     <listitem>
       <para>
 Legend text uses the general text color set with <xref linkend="SetTextColor"/>
-by default.  Starting with PHPlot-6.0.0, you can set the legend text color
+by default. Starting with PHPlot-6.0.0, you can set the legend text color
 separately with <xref linkend="SetLegendTextColor"/>.
       </para>
     </listitem>
@@ -3102,7 +3102,7 @@ separately with <xref linkend="SetLegendTextColor"/>.
     <listitem>
       <para>
 The legend outline border uses the color set with
-<xref linkend="SetGridColor"/> by default.  Starting with PHPlot-6.2.1,
+<xref linkend="SetGridColor"/> by default. Starting with PHPlot-6.2.1,
 you can set the legend outline border color separately with
 <xref linkend="SetLegendBorderColor"/>.
       </para>
@@ -3593,7 +3593,7 @@ Your formatting function will accept 1 or 2 arguments (or more - see below).
 }
 ]]></programlisting>
 The function will be called with $label set to the value of the label to be
-formatted, and is expected to return the formatted label text. $arg is a 
+formatted, and is expected to return the formatted label text. $arg is a
 pass-through argument that has whatever value you used with
 <function>SetXLabelType</function> (etc.). In the above example, this is
 $data. You need to declare this second argument in your function only if
@@ -4429,10 +4429,10 @@ produce an image, it should not produce an error image either.
 
 <para>
 If a failure occurs when error images are disabled with
-<xref linkend="SetFailureImage"/>, PHPlot will still trigger a user-level error 
+<xref linkend="SetFailureImage"/>, PHPlot will still trigger a user-level error
 condition, which will normally record the error message in the server log,
 and terminate the script. However, there will be no feedback to the user that
-the error occurred. 
+the error occurred.
 If using <literal>SetFailureImage(False)</literal> to disable error images,
 you should place this call right after creating the PHPlot object, because
 an error which occurs before the call will produce an error image.

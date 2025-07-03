@@ -20,7 +20,7 @@ Callback handler for generating an image map for a pie chart.
   NOTE: The code in this function is excluded from the license terms for
   PHPlot, the PHPlot Reference Manual, and the PHPlot Test Suite. You may
   freely copy, use, modify, and redistribute the code in this function.
-  Attribution is not necessary.  Or, to put it another way, I am placing
+  Attribution is not necessary. Or, to put it another way, I am placing
   this function in the public domain.
 
 Arguments:
@@ -50,7 +50,7 @@ by a single triangle. Larger segments will have more vertices.
     *Note: These points are actually slightly outside the circumference.
 This is done by increasing the two radius values by a small amount (2 pixels).
 This produces a better fit, for the case where we want to make sure all the
-interior is covered, even if some of the exterior is also included.  (Using
+interior is covered, even if some of the exterior is also included. (Using
 the actual radii would result in the area omitting a small part of the pie
 interior. For an image map, this would result in dead spaces.)
 

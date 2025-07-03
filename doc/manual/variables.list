@@ -1,7 +1,7 @@
 # PHPlot class member variable listing
-# $Id$
+
 # This is a manually maintained list of PHPlot class variables.
-# It is processed by a script 'gen.vardoc' to generate Docbook-xml format
+# It is processed by a script 'gen.vardoc.php' to generate Docbook-xml format
 # text for the reference manual.
 # The first non-comment line is the header, and each additional line documents
 # one variable. Each field on each line is separated by a tab.
@@ -17,10 +17,10 @@ bar_width_adjust	1	CalcBarWidths	Width of bar relative to space for one bar <lin
 bg_color		SetBackgroundColor	Color (R,G,B,A) for image background
 bgimg		SetBgImage	Background image filename
 bgmode		SetBgImage	Background image tiling mode
-boxes_frac_width	0.3	DrawBoxes	Scale factor for box widths in box plots. Default is 0.3, meaning within min and max limits the boxes will use 30% of the available space for half their width.  <link linkend="adv-tuning-boxes">(See Tuning Parameters for more)</link> (Added in PHPlot-6.1.0)
-boxes_max_width	8	DrawBoxes	Maximum half-width for boxes in box plots. Default is 8 pixels.  <link linkend="adv-tuning-boxes">(See Tuning Parameters for more)</link> (Added in PHPlot-6.1.0)
-boxes_min_width	2	DrawBoxes	Minimum half-width for boxes in box plots.  Default is 2 pixels.  <link linkend="adv-tuning-boxes">(See Tuning Parameters for more)</link> (Added in PHPlot-6.1.0)
-boxes_t_width	0.6	DrawBoxes	Ratio of the width of the 'T' ends of box plot whiskers to the width of the boxes. Default is 0.6.  <link linkend="adv-tuning-boxes">(See Tuning Parameters for more)</link> (Added in PHPlot-6.1.0)
+boxes_frac_width	0.3	DrawBoxes	Scale factor for box widths in box plots. Default is 0.3, meaning within min and max limits the boxes will use 30% of the available space for half their width. <link linkend="adv-tuning-boxes">(See Tuning Parameters for more)</link> (Added in PHPlot-6.1.0)
+boxes_max_width	8	DrawBoxes	Maximum half-width for boxes in box plots. Default is 8 pixels. <link linkend="adv-tuning-boxes">(See Tuning Parameters for more)</link> (Added in PHPlot-6.1.0)
+boxes_min_width	2	DrawBoxes	Minimum half-width for boxes in box plots. Default is 2 pixels. <link linkend="adv-tuning-boxes">(See Tuning Parameters for more)</link> (Added in PHPlot-6.1.0)
+boxes_t_width	0.6	DrawBoxes	Ratio of the width of the 'T' ends of box plot whiskers to the width of the boxes. Default is 0.6. <link linkend="adv-tuning-boxes">(See Tuning Parameters for more)</link> (Added in PHPlot-6.1.0)
 browser_cache	FALSE	SetBrowserCache	Flag: Don't send cache suppression headers
 bubbles_max_size		DrawBubbles	Max bubble size for bubbles plots <link linkend="adv-tuning-bubbles">(See Tuning Parameters for more)</link> (Added in PHPlot-5.4.0)
 bubbles_min_size	6	DrawBubbles	Min bubbles size for bubble plots <link linkend="adv-tuning-bubbles">(See Tuning Parameters for more)</link> (Added in PHPlot-5.4.0)
@@ -191,7 +191,7 @@ ttf_path	'.'	SetTTFPath	TrueType font directory
 use_ttf	FALSE	SetUseTTF	Default font type, True for TrueType, False for GD
 x_axis_position		SetXAxisPosition	Position of X axis (in world coordinates)
 x_axis_y_pixels		CalcTranslation	Device coordinate for the X axis
-x_data_label_angle		CheckLabels	Effective X data label text angle (Added in PHPlot-5.1.0) 
+x_data_label_angle		CheckLabels	Effective X data label text angle (Added in PHPlot-5.1.0)
 x_data_label_angle_u	''	SetXDataLabelAngle	X data label text angle (see also x_data_label_angle) (Added in PHPlot-6.0.0)
 x_data_label_pos		SetXDataLabelPos CheckLabels	Position of X data labels. (Default was 'plotdown', but is now applied at graph drawing time.)
 x_label_angle	0	SetXLabelAngle	X tick label text angle (and default for x_data_label_angle)
@@ -202,7 +202,7 @@ x_left_margin		CalcMargins	Calculated plot area margin - left side
 x_right_margin		CalcMargins	Calculated plot area margin - right side
 x_tick_anchor		SetXTickAnchor	X tick anchor point (Added in PHPlot-5.4.0)
 x_tick_cross	3	SetXTickCrossing	Length of X tick marks (inside plot area)
-x_tick_inc		CalcPlotAreaWorld	Effective step between X tick marks.  This is equal to x_tick_inc_u if SetXTickIncrement was used, else a calculated value.
+x_tick_inc		CalcPlotAreaWorld	Effective step between X tick marks. This is equal to x_tick_inc_u if SetXTickIncrement was used, else a calculated value.
 x_tick_inc_u	''	SetXTickIncrement	Step between X tick marks (see also x_tick_inc) (Added in PHPlot-6.0.0)
 x_tick_label_pos		SetXTickLabelPos	Position of X tick labels. (Default was 'plotdown', but is now applied at graph drawing time.)
 x_tick_length	5	SetXTickLength	Length of X tick marks (outside plot area)
@@ -225,7 +225,7 @@ y_label_left_offset		CalcMargins	Label offset relative to plot area
 y_label_right_offset		CalcMargins	Label offset relative to plot area
 y_tick_anchor		SetYTickAnchor	Y tick anchor point (Added in PHPlot-5.4.0)
 y_tick_cross	3	SetYTickCrossing	Length of Y tick marks (inside plot area)
-y_tick_inc		CalcPlotAreaWorld	Effective step between Y tick marks.  This is equal to y_tick_inc_u if SetYTickIncrement was used, else a calculated value.
+y_tick_inc		CalcPlotAreaWorld	Effective step between Y tick marks. This is equal to y_tick_inc_u if SetYTickIncrement was used, else a calculated value.
 y_tick_inc_u	''	SetYTickIncrement	Step between Y tick marks (see also y_tick_inc) (Added in PHPlot-6.0.0)
 y_tick_label_pos		SetYTickLabelPos CheckLabels	Position of Y tick labels
 y_tick_length	5	SetYTickLength	Length of Y tick marks (outside plot area)

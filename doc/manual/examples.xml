@@ -1,11 +1,9 @@
-<!-- $Id$
+<!--
      Examples chapter for PHPlot Reference Manual
 
      Notes to editors:
-         Refer to the manual source distribution README file for more
-     information on example production.
-         Try to add new examples to the end, so the numbers of the existing
-     examples do not change.
+     Refer to the manual source distribution README file for more information on example production.
+     Try to add new examples to the end, so the numbers of the existing examples do not change.
 -->
 <chapter id="examples">
 <title>PHPlot Examples</title>
@@ -18,7 +16,7 @@ This chapter contains examples of plots produced with PHPlot.
 
 <para>
 Each of the following PHPlot examples shows an image, followed by the PHP
-script which produced that image.  Each script is self-contained (needing
+script which produced that image. Each script is self-contained (needing
 only PHPlot), so you can copy it from this manual and run it with PHP to
 produce the image.
 Note that some of the scripts may require the latest version of PHPlot.
@@ -34,7 +32,7 @@ without having to modify them for stand-alone use.
 Also, by using the CLI instead of a web server and browser, you can more
 readily see any error messages.
 Run your PHPlot scripts with the PHP CLI like this (using the
-<ulink url="http://www.imagemagick.org/">ImageMagick</ulink>
+<ulink url="https://imagemagick.org/">ImageMagick</ulink>
 display program to view the results):
     <screen><![CDATA[$  php myscript.php > output.png
 $  display output.png
@@ -1015,7 +1013,7 @@ need to be sorted (as they were in the previous example).
 </para>
 <para>
 PHPlot will format the X values as dates because <xref linkend="SetXLabelType"/>
-is used to select date/time formatting.  Unlike the text-data example, this
+is used to select date/time formatting. Unlike the text-data example, this
 also lets us use <xref linkend="SetXTickIncrement"/> to control the label
 density along the X axis.
 </para>
@@ -1216,7 +1214,7 @@ Here are some examples showing the usage of <xref linkend="SetLegendPosition"/>
 to position the legend on the plot. The first two arguments ($x, $y)
 indicate a point on the legend box, relative to the legend box size, with
 (0,0) being the upper left corner, and (1,1) being the lower right corner.
-The third argument $relative_to indicates the positioning mode: image, plot, 
+The third argument $relative_to indicates the positioning mode: image, plot,
 world, or title. The next two arguments ($x_base, $y_base), along with the
 positioning mode, indicate where to place the legend point given in the
 first two arguments. The last two optional arguments ($x_offset, $y_offset)
@@ -1362,7 +1360,7 @@ tick mark or label at the X axis Y=0.
   <para>
 The script uses <xref linkend="SetPlotAreaWorld"/> to set the Y axis range
 to -3.5 to 13.5. This is used here to illustrate the need for setting a Y
-tick anchor, and the effect of setting the Y tick anchor at 0.  Without
+tick anchor, and the effect of setting the Y tick anchor at 0. Without
 <function>SetPlotAreaWorld()</function>, PHPlot-6.0.0 and later (but not
 older versions) will automatically calculate the Y range such that a tick
 mark will be at Y=0 even without <function>SetYTickAnchor(0)</function>.
@@ -1505,7 +1503,7 @@ and Z maps to the bubble diameter.
 <para>
 In this example, X is the flavor, Y is the age group, and Z represents the
 percentage of participants who liked that flavor.
-Note that there are two missing points in the Y=1 row.  No bubbles are
+Note that there are two missing points in the Y=1 row. No bubbles are
 drawn at X=3,Y=1 or X=5,Y=1.
 Presumably, no-one under 12 would try the pear or kiwi flavors, so there are
 no valid data points there. This is different from a value Z=0, which
@@ -1781,7 +1779,7 @@ Access to the data point row and column index was added in PHPlot-5.8.0.
 <title>Example - Image Map from Bar Chart</title>
 <para>
 This example produces an HTML page with an embedded image containing a bar
-chart, and an image map.  The image map makes the bars in the bar chart into
+chart, and an image map. The image map makes the bars in the bar chart into
 hotlinks. In this example, tool-tip float-over text identifies the bars and
 groups, and clicking on a bar displays the same text in an alert popup.
 These looks could be used instead to link to another web page, display data
@@ -1817,10 +1815,10 @@ an HTML page.
 <title>Example - Image Map from Pie Chart</title>
 <para>
 This example produces an HTML page with an embedded image containing a pie
-chart, and an image map.  The image map makes the pie sectors in the chart
-into hotlinks.  In this example, tool-tip text identifies the segment
+chart, and an image map. The image map makes the pie sectors in the chart
+into hotlinks. In this example, tool-tip text identifies the segment
 number and its numeric value, and clicking on a pie segment displays the
-same text in an alert popup.  These looks could be used instead to link to
+same text in an alert popup. These looks could be used instead to link to
 another web page, display data in a popup window, etc.
 </para>
 

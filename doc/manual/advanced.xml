@@ -1,4 +1,4 @@
-<!-- $Id$
+<!--
      PHPlot Advanced Programming Topics
      Note: The "callbacks" section used to be its own chapter. Other material
      was moved from the "concepts" chapter. The IDs (for cross-references) for
@@ -414,7 +414,7 @@ image file format you select.
 
 <para>
 JPEG image files are always truecolor. Whether you have a GD palette image
-or truecolor image, you will get a truecolor image file.  Note: You are
+or truecolor image, you will get a truecolor image file. Note: You are
 discouraged from using JPEG images with PHPlot, because they are not
 optimal for this type of graphical information due to use of lossy
 compression.
@@ -432,7 +432,7 @@ incorrectly state that you cannot output a GIF file from a truecolor GD image.
 
 <para>
 PNG image files support truecolor images and palette images of various
-color depths.  If you have a GD palette image, you will get a palette PNG
+color depths. If you have a GD palette image, you will get a palette PNG
 image file. If you have a GD truecolor image, you will get a truecolor PNG
 image file. Note that by default, even though PNG truecolor image files
 support an alpha channel, GD eliminates the alpha channel when producing a
@@ -532,7 +532,7 @@ image file. Starting with PHPlot-5.1.2 you can use either constructor.)
 <note>
   <para>
 The above applies only when an input file is specified to the PHPlot
-or PHPlot_truecolor constructor.  It does not apply to
+or PHPlot_truecolor constructor. It does not apply to
 an image background set with <xref linkend="SetBgImage"/>
 nor to a plot area background set with <xref linkend="SetPlotAreaBgImage"/>.
   </para>
@@ -545,8 +545,8 @@ nor to a plot area background set with <xref linkend="SetPlotAreaBgImage"/>.
 <para>
 Advanced operations on truecolor PHPlot images are possible using PHPlot
 callbacks. See <xref linkend="callbacks"/> for more information about using
-callbacks.  Here are some of the operations you can perform, and the
-corresponding GD functions.  Refer to the GD section of the PHP Manual for
+callbacks. Here are some of the operations you can perform, and the
+corresponding GD functions. Refer to the GD section of the PHP Manual for
 more information on these functions.
 </para>
 <note>
@@ -715,9 +715,9 @@ Either a function name or an object and method can be registered as
 a callback with <xref linkend="SetCallback"/>.
 For more information about using callbacks with objects and methods,
 see the PHP manual under
-<ulink url="http://www.php.net/manual/en/language.pseudo-types.php#language.types.callback">Types, Pseudo Types, Callback</ulink>
+<ulink url="https://www.php.net/manual/en/language.pseudo-types.php#language.types.callback">Types, Pseudo Types, Callback</ulink>
 and the documentation for the PHP
-<ulink url="http://www.php.net/manual/en/function.call-user-func.php ">call_user_func</ulink>
+<ulink url="https://www.php.net/manual/en/function.call-user-func.php ">call_user_func</ulink>
 function.
 Also refer to <xref linkend="callbacks-objects"/> later in this manual.
 Whether calling a function or an object method as a callback,
@@ -774,7 +774,7 @@ PHPlot-5.1.0 and later.)
 </para>
 
 <para>
-Some callbacks are expected to return a value. This is documented in 
+Some callbacks are expected to return a value. This is documented in
 <xref linkend="callbacks-names"/>. In all other cases, the return value
 from a callback function is ignored.
 (Callbacks which return a value were implemented in PHPlot-5.1.3.)
@@ -1021,7 +1021,7 @@ displays the plot area using the internal PHPlot class variable plot_area.
   <note>
     <para>
 PHPlot version 6.1.0 and earlier used the class name as the constructor
-method name, as required in PHP4.  This was deprecated in PHP7.
+method name, as required in PHP4. This was deprecated in PHP7.
 Earlier versions of this reference manual used
 <literal>$this->PHPlot(...)</literal> to call the parent constructor.
 This will not work with PHPlot after version 6.1.0 when the constructor
@@ -1076,7 +1076,7 @@ will be explained in more detail.
 </para>
 
 <para>
-The emphasis here is on using callbacks, but annotation is also possible 
+The emphasis here is on using callbacks, but annotation is also possible
 without callbacks.
 You can use <xref linkend="SetPrintImage"/>(False) to disable automatic
 output of your image. Then, when <xref linkend="DrawGraph"/> returns, you
@@ -1394,7 +1394,7 @@ because each color in the color array is only used once.
 <para>
 To customize the use of data colors, you will define a function that
 accepts as arguments the data array row and column index numbers (0-based
-integers), and returns the color array index.  Register this function with
+integers), and returns the color array index. Register this function with
 PHPlot as a callback, and your function will be called whenever PHPlot
 needs to select a data color.
 </para>
@@ -1534,16 +1534,16 @@ coordinate space to device coordinate space. The world coordinates of the
 data points are generally in real-world units, such as kilometers, seconds,
 degrees centigrade, etc. Device coordinates are pixels in an image file,
 display screen, or paper hardcopy. PHPlot knows the pixel coordinates of
-the limits of the plot area in device space.  In order to translate data
+the limits of the plot area in device space. In order to translate data
 points from world coordinates into pixel coordinates, it needs to know the
-limits of world coordinate space.  These can be provided manually, or
+limits of world coordinate space. These can be provided manually, or
 computed by PHPlot.
 </para>
 
 <para>
 The limits of world coordinate space are the end-points of the X and Y axis
-lines.  The two end-points of an axis are also referred to as the plot
-range along that axis.  Each of those plot ranges is divided into uniformly
+lines. The two end-points of an axis are also referred to as the plot
+range along that axis. Each of those plot ranges is divided into uniformly
 sized tick intervals, which may or may not be marked by visible tick marks.
 The space between tick marks is called the tick increment. PHPlot will
 calculate a suitable tick increment if necessary.
@@ -1565,11 +1565,11 @@ This section does not apply to pie charts, which do not have X or Y axis lines.
 <para>
 If you use <xref linkend="SetPlotAreaWorld"/> to set both
 <varname>Xmin</varname> and <varname>Xmax</varname> to non-NULL values,
-this will fix both ends of the X axis.  Similarly, setting both
+this will fix both ends of the X axis. Similarly, setting both
 <varname>Ymin</varname> and <varname>Ymax</varname> to non-NULL values
 will fix both ends of the Y axis.
 If you set both ends of an axis, PHPlot will use exactly that for the plot
-range on that axis.  This is recommended if your data has a range which is
+range on that axis. This is recommended if your data has a range which is
 known, predictable, and/or 'natural'. For example, if your Y axis represents
 percentage values from 0 to 100, you might use this to fix the Y axis ends:
 
@@ -1806,7 +1806,7 @@ to balance two conflicting goals:
   <itemizedlist>
     <listitem>
       <para>
-Including zero in the data range improves the utility of plots, 
+Including zero in the data range improves the utility of plots,
 as it facilitates comparing relative changes and differences.
       </para>
     </listitem>
@@ -2197,7 +2197,7 @@ These methods are described in more detail above.
 <para>
 By default, PHPlot will automatically decide which method to use.
 It will use the <literal>'date'</literal> method if the corresponding axis
-tick labels use date/time formatting (as set with 
+tick labels use date/time formatting (as set with
 <xref linkend="SetXLabelType"/><literal>('time')</literal> or
 <xref linkend="SetYLabelType"/><literal>('time')</literal>).
 Otherwise is will use the <literal>'decimal'</literal>  method.
@@ -3077,7 +3077,7 @@ other applicable settings.
     </listitem>
     <listitem>
       <para>
-Use <literal>$plot->DrawGraph()</literal> when complete. 
+Use <literal>$plot->DrawGraph()</literal> when complete.
 This creates the plot, but does not produce any output.
       </para>
     </listitem>
@@ -3571,7 +3571,7 @@ See <xref linkend="adv-streaming-performance"/> below for more information.
 
 <para>
 PHPlot produces streaming plots using
-<ulink url="http://en.wikipedia.org/wiki/Motion_Jpeg">Motion JPEG</ulink>
+<ulink url="https://en.wikipedia.org/wiki/Motion_JPEG">Motion JPEG</ulink>
 (M-JPEG), specifically Streaming M-JPEG over HTTP.
 This method (which is not a standard) sends a series of JPEG images,
 with appropriate MIME headers, in a stream to the browser or viewer.
@@ -3717,7 +3717,7 @@ For frame timing, you can use the PHP functions <function>microtime()</function>
 and <function>time_sleep_until()</function>.
 Call <literal>microtime(TRUE)</literal> once, to get a
 precise timestamp as a floating point number. Then, within your main loop,
-use <literal>time_sleep_until($timestamp)</literal> to put your script to 
+use <literal>time_sleep_until($timestamp)</literal> to put your script to
 sleep until the time to start of the next frame.
 </para>
 
@@ -4435,7 +4435,7 @@ Here is an example of generating one area in an image map from a bubbles
 plot. You must provide the URL, alternate text, and
 optionally a title (tooltip text).  This appends the image map line to a
 string.  sprintf() is used to convert the coordinates to integers for
-cleaner HTML. 
+cleaner HTML.
 <programlisting><![CDATA[$coords = sprintf("%d,%d,%d", $x, $y, $diam / 2);
 $image_map .= "  <area shape=\"circle\" coords=\"$coords\""
             . " title=\"$title_text\" alt=\"$alt_text\" href=\"$url\">\n";

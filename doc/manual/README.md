@@ -1,89 +1,51 @@
-This is the README for the PHPlot Reference Manual source
-Last updated on 2015-10-30
------------------------------------------------------------------------------
+## README for the PHPlot Reference Manual source
+
+Last updated on 2025-7-2
 
 This directory contains the DocBook-XML source files for the PHPlot Reference
-Manual. That is, it contains the files you need to build the manual.  You also
-need the appropriate tools.  The manual is written with DocBook, using the XSL
+Manual. That is, it contains the files you need to build the manual. You also
+need the appropriate tools. The manual is written with DocBook, using the XSL
 style sheets, so you need the DocBook XSL style sheets and associated tools.
 
 This README is intended for authors, editors, and maintainers of the manual,
 or anyone who wants to know how the manual is created and built.
 
 
-List of files:
+### List of files:
 
-  ChangeLog           Record of changes to the manual
-  Makefile            Makefile for building the manual
-  README              This file
-  etc/                Extra files, includes scripts for non-example images
-  examples/           Directory of self-producing examples
-  style.xsl           XSL style sheet for producing XHTML output
+  etc/                Extra files, php scripts used for non-example images
+  examples/           Directory of "self-producing" examples
   images/             Image files, other than examples
   main.xml            Main source file for the manual
-  *.xml               Other source files for the manual
-  phplotdoc.css       HTML style sheet for the manual
-  variables.list      Internal class variables documentation source file
-  gen.vardoc          Script to turn variables.list into DocBook-XML
+  *.xml               Source files for the manual's chapters
+  ChangeLog           Record of old changes to the manual (recent changes are only in the git log on Github)
+  gen.vardoc.php      Script to turn variables.list into DocBook XML
   pdf.xsl             XSL style sheet for producing PDF output
+  phplotdoc.css       HTML style sheet for the manual
+  README.md           This file
+  style.xsl           XSL style sheet for producing XHTML output
+  taskfile            Shell script for building the manual
+  variables.list      Internal class variables documentation source file
 
-Not included:
-  phplot.php          Link to the version of PHPlot used for example files
 
+### Tools:
 
-Tools:
-
-I use the following tools and versions to produce the XHTML version of the
+The following tools and versions are installed and used by the taskfile to produce the XHTML and PDF versions of the
 manual. Other versions may work too.
 
-   DocBook XSL Style Sheets docbook-xsl-1.78.1
-   xsltproc from libxsltproc-1.1.28 and libxml2-2.9.1
-   PHP (CLI) and PHPlot are needed to produce the example figures.
-     PHP is also used to generate the table in the Variables chapter.
-
-The following additional tool is used to produce the PDF version of the
-manual:
-   Apache FOP (Formatting Objects Processor) fop-2.0
+   DocBook XSL Style Sheets docbook-xsl-1.79.2
+   Apache FOP from ubuntu/debian repositories
+   xsltproc from ubuntu/debian repositories
+   PHP (CLI) is needed to produce the example figures.
+   PHP is also used to generate the table in the Variables chapter.
 
 
-Makefile:
+### Taskfile:
 
-There are some configurable macros at the top of the Makefile which you may
-need to change for your installation. Primarily, PHP must be set to the
-path to your PHP CLI interpreter to create the examples (see below). For
-example:    PHP=/opt/php/bin/php
-
-There are additional symbols pointing to the executables such as xsltproc.
-
-The manual sources assume your system has a working XML catalog system
-which can be used to find the DocBook DTD and XSL style sheets. If not, you
-will need to edit the manual sources: main.xml and the *.xsl style sheets.
+(this section is yet to be updated...)
 
 
-The Makefile has the following targets:
-
-  "make html" creates the HTML files (in the current directory).
-  "make release" makes a ZIP file containing the HTML and associated files
-    for the manual.
-    When unzipped, it will make a directory phplotdocs/ containing all
-    the files, with index.html being the starting point.
-    This is used to build the release file which is uploaded to Sourceforge
-    for download.
-  "make install" builds (if necessary) the HTML files, and then copies them
-    and the images and stylesheet to a directory named by the DESTDIR
-    variable.
-    This is used to create a working copy of the manual outside of the
-    Subversion work area, and to stage the manual for uploading (via rsync) to
-    Sourceforge where it can be viewed on-line (see "make sfhtml" below).
-  "make clean" deletes some intermediate files, but leaves the manual output.
-  "make allclean" deletes every generated file.
-  "make sfhtml" makes a special HTML version of the manual for the
-    PHPlot web site on Sourceforge.net (which requires their logo on
-    each page).
-  "make pdf" creates the PDF version of the manual.
-
-
-Example Figure Production:
+### Example Figure Production:
 
 The method for producing the examples requires some explanation. The goal
 is to be sure the example figures in the manual are precisely generated by
@@ -92,26 +54,20 @@ which generate the example figures are provided. The PHP CLI is used to
 create the images. Note that the PHP CLI never outputs HTTP headers, so
 SetIsInline(True) is not needed.
 
-The Makefile automatically makes two files from each PHP script (*.php). An
+The taskfile automatically makes two files from each PHP script (*.php). An
 image file (*.png or *.jpg) is created using PHPlot, and a text file
 (*.xml) is created by wrapping the PHP script in CDATA markers inside a
-programlisting element.  The image file and the text file are included into
+programlisting element. The image file and the text file are included into
 the manual to form the example figure and the source code which generates
-it.  So you need a working installation of PHPlot, with phplot.php found on
-the PHP include path, in order for this to work.
+it.
 
-The Makefile contains a list of the examples scripts, and a list of the
+The taskfile contains a list of the examples scripts, and a list of the
 image files they need to produce when run. (The Makefile used to do this
 with a wildcard on examples/*.php and assumed each script made a PNG file,
 but that no longer works as JPEGs are also possible.)
 
-Note: It is important to use the right version of PHPlot to make the
-examples. (Otherwise, people may try an example and it won't work.) To
-ensure a known version, make a link from this directory (where Makefile is)
-to the version of phplot.php which is to be used.
 
-
-Style Notes:
+### Style Notes:
 
 Writing XML or SGML for DocBook can be a challenge and a chore. I've adopted a
 compromise position on indenting text and markup. Generally, I indent markup
@@ -122,50 +78,51 @@ far to the right, and also I feel that extremely long indent blocks don't
 really help anyone see the structure. For example, I might write <chapter>,
 <sect1>, and the top-level <para>s of the section all flush against the left
 margin. The other oddity of my XML/SGML, and the one most noticeable, is that
-while I indent tags, I usually don't indent text.  In my opinion, it is just
+while I indent tags, I usually don't indent text. In my opinion, it is just
 not worth the difficulty typing and editing blocks of indented text.
 So you will see writing like this:
-
-|<itemizedlist>
-|  <listitem>
-|    <para>
-|A color name, ...
-|    </para>
-|  </listitem>
+```
+<itemizedlist>
+  <listitem>
+    <para>
+A color name, ...
+    </para>
+  </listitem>
+```
 I'm not saying this is the best way to write XML or SGML, just trying to
 explain a little about how I do it and that it isn't completely random.
 
 
-XML vs SGML:
+### XML vs SGML:
 
 The first versions of this manual were written in DocBook SGML and
 converted with DSSSL stylesheet processing tools. The current version
 is in XML and is processed with XSLT tools.
 
 
-HTML vs XHTML:
+### HTML vs XHTML:
 
 The selection of an XSL style sheet determines the output format: HTML or
 XHTML. Because the XHTML output is more standards-compliant, XHTML was
 chosen. The output should display properly in all modern browsers.
 
 
-Member Variables documentation:
+### Member Variables documentation:
 
 There is a table in the Member Variables chapter with information about
-all of the PHPlot class variables. The information about the variables is
+all the PHPlot class variables. The information about the variables is
 maintained in the tab-separated text file 'variables.list'. This is converted
-by the Makefile into a DocBook-XML file 'variablelist.xml', which is included
-into the manual. The conversion is done using a short PHP script 'gen.vardoc'.
+by the taskfile into a DocBook-XML file 'variables_list.xml', which is included
+into the manual. The conversion is done using a short PHP script `gen.vardoc.php`.
 
 
-PDF Output:
+### PDF Output:
 
 Efforts toward producing a PDF version of the manual were restarted in
 August 2010. Although the result is usable, the HTML version of the manual
 is still considered to be of a higher quality than the PDF version. Some of
 this is due to constraints imposed by the need of PDF to break a document
-into equal sized pages.  Some of the problem areas in PDF are:
+into equal sized pages. Some of the problem areas in PDF are:
   + Images are scaled in order to fit on the pages. You can zoom
     in with your PDF reader to get a better view.
   + Table column width settings are incompatible between HTML and PDF
@@ -173,7 +130,7 @@ into equal sized pages.  Some of the problem areas in PDF are:
 A great deal of effort went in to modifying the XML manual sources in order
 to produce PDF, while trying to have little or no impact on the HTML manual.
 
-The XSL stylesheet pdf.xsl contains work-arounds and parameter adjustments
+The XSL stylesheet pdf.xsl contains workarounds and parameter adjustments
 for PDF output. It includes the following:
 
  + xref links are changed to underline and blue. (By default, there is no
