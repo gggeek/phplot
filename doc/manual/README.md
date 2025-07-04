@@ -2,10 +2,9 @@
 
 Last updated on 2025-7-2
 
-This directory contains the DocBook-XML source files for the PHPlot Reference
-Manual. That is, it contains the files you need to build the manual. You also
-need the appropriate tools. The manual is written with DocBook, using the XSL
-style sheets, so you need the DocBook XSL style sheets and associated tools.
+This directory contains the DocBook-XML source files for the PHPlot Reference Manual. That is, it contains the files 
+you need to build the manual. The manual is written in DocBook XML, and the HTML and PDF versions are built using the 
+DocBook XSL style sheets.
 
 This README is intended for authors, editors, and maintainers of the manual,
 or anyone who wants to know how the manual is created and built.
@@ -28,21 +27,46 @@ or anyone who wants to know how the manual is created and built.
   variables.list      Internal class variables documentation source file
 
 
-### Tools:
+## Building the documentation
 
-The following tools and versions are installed and used by the taskfile to produce the XHTML and PDF versions of the
-manual. Other versions may work too.
+The recommended way to set up those tools and build the manual is by executing the provided taskfile within a Container,
+running a recent version of either Debian or Ubuntu (other OS might work, but have not been tested).
 
-   DocBook XSL Style Sheets docbook-xsl-1.79.2
-   Apache FOP from ubuntu/debian repositories
-   xsltproc from ubuntu/debian repositories
-   PHP (CLI) is needed to produce the example figures.
-   PHP is also used to generate the table in the Variables chapter.
+Example command which does everything in one shot:
+
+    docker exec --rm -it -v .:/var/www/phplot ubuntu:noble /var/www/phplot/doc/taskfile build_from_scratch
+
+Note: the above command takes a lot of time, as it installs within the Container all the required tools before
+starting the generation of the documentation. If you are planning to generate the documentation more than once,
+you are better off persisting the Container for further usages.
+
+Note: it is also possible to use the taskfile to build the documentation without using containers. In that case,
+the required tools, listed below, will (have to) be installed on your computer. 
 
 
 ### Taskfile:
 
-(this section is yet to be updated...)
+The taskfile is a shell script replacing the Makefile of old. It can be used to carry out a series of tasks.
+
+__(this section is yet to be updated...)__
+
+
+### Required tools (manual installation):
+
+The following tools are used to produce the XHTML and PDF versions of the manual, and the API docs.
+
+   DocBook XSL Style Sheets docbook-xsl-1.79.2
+   Apache FOP
+   xsltproc
+   PHPDocumentor - used to generate the API docs from source code
+   PHP (CLI) with the following extensions: ... 
+
+The taskfile `setup_tools` task can be used to automatically install all of them, provided you are on a Debian or Ubuntu
+OS.
+
+Instead of using the taskfile `setup_tools` task to set them up for you, you can also install them manually within your
+environment. Then, set the appropriate value to environment variables PHP, PHPDOCUMENTOR, XSLTPROC, FOP before
+running the taskfile. 
 
 
 ### Example Figure Production:
@@ -123,23 +147,23 @@ August 2010. Although the result is usable, the HTML version of the manual
 is still considered to be of a higher quality than the PDF version. Some of
 this is due to constraints imposed by the need of PDF to break a document
 into equal sized pages. Some of the problem areas in PDF are:
-  + Images are scaled in order to fit on the pages. You can zoom
-    in with your PDF reader to get a better view.
-  + Table column width settings are incompatible between HTML and PDF
-    processing.
+* Images are scaled in order to fit on the pages. You can zoom
+  in with your PDF reader to get a better view.
+* Table column width settings are incompatible between HTML and PDF
+  processing.
 A great deal of effort went in to modifying the XML manual sources in order
 to produce PDF, while trying to have little or no impact on the HTML manual.
 
 The XSL stylesheet pdf.xsl contains workarounds and parameter adjustments
 for PDF output. It includes the following:
 
- + xref links are changed to underline and blue. (By default, there is no
+* xref links are changed to underline and blue. (By default, there is no
 way to visually identify links within the document, and the PHPlot manual
 has a lot of internal links.)
- + Tables are framed with borders
- + Variablelists (definition lists) are displayed as blocks. The default is
+* Tables are framed with borders
+* Variablelists (definition lists) are displayed as blocks. The default is
 to make a 2 column table which does not work at all with long definitions.
- + A new element <pagebreak/> is defined to force a page break. It would be
+* A new element <pagebreak/> is defined to force a page break. It would be
 better to never have to use this, but it seems hard to avoid. It is currently
 only used in the Examples chapter, to make each example start on a new page
 while still allowing them to span pages.

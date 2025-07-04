@@ -146,8 +146,8 @@ EXAMPLES_IMAGES="examples/annotate.png \
 
 ###
 
-# @todo refactor the tool-setup logic: if user defined a path to the tool executable, do not install it. If the tool
-# @todo executable env var is empty, install it and set the value
+# @todo Refactor the tool-setup logic: if user defined a path to the tool executable, do not install it. If the tool
+# @todo executable env var is empty, check ifit is available using `which`. If not available, install it and set the value
 # install the tools required to build the docs
 function setup_tools() {
     sudo=
@@ -225,7 +225,13 @@ function setup_tools() {
     #fi
 }
 
-# builds the complete documentation (including the zip archives)
+# builds the complete documentation (including the zip archives), starting with tool setup
+function build_from_scratch() {
+    setup_tools
+    build
+}
+
+# builds the complete documentation (including the zip archives). Does not set up the required tools
 function build() {
     build_apidocs
     build_manual
@@ -370,25 +376,25 @@ function build_manual_cleanup() {
 }
 
 # creates a zip file for all docs (api docs, manual in html format, manual as pdf)
-create_archives() {
+function create_archives() {
     create_apidocs_archive
     create_manual_html_archive
     create_manual_pdf_archive
 }
 
 # creates a zip file of the api docs
-create_apidocs_archive() {
+function create_apidocs_archive() {
     (cd "${BUILD_DIR}/doc"; zip -9 -r phplot_api_docs.zip api)
 }
 
 # creates a zip file of the manual in html format
-create_manual_html_archive() {
+function create_manual_html_archive() {
     build_manual_cleanup
     (cd "${BUILD_DIR}/doc"; zip -9 -r phplot_manual_html.zip manual)
 }
 
 # creates a zip file of the manual in pdf format
-create_manual_pdf_archive() {
+function create_manual_pdf_archive() {
     (cd "${BUILD_DIR}/doc"; zip -9 phplot_manual_pdf.zip phplot_manual.pdf)
 }
 
