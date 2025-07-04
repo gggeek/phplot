@@ -19,11 +19,14 @@ See NEWS_part1.txt for older release documentation.
 
 ### Bugs Fixed:
 
-* The php files in `src/contrib` have been fixed to use the correct namespace for class `phplot`
+* The php files in `src/contrib/` have been fixed to use the correct namespace for class `phplot`
+
+* The php files in `doc/manual/` have been fixed to use the correct namespace for class `phplot` and include directory
 
 ### New features
 
-(none)
+* The documentation is now automatically built on every release of a tagged version, and automatically uploaded to
+  the phplot website, hosted on github pages
 
 
 ## 2023-08-15 Release 8.0.0.2
