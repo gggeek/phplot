@@ -266,11 +266,13 @@ function build_manual_setup() {
     #else
     #    # @todo decide: either we should clean the existing dir or abort if it is not empty
     fi
+
     # build the manual out of a copy - it is easier than setting up proper indirect paths, or .gitignore rules
     cp -R doc/manual/* "${BUILD_DIR}/doc/manual"
     cp -R src/*.php "${BUILD_DIR}/src"
 
     # create xml entities out of examples source code, as well as an 'index' xml file listing them
+    echo "Generating xml entity files from the examples scripts..."
     echo "<!-- Automatically generated: entity list file -->" > "${BUILD_DIR}/doc/manual/examples_list.xml"
     for file in $EXAMPLES_PHP; do
         if [ ! -f "${BUILD_DIR}/doc/manual/${file}" ]; then
@@ -278,20 +280,17 @@ function build_manual_setup() {
             exit 1
         fi
         target_file="${BUILD_DIR}/doc/manual/${file/.php/.xml}"
-#echo "${BUILD_DIR}/doc/manual/${file} >> ${target_file}"
         echo -n '<programlisting><![CDATA[' > "${target_file}"
-        # @todo can we add colorizing to the source code? See f.e. how phpxmlrpc used to do it in v3!
         cat "${BUILD_DIR}/doc/manual/${file}" >> "${target_file}"
         echo -n ']]></programlisting>' >> "${target_file}"
 
         entity=${file/.php/}
         entity=${entity/examples\//}
         echo "<!ENTITY ${entity} SYSTEM \"${file/.php/.xml}\">" >> "${BUILD_DIR}/doc/manual/examples_list.xml"
-
-#cat "${BUILD_DIR}/doc/manual/examples_list.xml"
     done
 
     # create images out of examples
+    echo "Generating images out of examples scripts..."
     for file in $EXAMPLES_IMAGES; do
         source_file="${BUILD_DIR}/doc/manual/${file/.png/.php}"
         source_file="${source_file/.jpg/.php}"
@@ -305,6 +304,7 @@ function build_manual_setup() {
     done
 
     # generate the variables list
+    echo "Generating the variables_list entity file from variables.list..."
     ${PHP} "${BUILD_DIR}/doc/manual/gen.vardoc.php" < "${BUILD_DIR}/doc/manual/variables.list" > "${BUILD_DIR}/doc/manual/variables_list.xml"
 }
 
@@ -314,8 +314,10 @@ function build_manual_html() {
         build_manual_setup
     fi
 
+    echo "Generating the html version of the manual..."
     (cd "${BUILD_DIR}/doc/manual"; ${XSLTPROC} ${XSLTPROCFLAGS} style.xsl main.xml)
     # highlight the source code in the generated html
+    echo "Highlighting php syntax of the examples within the generated html pages..."
     ${PHP} doc/manual/highlight.php "${BUILD_DIR}/doc/manual"
 }
 
@@ -328,29 +330,43 @@ function build_manual_pdf() {
     # This uses xsltproc for the XML to FO conversion, even though fop can do that, because fop gives
     # useless messages if it does the XML processing ("context not available").
     # Also xsltproc is better about using XML catalogs.
+    echo "Transforming the manual source xml to xml-fo"
     (cd "${BUILD_DIR}/doc/manual"; ${XSLTPROC} pdf.xsl main.xml > manual.fo.xml)
     # @todo Usage of xmllint seems not necessary at all, so it was disabled to speed up the build. We could allow
     #       the user to trigger it manually as it is a helpful debugging tool when developing the stylesheets
     #${XMLFORMAT} "${BUILD_DIR}/doc/manual/manual.fo.xml" > "${BUILD_DIR}/doc/manual/manual.ffo.xml"
+
+    # work around buggy java installations which result in FOP saying `JVM flavor 'sun' not understood`
+    if [ -f /usr/lib/java-wrappers/java-wrappers.sh ]; then
+        . /usr/lib/java-wrappers/java-wrappers.sh
+        find_java_runtime
+        if [ -n "$JAVA_HOME" ]; then
+            export JAVA_HOME="$JAVA_HOME"
+        fi
+        if [ -n "$JAVA_CMD" ]; then
+            export JAVA_CMD="$JAVA_CMD"
+        fi
+    fi
+
+    # @todo the php source code is not colorized in the pdf version of the manual
+
+    echo "generating the pdf manual from the xml-fo file..."
     ${FOP} -catalog -fo "${BUILD_DIR}/doc/manual/manual.fo.xml" -pdf "${BUILD_DIR}/doc/phplot_manual.pdf"
 }
 
 # remove all non-final-output files from the directory where the html manual is built
 function build_manual_cleanup() {
-    # @todo find  a better way to implement `delete files/dirs if they exist` without giving warnings
-    set +e
-    rm "${BUILD_DIR}/doc/manual/"*.xml
-    rm "${BUILD_DIR}/doc/manual/"*.xsl
-    rm "${BUILD_DIR}/doc/manual/"*.php
-    rm "${BUILD_DIR}/doc/manual/"*.md
-    rm "${BUILD_DIR}/doc/manual/"*.list
-    rm "${BUILD_DIR}/doc/manual/.ispell_words"
-    rm -rf "${BUILD_DIR}/doc/manual/etc"
-    rm "${BUILD_DIR}/doc/manual/examples/"*.md
-    rm "${BUILD_DIR}/doc/manual/examples/"*.php
-    rm "${BUILD_DIR}/doc/manual/examples/"*.xml
-    rm "${BUILD_DIR}/doc/manual/examples/geese.jpg"
-    set -e
+    rm -fv "${BUILD_DIR}/doc/manual/"*.xml
+    rm -fv "${BUILD_DIR}/doc/manual/"*.xsl
+    rm -fv "${BUILD_DIR}/doc/manual/"*.php
+    rm -fv "${BUILD_DIR}/doc/manual/"*.md
+    rm -fv "${BUILD_DIR}/doc/manual/"*.list
+    rm -fv "${BUILD_DIR}/doc/manual/.ispell_words"
+    rm -rfv "${BUILD_DIR}/doc/manual/etc"
+    rm -fv "${BUILD_DIR}/doc/manual/examples/"*.md
+    rm -fv "${BUILD_DIR}/doc/manual/examples/"*.php
+    rm -fv "${BUILD_DIR}/doc/manual/examples/"*.xml
+    rm -fv "${BUILD_DIR}/doc/manual/examples/geese.jpg"
 }
 
 # creates a zip file for all docs (api docs, manual in html format, manual as pdf)
