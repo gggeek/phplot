@@ -1,13 +1,14 @@
 <?xml version='1.0'?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<!-- Docbook XML Style sheet the for PHPlot Reference Manual -->
+<xsl:stylesheet version='1.0'
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 xmlns:xlink='http://www.w3.org/1999/xlink'
-                exclude-result-prefixes="xlink"
-                version='1.0'>
+                xmlns:doc='http://docbook.org/ns/docbook'
+                exclude-result-prefixes="xlink">
 
-<!-- Docbook XML Style sheet for PHPlot Reference Manual -->
 <!-- Load the DocBook XML Style sheet for FO (Format Objects).
-     These files are downloaded via task `setup_tools`
+     These files are generally downloaded via task `setup_tools`
 -->
 <xsl:import href="../../docbook-xsl/fo/docbook.xsl"/>
 
@@ -65,7 +66,7 @@
 <xsl:param name="table.frame.border.thickness">1.5pt</xsl:param>
 <xsl:param name="default.table.frame">all</xsl:param>
 
-<!-- Supress warnings on certain fonts -->
+<!-- Suppress warnings on certain fonts -->
 <xsl:param name="symbol.font.family"></xsl:param>
 
 <!-- Display variablelists as "blocks", so the long defs flow better. -->
@@ -76,7 +77,7 @@
      (which does not seem available). For those cases where dbfo keep-together
      isn't helpful, there is no choice but to force a page break.
 -->
-<xsl:template match="pagebreak">
+<xsl:template match="doc:pagebreak">
   <fo:block break-before="page"></fo:block>
 </xsl:template>
 

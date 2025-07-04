@@ -1,17 +1,18 @@
 <?xml version='1.0'?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                version='1.0'
-                xmlns="http://www.w3.org/TR/xhtml1/transitional"
+<!-- Docbook XML Style sheet for the PHPlot Reference Manual -->
+<xsl:stylesheet version='1.0'
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:doc='http://docbook.org/ns/docbook'
+                xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="#default">
-<!-- Docbook XML Style sheet for PHPlot Reference Manual -->
 
 <!-- Load the DocBook XML Style sheet for separate (chunked) XHTML files.
-     These files are downloaded via task `setup_tools`
+     These files are generally downloaded via task `setup_tools`
 -->
 <xsl:import href="../../docbook-xsl/xhtml/chunk.xsl"/>
 
-<!-- Encoding now defaults to utf-8; change it back to "normal". -->
-<xsl:param name="chunker.output.encoding" select="'ISO-8859-1'" />
+<!-- Was: Encoding now defaults to utf-8; change it back to "normal". -->
+<!--<xsl:param name="chunker.output.encoding" select="'ISO-8859-1'" />-->
 
 <!-- Use meaningful output filenames -->
 <xsl:param name="use.id.as.filename" select="'1'" />
@@ -82,10 +83,10 @@ area.</p></div>
 <!-- Ignore scaling on images, which are there to fix PDF rendering. -->
 <xsl:param name="ignore.image.scaling" select="1"></xsl:param>
 
-<!-- This is used with FOP (PDF output) only, to help pagination.
+<!-- This tag is used with FOP (PDF output) only, to help pagination.
      It does nothing for XHTML.
 -->
-<xsl:template match="pagebreak">
+<xsl:template match="doc:pagebreak">
 </xsl:template>
 
 </xsl:stylesheet>
