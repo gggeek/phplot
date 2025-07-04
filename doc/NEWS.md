@@ -17,7 +17,7 @@ See NEWS_part1.txt for older release documentation.
 
 ### Bugs Fixed:
 
-(none)
+* All PHP warnings emitted on PHP versions from 8.0 to 8.4 have been squashed
 
 ### New features
 
