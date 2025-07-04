@@ -14,7 +14,7 @@ PHP="${PHP:-/usr/bin/php}"
 # XSL Transformation Processor program:
 XSLTPROC="${XSLTPROC:-xsltproc}"
 # XML formatting
-XMLFORMAT="${XMLFORMAT:-xmllint -format}"
+#XMLFORMAT="${XMLFORMAT:-xmllint -format}"
 # Apache FOP program:
 FOP="${FOP:-/usr/bin/fop}"
 
@@ -146,13 +146,15 @@ EXAMPLES_IMAGES="examples/annotate.png \
 
 ###
 
-# install the tools required to build the docs
 # @todo refactor the tool-setup logic: if user defined a path to the tool executable, do not install it. If the tool
 # @todo executable env var is empty, install it and set the value
+# install the tools required to build the docs
 function setup_tools() {
     sudo=
     if [ "$(id -u)" != "0" ]; then
-        sudo="sudo --preserve-env=GITHUB_ACTIONS DEBIAN_FRONTEND=noninteractive"
+        sudo='sudo --preserve-env=GITHUB_ACTIONS DEBIAN_FRONTEND=noninteractive'
+    else
+        export DEBIAN_FRONTEND=noninteractive
     fi
 
     $sudo apt-get -y update
@@ -164,13 +166,13 @@ function setup_tools() {
     fi
 
     # git, curl, gpg are needed by phive, used to install phpdocumentor
-    # phive nowadays requires ext-mbstring and ext-curl
+    # phive nowadays requires ext-mbstring, ext-xml and ext-curl
     # fonts-dejavu are used by the php examples in the manual
     # @todo besides php-cli, are there other php extensions used by phpdocumentor that we should make sure are onboard?
     #       The list at https://packagist.org/packages/phpdocumentor/phpdocumentor says: php: ^8.1, ext-ctype, ext-hash,
     #       ext-iconv, ext-json, ext-mbstring, ext-simplexml, ext-xml
     $sudo apt-get install -y \
-        curl fonts-dejavu git gpg unzip zip "${PHPPKG}" "${PHPPKG/cli/curl}" "${PHPPKG/cli/gd}" "${PHPPKG/cli/mbstring}"
+        curl fonts-dejavu git gpg unzip zip "${PHPPKG}" "${PHPPKG/cli/curl}" "${PHPPKG/cli/gd}" "${PHPPKG/cli/mbstring}" "${PHPPKG/cli/xml}"
 
     # Install phpdocumentor and the docbook xslt using Composer
     # Sadly this method, as of 2023/1, does not allow installing version 3.3.0 and later
@@ -196,9 +198,6 @@ function setup_tools() {
     if [ -L "${BUILD_DIR}/phpDocumentor" ]; then mv "${BUILD_DIR}/phpDocumentor" "${BUILD_DIR}/phpdocumentor"; fi
 
     # Install the DocBook xslt
-    if [ ! -d "${BUILD_DIR}/doc/manual" ]; then
-        mkdir -p "${BUILD_DIR}/doc/manual"
-    fi
     if [ ! -d "${BUILD_DIR}/docbook-xsl" ]; then
         curl -fsSL -o "${BUILD_DIR}/dbx.zip" "https://github.com/docbook/xslt10-stylesheets/releases/download/release/1.79.2/docbook-xsl-1.79.2.zip"
         (cd "${BUILD_DIR}"; unzip dbx.zip)
@@ -208,7 +207,7 @@ function setup_tools() {
 
     # FOP toolchain
     $sudo apt-get install -y \
-        default-jre fop libxml2-utils xsltproc "${PHPPKG/cli/xsl}"
+        default-jre fop libxml2-utils xsltproc
 
     # ascidoctor-pdf toolchain
     #$sudo gem install asciidoctor-pdf rouge
@@ -226,10 +225,12 @@ function setup_tools() {
     #fi
 }
 
-# builds the complete documentation
+# builds the complete documentation (including the zip archives)
 function build() {
     build_apidocs
     build_manual
+    build_manual_cleanup
+    create_archives
 }
 
 # builds the API docs
@@ -253,6 +254,7 @@ function build_manual() {
     build_manual_pdf
 }
 
+# prepares the source code of the manual by copying it to the build dir and generating list of examples, images, etc
 function build_manual_setup() {
     if [ ! -d "${BUILD_DIR}/doc/manual" ]; then
         mkdir -p "${BUILD_DIR}/doc/manual"
@@ -323,17 +325,17 @@ function build_manual_pdf() {
         build_manual_setup
     fi
 
-    # This uses xsltproc (and xmllint) for the XML to FO conversion, even though fop can do that, because fop gives
+    # This uses xsltproc for the XML to FO conversion, even though fop can do that, because fop gives
     # useless messages if it does the XML processing ("context not available").
     # Also xsltproc is better about using XML catalogs.
     (cd "${BUILD_DIR}/doc/manual"; ${XSLTPROC} pdf.xsl main.xml > manual.fo.xml)
-    # @todo is usage of xmllint necessary at all?
-    ${XMLFORMAT} "${BUILD_DIR}/doc/manual/manual.fo.xml" > "${BUILD_DIR}/doc/manual/manual.ffo.xml"
-    ${FOP} -catalog -fo "${BUILD_DIR}/doc/manual/manual.ffo.xml" -pdf "${BUILD_DIR}/doc/phplot_manual.pdf"
-    ###rm "${BUILD_DIR}/doc/manual/manual.fo.xml"
-    ###rm "${BUILD_DIR}/doc/manual/manual.ffo.xml"
+    # @todo Usage of xmllint seems not necessary at all, so it was disabled to speed up the build. We could allow
+    #       the user to trigger it manually as it is a helpful debugging tool when developing the stylesheets
+    #${XMLFORMAT} "${BUILD_DIR}/doc/manual/manual.fo.xml" > "${BUILD_DIR}/doc/manual/manual.ffo.xml"
+    ${FOP} -catalog -fo "${BUILD_DIR}/doc/manual/manual.fo.xml" -pdf "${BUILD_DIR}/doc/phplot_manual.pdf"
 }
 
+# remove all non-final-output files from the directory where the html manual is built
 function build_manual_cleanup() {
     # @todo find  a better way to implement `delete files/dirs if they exist` without giving warnings
     set +e
@@ -351,7 +353,7 @@ function build_manual_cleanup() {
     set -e
 }
 
-# creates a zip file for all docs
+# creates a zip file for all docs (api docs, manual in html format, manual as pdf)
 create_archives() {
     create_apidocs_archive
     create_manual_html_archive
@@ -374,22 +376,25 @@ create_manual_pdf_archive() {
     (cd "${BUILD_DIR}/doc"; zip -9 phplot_manual_pdf.zip phplot_manual.pdf)
 }
 
+# removes the built documentation
 function clean() {
-    if [ -d "${BUILD_DIR}/doc/api" ]; then rm -rf "${BUILD_DIR}/doc/api"; fi
-    if [ -d "${BUILD_DIR}/doc/manual" ]; then rm -rf "${BUILD_DIR}/doc/manual"; fi
-    if [ -f "${BUILD_DIR}/doc/phplot_manual.pdf" ]; then rm "${BUILD_DIR}/doc/phplot_manual.pdf"; fi
+    rm -rfv "${BUILD_DIR}/doc/api"
+    rm -rfv "${BUILD_DIR}/doc/manual"
+    rm -fv "${BUILD_DIR}/doc/phplot_manual.pdf"
+    rm -fv "${BUILD_DIR}/doc/"*.zip
 }
 
+# removes the built documentation and the tools downloaded to build it, except sw installed via apt
 function distclean() {
     clean
 
-    if [ -d "${BUILD_DIR}/.phive" ]; then rm -rf "${BUILD_DIR}/.phive"; fi
-    if [ -d "${BUILD_DIR}/.phpdoc" ]; then rm -rf "${BUILD_DIR}/.phpdoc"; fi
-    if [ -f "${BUILD_DIR}/phive" ]; then rm "${BUILD_DIR}/phive"; fi
-    if [ -f "${BUILD_DIR}/phpdocumentor" ]; then rm "${BUILD_DIR}/phpdocumentor"; fi
-    if [ -d "${BUILD_DIR}/docbook-xsl" ]; then rm -rf "${BUILD_DIR}/docbook-xsl"; fi
+    rm -rfv "${BUILD_DIR}/.phive"
+    rm -rfv "${BUILD_DIR}/.phpdoc"
+    rm -fv "${BUILD_DIR}/phive"
+    rm -fv "${BUILD_DIR}/phpdocumentor"
+    rm -rfv "${BUILD_DIR}/docbook-xsl"
 
-    if [ -d "${BUILD_DIR}/src" ]; then rm -rf "${BUILD_DIR}/doc/src"; fi
+    rm -rfv "${BUILD_DIR}/src"
 
     # @todo what about removing dpkg stuff?
 }
