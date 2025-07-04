@@ -19,9 +19,9 @@ See NEWS_part1.txt for older release documentation.
 
 (none)
 
-### New features
+### New features:
 
-(none)
+* The test suite has been brought back to life, and is now automatically run on every push to GitHub
 
 
 ## 2023-08-15 Release 8.0.0.2
