@@ -34,7 +34,7 @@ running a recent version of either Debian or Ubuntu (other OS might work, but ha
 
 Example command which does everything in one shot:
 
-    docker exec --rm -it -v .:/var/www/phplot ubuntu:noble /var/www/phplot/doc/taskfile build_from_scratch
+    docker run --rm -it -v .:/var/www/phplot --workdir /var/www/phplot ubuntu:noble /var/www/phplot/doc/taskfile build_from_scratch
 
 Note: the above command takes a lot of time, as it installs within the Container all the required tools before
 starting the generation of the documentation. If you are planning to generate the documentation more than once,
