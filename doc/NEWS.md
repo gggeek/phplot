@@ -29,6 +29,13 @@ See NEWS_part1.txt for older release documentation.
   the phplot website, hosted on github pages
 
 
+## 2023-10-05 Release 8.0.0.3
+
+### Bugs Fixed:
+
+* fix symlink used in the building of the manual
+
+
 ## 2023-08-15 Release 8.0.0.2
 
 ### Bugs Fixed:
