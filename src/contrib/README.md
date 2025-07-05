@@ -1,7 +1,4 @@
-This is the README for PHPlot Contributed Code
-The project web site is https://github.com/PHPlot/phplot
-Last updated on 2011-08-05
------------------------------------------------------------------------------
+# PHPlot Contributed Code
 
 The PHPlot Contributed Code directory contains code you might find useful
 with PHPlot, but that doesn't quite belong as part of PHPlot itself.
@@ -14,24 +11,21 @@ You may include or paste these functions into your own scripts. Check the
 files for details, but some of these are considered "public domain" with no
 usage or license restrictions.
 
------------------------------------------------------------------------------
-Contents:
+## Contents:
 
-prune_labels: Reduce the number of labels along the X axis
+* prune_labels: Reduce the number of labels along the X axis
     prune_labels.php . . . . . . . . . . . . Code
     prune_labels.example.php . . . . . . . . Example
     prune_labels.test.php  . . . . . . . . . Test
 
-color_range: Create a gradient color map for data colors
+* color_range: Create a gradient color map for data colors
     color_range.php  . . . . . . . . . . . . Code
     color_range.example.php  . . . . . . . . Example
     color_range.test1.php  . . . . . . . . . Image creation test
     color_range.test2.php  . . . . . . . . . Unit test
 
-data_table: Draw a table of data values on the plot
+* data_table: Draw a table of data values on the plot
     data_table.php . . . . . . . . . . . . . Code
     data_table.example1.php  . . . . . . . . Example: Stand-alone tables
     data_table.example2.php  . . . . . . . . Example: Line plot with table
     data_table.example3.php  . . . . . . . . Example: Pie chart with table
-
------------------------------------------------------------------------------

@@ -1,12 +1,8 @@
 # PHPlot Test Suite
-Last Updated: 2015-10-16
 
------------------------------------------------------------------------------
 ## OVERVIEW:
 
 This README describes the test suite for PHPlot.
-PHPlot is a PHP module for producing charts or plots. For information
-about PHPlot, see https://www.github.com/PHPlot/PHPlot/
 
 Because PHPlot produces (only) visual graphical output, testing cannot be
 fully automated. At some point, a person needs to look at the output to
@@ -46,44 +42,37 @@ included file LICENSES.
 
 ### CONTENTS:
 
-   README             This file
-   LICENSES           Copyright and license information
+* README.md          This file
+* LICENSES           Copyright and license information
 
-   Makefile           Used for packaging the test suite
-   compare_tests.php  Script to compare tests results from two runs
-   config.php         Configuration script. Sets up font names.
-   drawtext.php       Used by drawtext* tests.
-   esupport.php       Test support library for error tests.
-   images/*           Static image files and a font, used in tests.
-   makedata.php       Test support function - build a data array
-   run_test.php       Test driver script.
-   testclass.php      Test support script.
-   tests.ini          Test validation data, list of test names.
-   transparent.html   Wrapper page to display the transparent tests output.
-   usupport.php       Test support library for unit tests.
+* compare_tests.php  Script to compare tests results from two runs
+* config.php         Configuration script. Sets up font names.
+* drawtext.php       Used by drawtext* tests.
+* esupport.php       Test support library for error tests.
+* images/*           Static image files and a font, used in tests.
+* makedata.php       Test support function - build a data array
+* run_test.php       Test driver script.
+* testclass.php      Test support script.
+* tests.ini          Test validation data, list of test names.
+* transparent.html   Wrapper page to display the transparent tests output.
+* usupport.php       Test support library for unit tests.
 
-   All other *.php    Test scripts
+* All other *.php    Test scripts
 
 
 ### SETUP:
 
-The test suite driver expects to find PHPlot in the current directory or
-PHP search path.  You should copy (or link) PHPlot scripts into the current
-directory for testing.  Relying on PHP's include path to find PHPlot is
-probably a bad idea, especially if you have multiple versions of PHPLot.
-
-You need to copy or link these two scripts: phplot.php rgb.inc.php
-
 Several environment variables can be used by the test suite:
-   PHP    : The path to the PHP interpreter (PHP CLI) for testing.
-      This is required. The test driver will not run if this is not defined.
-   RESULTDIR : Directory path for saving results. Optional; defaults to
-      "results" in the current directory.
-      This directory must not already exist.
-   VIEWER : The path to an image viewer program.
-      The program needs to accept one or two image filenames on the command
-      line.  (Two are used for comparing old and new images.)
-      This is used by the compare_tests.php script.
+* PHP: The path to the PHP interpreter (PHP CLI) for testing.
+  This is required. The test driver will not run if this is not defined.
+* RESULTDIR: Directory path for saving results. Optional; defaults to
+  "results" in the current directory.
+  This directory must not already exist.
+* VIEWER: The path to an image viewer program. Used by compare_tests.php.
+  The program needs to accept one or two image filenames on the command
+  line.  (Two are used for comparing old and new images.)
+  This is used by the compare_tests.php script.
+* DIFF: The path to a text diffing program. Used by compare_tests.php
 
 The PHP environment variable is used because it may be desirable to run the
 test driver with one version of PHP (perhaps the latest version), but run
@@ -137,7 +126,9 @@ standard output text captured during testing.
 
 If you save the image files from one run (*.png *.gif *.jpg) into a
 different subdirectory, you can rerun tests and compare the files with:
-  /path/to/php compare_tests.php [options] result_directory reference_directory
+
+    /path/to/php compare_tests.php [options] result_directory reference_directory
+
 The following options are available:
    -a   View all image files pairwise (result and reference)
    -d   View differing image files pairwise
@@ -151,7 +142,8 @@ systems will produce slightly different text.) With one or more options, it
 will also view the selected images.
 
 For example:
-   php compare_tests.php -dn results results.saved
+
+    php compare_tests.php -dn results results.saved
 
 The compare_tests.php script expects the VIEWER environment variable to
 name a viewing program or commands. By default, if VIEWER is not defined,

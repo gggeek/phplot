@@ -1,3 +1,5 @@
+# PHPlot
+
 ## OVERVIEW:
 
 PHPlot is a PHP class for creating scientific and business charts.
@@ -8,30 +10,33 @@ Sourceforge project website. You can also view the manual online at
 https://github.com/PHPlot/phplot
 
 For information about changes in this release, including any possible
-incompatibilities, see the NEWS.txt file.
+incompatibilities, see the doc/NEWS.md file.
 
 
 ## CONTENTS:
 
-   LICENSE  . . . . . . . . . . . . LGPL 2.1 License file
-   doc/ChangeLog  . . . . . . . . . Lists changes to the sources
-   doc/NEWS.txt . . . . . . . . . . Highlights changes in releases
-   doc/NEWS_*.txt . . . . . . . . . Older NEWS files
-   doc/README.md   . . . . . . . .. This file
-   src/contrib  . . . . . . . . . . "Contributed" directory, add-ons
-   src/phplot.php   . . . . . . . . The main PHPlot source file
-   src/rgb.inc.php  . . . . . . . . Optional extended color table
+* LICENSE  . . . . . . . . . . . . LGPL 2.1 License file
+* doc/ChangeLog  . . . . . . . . . Lists changes to the sources
+* doc/NEWS.md  . . . . . . . . . . Highlights changes in releases
+* doc/NEWS_*.txt . . . . . . . . . Older NEWS files
+* doc/README.md  . . . . . . . . . This file
+* src/contrib/ . . . . . . . . . . "Contributed" directory, add-ons
+* src/phplot.php   . . . . . . . . The main PHPlot source file. Contains the definition of class `phplot`
+* src/phplot_truecolor.php . . . . The source file for class `phplot_truecolor`
+* src/rgb.inc.php  . . . . . . . . Optional extended color table. Used by phplot.php
 
 
 ## REQUIREMENTS:
 
 You need a recent version of PHP, and you are advised to use the latest
-stable release. This version of PHPlot was tested with PHP-5.6.15,
-PHP-5.5.30, PHP-5.4.45, PHP-7.0.0, PHP-8.1.2
-(Windows testing was limited to PHP-5.4.x.)
+stable release.
 
-  Note: This version of PHPlot still works with PHP-5.4.x, but future
-  versions will not be tested with PHP-5.x.x.
+Since version 8.0.1, PHPlot is tested with PHP 7.1 to 8.4.
+
+PHPlot was previously tested with PHP-5.6.15, PHP-5.5.30, PHP-5.4.45, PHP-7.0.0, PHP-8.1.2 (Windows testing was limited
+to PHP-5.4.x.).
+
+Note: This version of PHPlot might still work with PHP-5.4.x, but future versions will not be tested with PHP 5.x.x.
 
 You need the GD extension to PHP either built in to PHP or loaded as a
 module. Refer to the PHP documentation for more information - see the
@@ -50,13 +55,27 @@ is built in to the GD library.
 
 ## INSTALLATION:
 
-Unpack the distribution (if you are reading this file, you have probably
+### using Composer
+
+The recommended way to install PHPlot is by using Composer.
+
+1. add `phplot/phplot` to your Composer requirements, run `composer update`
+2. make sure your php scripts include `vendor/autoload.php` 
+
+### Manual installation
+
+If you prefer not to use Composer, you can install PHPlot manually.
+
+Download Unpack the distribution (if you are reading this file, you have probably
 already done that).
 
-Installation of PHPlot simply involves copying two script files somewhere
+Installation of PHPlot simply involves copying three script files somewhere
 your PHP application scripts will be able to find them. The scripts are:
-     phplot.php   - The main script file
-     rgb.inc.php  - Optional large color table
+
+* phplot.php - The main script file
+* phplot_truecolor.php - The source file for class `phplot_truecolor`
+* rgb.inc.php - Optional large color table
+
 Make sure the permissions on these files allow the web server to read them.
 
 The ideal place is a directory outside your web server document area,
@@ -68,7 +87,7 @@ configuration file; consult the PHP manual for details.
 
 To upgrade PHPlot, follow the same instructions as for installing. There
 may be changes between releases which can alter the appearance of your plots.
-Please check the top section in NEWS.txt for details.
+Please check the top section in doc/NEWS.md for details.
 
 
 ## KNOWN ISSUES:
@@ -76,20 +95,20 @@ Please check the top section in NEWS.txt for details.
 Here are some of the problems we know about in PHPlot. See the bug tracker
 on the PHPlot project website for more information.
 
-#173 Area fill plots with data borders and overlapping areas
+* #173 Area fill plots with data borders and overlapping areas
   New in release 6.2.0 are data borders for area and squaredarea plot types.
   With multiple data sets, if the areas overlap, the borders are drawn without
   regard to the overlap, and don't correspond to the visible areas.
 
-#171 Dashed patters aren't continuing
+* #171 Dashed patters aren't continuing
   PHPlot line styles are not being drawn properly when the dashed pattern
   is long relative to the data point spacing.
 
-#146 (was: 3142124) Clip plot elements to plot area
+* #146 (was: 3142124) Clip plot elements to plot area
   Plot elements are not currently clipped to the plot area, and may extend
   beyond. PHP does not currently support the GD clipping control.
 
-#93 (was: 1605558) Wide/Custom dashed lines don't work well
+* #93 (was: 1605558) Wide/Custom dashed lines don't work well
   There is a question whether this is a PHP/GD issue, or behaving as
   expected.
 
@@ -122,7 +141,7 @@ are some known issues:
   Ubuntu-derived distributions such as Linux Mint.
 
 * Some PHP installations may have a memory limit set too low to support
- large images, especially truecolor images.
+  large images, especially truecolor images.
 
 * The default TrueType font can be changed by external factors. If you
   enable TrueType fonts, but don't select a font name, PHPlot can find a
@@ -161,14 +180,13 @@ in your web document area. First, the HTML file:
 ---------------------------------------------------------
 
 Second, in the same directory, the image file producing PHP script file.
-Depending on where you installed phplot.php, you may need to specify a path
-in the 'require' line below.
+Depending on how you installed phplot.php, you may need to specify a different 'require' line below.
 
 ------------ simpleplot.php -----------------------------
 
     <?php
-    require 'phplot.php';
-    $plot = new phplot();
+    require 'vendor/autoload.php';
+    $plot = new Phplot\Phplot\phplot();
     $data = array(array('', 0, 0), array('', 1, 9));
     $plot->SetDataValues($data);
     $plot->SetDataType('data-data');

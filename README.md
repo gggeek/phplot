@@ -21,7 +21,7 @@ Changes are documented in [doc/NEWS.md](doc/NEWS.md).
 
 See the directory `doc/manual/examples` for examples.
 
-### Reference manual
+## Reference manual
 
 The PHPlot Reference Manual contains everything you need to know about PHPlot, and more.
 
@@ -31,7 +31,7 @@ The PDF version of the manual is available here: [PHPlot Reference Manual (PDF)]
 
 (**Note:** the Reference Manual might not be 100% up to date with the latest code releases.)
 
-See [doc/manual/README](doc/manual/README) for how to build the manual locally (you will have to clone the source code 
+See [doc/manual/README.md](doc/manual/README.md) for how to build the manual locally (you will have to clone the source code 
 from GitHub for that, as the manual sources are not included in the release tarballs or when installing via Composer).
 
 ## How much does it cost?
