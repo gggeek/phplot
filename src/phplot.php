@@ -60,7 +60,7 @@ namespace Phplot\Phplot;
 class phplot
 {
     /** PHPlot version constant as a string */
-    public const version = '8.0.0-rc1 $Revision$';
+    public const version = '8.0.0.3';
     /** PHPlot version constant as a number = major * 10000 + minor * 100 + patch */
     public const version_id = 80000;
 
