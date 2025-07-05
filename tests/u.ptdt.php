@@ -125,7 +125,7 @@ function make_data_array($plot_type, $data_type)
         # error message if used for those.
         $n_cols = 5;
         $y = array( array(5, 10, 15, 20, 25),
-					array(5, 10, 15, 20, 25),
+                    array(5, 10, 15, 20, 25),
                     array(5, 10, 15, 20, 25),
                     array(5, 10, 15, 20, 25));
 
