@@ -21,14 +21,14 @@ function read_prices_text_data($filename)
         return FALSE;
     }
     // Read and check the file header.
-    $row = fgetcsv($f);
+    $row = fgetcsv($f, null, ',', '"', '\\');
     if ($row === FALSE || $row[0] != 'Date' || $row[1] != 'Open'
             || $row[2] != 'High' || $row[3] != 'Low' || $row[4] != 'Close') {
         fwrite(STDERR, "Incorrect header in: $filename\n");
         return FALSE;
     }
     // Read the rest of the file into array keyed by date for sorting.
-    while ($r = fgetcsv($f)) {
+    while ($r = fgetcsv($f, null, ',', '"', '\\')) {
         $d[$r[0]] = array($r[1], $r[2], $r[3], $r[4]);
     }
     fclose($f);
