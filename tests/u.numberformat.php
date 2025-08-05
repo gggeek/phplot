@@ -19,6 +19,8 @@
 # One English, non-US locale with different separators (en_DK) was added to
 # give Xubuntu something to work with.
 
+/// @todo skip this test if the required locales are not available
+
 require_once 'phplot.php';
 require_once 'usupport.php';
 require_once 'testclass.php'; // For access to protected methods

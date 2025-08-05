@@ -4,7 +4,7 @@
 require_once 'phplot.php';
 
 # Check for PHPlot method and skip the test if it is missing:
-if (!method_exists('PHPlot', 'SetDrawYDataLabelLines')) {
+if (!method_exists('Phplot\Phplot\phplot', 'SetDrawYDataLabelLines')) {
     echo "Skipping test because it requires SetDrawYDataLabelLines()\n";
     exit(2);
 }

@@ -41,7 +41,7 @@ function get_nsteps($range, $nsteps)
 }
 
 # Extend PHPlot to access protected methods for testing:
-class PHPlot_test extends PHPlot
+class PHPlot_test extends Phplot\Phplot\phplot
 {
     function test_CalcStep125($range, $min_ticks)
     {
@@ -302,9 +302,9 @@ function tb($range, $min_ticks)
 # ===== Setup =====
 
 $p = new phplot_test();
-if (!method_exists('PHPlot', 'CalcStep125')
- || !method_exists('PHPlot', 'CalcStepBinary')
- || !method_exists('PHPlot', 'CalcStepDateTime')) {
+if (!method_exists('Phplot\Phplot\phplot', 'CalcStep125')
+ || !method_exists('Phplot\Phplot\phplot', 'CalcStepBinary')
+ || !method_exists('Phplot\Phplot\phplot', 'CalcStepDateTime')) {
     echo "Skipping test because it requires CalcStep125, "
          . "CalcStepBinary, and CalcStepDateTime\n";
     exit(2); // Exit code for 'skip'

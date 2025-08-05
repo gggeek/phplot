@@ -32,14 +32,14 @@ for ($i = 0; $i < $n_points; $i++) {
     $hour = date('G', $ts);
 
     # Label noon data points with the weekday name, all others unlabelled.
-    $label = ($hour == 12) ? strftime('%A', $ts) : '';
+    $label = ($hour == 12) ? @strftime('%A', $ts) : '';
 
     # Remember the first midnight datapoint seen for use as X tick anchor:
     if (!isset($tick_anchor) && $hour == 0)
         $tick_anchor = $ts;
 
     # Make a random data point, and add a row to the data array:
-    $d += mt_rand(-200, 250) / 100; 
+    $d += mt_rand(-200, 250) / 100;
     $data[] = array($label, $ts, $d);
 
     # Step to next hour:

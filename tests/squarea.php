@@ -15,6 +15,7 @@ $tp = array_merge(array(
   'data_value_labels' => FALSE, # Do data value labels?
         ), $tp);
 require_once 'phplot.php';
+require_once 'phplot_truecolor.php';
 
 function fail($why)
 {
@@ -144,7 +145,7 @@ if ($missing_point) {
 }
 if (!empty($suffix)) $title .= "\n" . $suffix;
 
-$plot = new phplot_truecolor(800, 600);
+$plot = new Phplot\Phplot\phplot_truecolor(800, 600);
 
 $plot->SetTitle($title);
 $plot->SetDataType($data_type);

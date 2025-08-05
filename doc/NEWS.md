@@ -23,7 +23,7 @@ See NEWS_part1.txt for older release documentation.
 
 * The php files in `doc/manual/` have been fixed to use the correct namespace for class `phplot` and include directory
 
-### New features
+### New features:
 
 * The documentation is now automatically built on every release of a tagged version, and automatically uploaded to
   the phplot website, hosted on github pages

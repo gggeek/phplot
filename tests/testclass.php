@@ -14,7 +14,7 @@
 # to detect and continue after fatal errors.
 
 // Extend PHPlot to access protected methods needed by tests.
-class PHPlot_test extends PHPlot
+class PHPlot_test extends Phplot\Phplot\phplot
 {
     // GetDefaultTTFont()
     function test_GetDefaultTTFont()

@@ -16,7 +16,7 @@ $tp = array_merge(array(
   'savealpha' => False,      # Save separate alpha channel?
         ), $tp);
 require_once 'phplot.php';
-
+require_once 'phplot_truecolor.php';
 
 function pre_plot($img)
 {
@@ -58,7 +58,7 @@ for ($x = 0; $x < 16; $x++) {
 $title = array("Lines plot");
 
 if ($tp['truecolor']) {
-    $p = new phplot_truecolor(1024, 768);
+    $p = new Phplot\Phplot\phplot_truecolor(1024, 768);
     $title[] = "Truecolor";
 } else {
     $p = new Phplot\Phplot\phplot(1024, 768);

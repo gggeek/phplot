@@ -36,9 +36,9 @@ function store_map($im, $passthru, $shape, $segment, $unused,
     $y2 = $yc + $ry * sin($ea);
 
     imagesetthickness($im, 3);
-    imageline($im, $xc, $yc, $x1, $y1, $color);
-    imageline($im, $xc, $yc, $x2, $y2, $color);
-    imageline($im, $x1, $y1, $x2, $y2, $color);
+    imageline($im, (int)$xc, (int)$yc, (int)$x1, (int)$y1, $color);
+    imageline($im, (int)$xc, (int)$yc, (int)$x2, (int)$y2, $color);
+    imageline($im, (int)$x1, (int)$y1, (int)$x2, (int)$y2, $color);
 
     imagesetthickness($im, 1);
 }

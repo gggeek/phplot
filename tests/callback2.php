@@ -3,7 +3,7 @@
 # Testing phplot: Callback with method, extended class.
 require_once 'phplot.php';
 
-class my_PHPlot extends PHPlot
+class my_PHPlot extends Phplot\Phplot\phplot
 {
   function __construct($width=600, $height=400, $outfile=NULL, $infile=NULL)
   {

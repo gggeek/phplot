@@ -11,3 +11,4 @@
 /.phpcs-cache
 
 /build
+/tests/results/

@@ -31,7 +31,7 @@ if ($plottype == 'bubbles') {
 
     // Note: X values matche auto-generated values for text-data: 0.5, 1.5, etc
     for ($pt = 0; $pt < $n_x; $pt++) {
-        $row = array(strftime('%b', mktime(12, 12, 12, $pt+1, 1, 2000)),
+        $row = array(@strftime('%b', mktime(12, 12, 12, $pt+1, 1, 2000)),
                      $pt + 0.5);
         for ($r = 0; $r < $groups; $r++) {
             $row[] = mt_rand(0, $max_y); // Y value
@@ -46,7 +46,7 @@ if ($plottype == 'bubbles') {
 
     // Note: X values matche auto-generated values for text-data: 0.5, 1.5, etc
     for ($pt = 0; $pt < $n_x; $pt++) {
-        $row = array(strftime('%b', mktime(12, 12, 12, $pt+1, 1, 2000)),
+        $row = array(@strftime('%b', mktime(12, 12, 12, $pt+1, 1, 2000)),
                      $pt + 0.5);
         for ($r = 0; $r < $groups; $r++) {
             // Decrease the Y range from max_y so y+error  <= max_y
@@ -62,7 +62,7 @@ if ($plottype == 'bubbles') {
     $data_type = 'text-data';
 
     for ($pt = 0; $pt < $n_x; $pt++) {
-        $row = array(strftime('%b', mktime(12, 12, 12, $pt+1, 1, 2000)));
+        $row = array(@strftime('%b', mktime(12, 12, 12, $pt+1, 1, 2000)));
         for ($r = 0; $r < $groups; $r++) {
             $row[] = mt_rand(0, $max_y);
         }

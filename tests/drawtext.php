@@ -38,7 +38,7 @@ require_once 'phplot.php';
 # Callback function which gets the bounding box:
 function draw_bbox($img, $color, $px, $py, $width, $height)
 {
-    imagerectangle($img, $px, $py, $px+$width, $py+$height, $color);
+    imagerectangle($img, (int)$px, (int)$py, (int)$px+(int)$width, (int)$py+(int)$height, $color);
 }
 
 # Image size:

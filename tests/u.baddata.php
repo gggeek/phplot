@@ -35,7 +35,7 @@ $data9 = array(array('a', 1, 2, 3), array('b', 4, 5), array('c', 3, 2, 1)); // U
 # Extend the PHPlot class to suppress error images.
 # Instead of displaying an error image, the error text is stored
 # into a class variable. The test function will check there.
-class PHPlot_noerr extends PHPlot
+class PHPlot_noerr extends Phplot\Phplot\phplot
 {
     public $test_error_text = '';
     function PrintError($message)

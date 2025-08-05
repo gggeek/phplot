@@ -13,7 +13,7 @@ $tp = array_merge(array(
 require_once 'phplot.php';
 
 # Check for new phplot method and skip the test if it is missing:
-if (!method_exists('PHPlot', 'SetLegendColorboxBorders')) {
+if (!method_exists('Phplot\Phplot\phplot', 'SetLegendColorboxBorders')) {
     echo "Skipping test because it requires SetLegendColorboxBorders()\n";
     exit(2);
 }

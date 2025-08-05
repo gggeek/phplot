@@ -6,11 +6,11 @@ require_once 'phplot.php';
 $failure = '';
 
 # Check: Constant is defined.
-if (!defined('PHPlot::version')) {
+if (!defined('Phplot\Phplot\phplot::version')) {
     $failure .= "phplot does not define a version constant\n";
 
 # Check: Format #.#.#...
-} elseif (!preg_match('/^(\\d+\\.\\d+\\.\\d+)/', PHPlot::version, $v)) {
+} elseif (!preg_match('/^(\\d+\\.\\d+\\.\\d+)/', Phplot\Phplot\phplot::version, $v)) {
     $failure .= "phplot version constant is not in the expected format\n";
 } else {
     $version_from_constant = $v[1];
@@ -48,14 +48,14 @@ if (!defined('PHPlot::version')) {
 }
 
 # This was added in 6.0.0, so don't fail the test if it is missing.
-if (defined('PHPlot::version_id')) {
-    $version_from_id = ((int)(PHPlot::version_id / 10000)) . '.' .
-           ((int)(PHPlot::version_id / 100) % 100) . '.' .
-           (int)(PHPlot::version_id % 100);
+if (defined('Phplot\Phplot\phplot::version_id')) {
+    $version_from_id = ((int)(Phplot\Phplot\phplot::version_id / 10000)) . '.' .
+           ((int)(Phplot\Phplot\phplot::version_id / 100) % 100) . '.' .
+           (int)(Phplot\Phplot\phplot::version_id % 100);
 
     if ($version_from_id != $version_from_constant) {
-        $failure .= "Mismatch between version: " . PHPlot::version . "\n"
-                  . "          and version_id: " . PHPlot::version_id . "\n";
+        $failure .= "Mismatch between version: " . Phplot\Phplot\phplot::version . "\n"
+                  . "          and version_id: " . Phplot\Phplot\phplot::version_id . "\n";
     }
 } else {
     echo "Note: PHPlot version_id constant is not defined\n";
@@ -66,4 +66,4 @@ if (!empty($failure)) {
     exit(1); // Test framework says: exit on error, fall off if pass.
 }
 
-echo "Pass: PHPlot version = " . PHPlot::version . "\n";
+echo "Pass: PHPlot version = " . Phplot\Phplot\phplot::version . "\n";

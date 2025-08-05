@@ -34,7 +34,7 @@ function store_map($im, $passthru, $shape, $row, $col, $x1, $y1, $x2, $y2)
     if (!isset($color)) $color = imagecolorallocate($im, 255, 0, 0);
 
     imagesetthickness($im, 3);
-    imagerectangle($im, $x1, $y1, $x2, $y2, $color);
+    imagerectangle($im, (int)$x1, (int)$y1, (int)$x2, (int)$y2, $color);
     imagesetthickness($im, 1);
 }
 

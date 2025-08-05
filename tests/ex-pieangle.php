@@ -6,7 +6,7 @@ require_once 'phplot.php';
 require_once 'config.php'; // For font information
 
 # Check for PHPlot method and skip the test if it is missing:
-if (!method_exists('PHPlot', 'SetPieStartAngle')) {
+if (!method_exists('Phplot\Phplot\phplot', 'SetPieStartAngle')) {
     echo "Skipping test because it requires SetPieStartAngle()\n";
     exit(2);
 }

@@ -24,7 +24,7 @@ function reduce_data($results, $error_factor)
 }
 
 # Skip the test if horizontal error plots are not yet implemented.
-if (!method_exists('PHPlot', 'DrawXErrorBars')) {
+if (!method_exists('Phplot\Phplot\phplot', 'DrawXErrorBars')) {
     echo "Skipping test because horizontal error plots are not implemented\n";
     exit(2);
 }

@@ -10,7 +10,7 @@ require_once 'phplot.php';
 require_once 'usupport.php';  # Support functions for unit tests.
 
 // Extend PHPlot class to allow access to protected variable(s):
-class PHPlot_pv extends PHPlot {
+class PHPlot_pv extends Phplot\Phplot\phplot {
     public function GET_plot_area() { return $this->plot_area; }
 }
 

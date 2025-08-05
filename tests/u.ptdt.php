@@ -71,7 +71,7 @@ $plot_types = array(
 # need to check return values from methods and not continue if they return
 # FALSE. Otherwise the messages cascade and do not reflect actual behavior.
 # Note: This test predates use of SetFailureImage() to disable error images.
-class PHPlot_noerr extends PHPlot
+class PHPlot_noerr extends Phplot\Phplot\phplot
 {
     public $test_error_text = '';
     function PrintError($message)

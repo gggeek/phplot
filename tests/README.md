@@ -63,6 +63,7 @@ included file LICENSES.
 ### SETUP:
 
 Several environment variables can be used by the test suite:
+
 * PHP: The path to the PHP interpreter (PHP CLI) for testing.
   This is required. The test driver will not run if this is not defined.
 * RESULTDIR: Directory path for saving results. Optional; defaults to

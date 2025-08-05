@@ -14,7 +14,7 @@ function get_data()
     $data = array();
     # Build an array with 12 arrays of (month_name, value):
     for ($month = 1; $month <= 12; $month++)
-        $data[] = array(strftime('%b', mktime(12, 0, 0, $month, 1)),
+        $data[] = array(@strftime('%b', mktime(12, 0, 0, $month, 1)),
                         5 + mt_rand(5, 40));
     return $data;
 }

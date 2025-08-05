@@ -2,6 +2,7 @@
 
 # PHPlot test: Truecolor linepoints, looking at point shapes
 require_once 'phplot.php';
+require_once 'phplot_truecolor.php';
 
 # Array of all point shapes as of PHPlot-5.1.0:
 $point_shapes = array(
@@ -20,7 +21,7 @@ for ($x = 0; $x < 4; $x++) {
     $data[] = $row;
 }
 
-$p = new phplot_truecolor(1000, 800);
+$p = new Phplot\Phplot\phplot_truecolor(1000, 800);
 $p->SetTitle("Truecolor linespoint plot with all point shapes");
 $p->SetDataType('data-data');
 $p->SetDataValues($data);

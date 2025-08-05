@@ -132,8 +132,8 @@ function make_data_array_ohlc($data_type, $nx, $max)
     $open = mt_rand(0, $max); // First open
 
     for ($i = 0; $i < $nx; $i++) {
-        $high = mt_rand($open, min(1.25 * $open, $max));
-        $low = mt_rand(max(0, 0.75 * $open), min($open, $high));
+        $high = mt_rand($open, (int)min(1.25 * $open, $max));
+        $low = mt_rand((int)max(0, 0.75 * $open), min($open, $high));
         $close = mt_rand($low, $high);
         $row = array(make_data_array_label($i));
         if ($need_x) $row[] = $i + 0.5;

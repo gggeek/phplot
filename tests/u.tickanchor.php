@@ -7,7 +7,7 @@ $errors = 0;
 $verbose = False;
 
 // Extend PHPlot class to allow access to protected function CalcTicks:
-class PHPlot_test extends PHPlot
+class PHPlot_test extends Phplot\Phplot\phplot
 {
     function test_CalcTicks($which)
     {

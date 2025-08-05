@@ -2,6 +2,7 @@
 
 # PHPlot test: Truecolor area plot, alpha gradient
 require_once 'phplot.php';
+require_once 'phplot_truecolor.php';
 
 $data = array(
   array('',  90, 60, 45, 40, 20,  0),
@@ -11,7 +12,7 @@ $data = array(
 $colors = array(
  'red:100', 'red:80', '#ff00003c', 'red:40', 'red:20', 'red',
 );
-$p = new phplot_truecolor(800, 800);
+$p = new Phplot\Phplot\phplot_truecolor(800, 800);
 $p->SetTitle("Truecolor Area chart with red alpha gradient");
 $p->SetDataType('text-data');
 $p->SetDataValues($data);

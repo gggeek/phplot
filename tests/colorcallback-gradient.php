@@ -1,6 +1,7 @@
 <?php
 # PHPlot Example: Creative use of data colors
 require_once 'phplot.php';
+require_once 'phplot_truecolor.php';
 
 # Callback for picking a data color.
 # PHPlot will call this every time it needs a data color.
@@ -25,7 +26,7 @@ for ($b = 32; $b <= 255; $b += 2) $colors[] = array(0, 0, $b);
 for ($b = 255; $b >= 32; $b -= 2) $colors[] = array(0, 0, $b);
 
 # Use a truecolor plot image in order to get more colors.
-$plot = new phplot_truecolor(800, 600);
+$plot = new Phplot\Phplot\phplot_truecolor(800, 600);
 $plot->SetImageBorderType('plain'); // Improves presentation in the manual
 
 $plot->SetPlotType('thinbarline');

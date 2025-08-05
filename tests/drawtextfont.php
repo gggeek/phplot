@@ -6,7 +6,7 @@ require_once 'config.php'; // For TTF fonts
 
 # Skip the test with older PHPlot versions that do not support the
 # DrawText() font argment variations.
-if (!defined('PHPlot::version_id') || PHPlot::version_id < 60000) {
+if (!defined('Phplot\Phplot\phplot::version_id') || Phplot\Phplot\phplot::version_id < 60000) {
     echo "Skipping test: missing new DrawText() font argument support\n";
     exit(2);
 }
