@@ -19,6 +19,8 @@ See NEWS_part1.txt for older release documentation.
 
 ### Bugs Fixed:
 
+* All PHP warnings emitted on PHP versions from 8.0 to 8.4 have been squashed
+
 * The php files in `src/contrib/` have been fixed to use the correct namespace for class `phplot`
 
 * The php files in `doc/manual/` have been fixed to use the correct namespace for class `phplot` and include directory
