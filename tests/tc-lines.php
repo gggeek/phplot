@@ -21,7 +21,13 @@ require_once 'phplot_truecolor.php';
 function pre_plot($img)
 {
     global $tp;
-    if ($tp['antialias']) imageantialias($img, True);
+    if ($tp['antialias']) {
+        if (!function_exists('imageantialias')) {
+            echo "Skipping test: missing imageantialias function\n";
+            exit(2);
+        }
+        imageantialias($img, True);
+    }
     if ($tp['noalphablend']) imagealphablending($img, False);
 }
 

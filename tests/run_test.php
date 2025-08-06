@@ -274,6 +274,9 @@ function summarize($total_run_time)
     if (!empty($skip_list))
         lecho("  Skipped tests:\n    "
            . wordwrap(implode(', ', $skip_list)) .  "\n\n");
+
+/// @todo check 4 discrepancies between $n_fail and $fail_list, $n_skip and $skip_list
+
     lecho("  Results were saved in: $result_dir\n");
     lecho("  Test log was written to: $log_filename\n");
     fclose($log_f);
@@ -511,13 +514,13 @@ function run_test($test_name, $script_file, $output_file, $error_file)
 
     # Was the exit status as expected?
     if ($vd['exit_ok'] && $rval != 0)
-        $failures[] = "Expected successful return but got error return";
+        $failures[] = "Expected successful return but got error return: $rval";
     elseif ($vd['exit_error'] && $rval == 0)
-        $failures[] = "Expected error return but got succesful return";
+        $failures[] = "Expected error return but got successful return";
 
     # Was anything written to standard error?
     if ($vd['stderr_empty'] && !empty($error_text))
-        $failures[] = "Unexpected output written to standard error stream";
+        $failures[] = "Unexpected output written to standard error stream: " . substr($error_text, 0, 120);
 
     # Does its standard error text match the pattern, if provided?
     # Note: Delimeter is \x01. Modifiers are: i (case insensitive),
