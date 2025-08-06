@@ -2570,7 +2570,8 @@ class phplot
                 Header('HTTP/1.0 500 Internal Server Error');
             }
         }
-        @trigger_error($error_message, E_USER_ERROR);
+
+        trigger_error($error_message, E_USER_ERROR);
         // This is only reached if the error handler returns TRUE
         unset($this->in_error);
         return false;
