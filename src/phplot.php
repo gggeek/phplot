@@ -723,7 +723,7 @@ class phplot
     {
         $this->truecolor = imageistruecolor($this->img); // Remember image type
         $this->saved_version = self::version; // Remember version of PHPlot, for checking on unserialize
-        return array_keys(get_object_vars($this));
+        return get_object_vars($this);
     }
 
     /**
