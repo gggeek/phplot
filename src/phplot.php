@@ -742,7 +742,17 @@ class phplot
         if (!$this->img) {
             $this->PrintError(get_class($this) . '(): Could not create image resource.');
         }
-        unset($this->truecolor, $this->saved_version);
+        $this->truecolor = null;
+        $this->saved_version = null;
+    }
+
+    public function __unserialize($data)
+    {
+        foreach($data as $key => $val) {
+            $this->$key = $val;
+        }
+
+        $this->__wakeup();
     }
 
     /**
