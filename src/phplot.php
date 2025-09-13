@@ -713,7 +713,7 @@ class phplot
      * Prepares object for serialization
      *
      * The image resource cannot be serialized. But rather than try to filter it out from the other
-     * properties, just let PHP serialize it (it will become an integer=0), and then fix it in __wakeup.
+     * properties, just serialize it as null and then fix it in __wakeup.
      * This way the object is still usable after serialize().
      * Note: This does not work if an input file was provided to the constructor.
      * @since 8.0.1
@@ -723,6 +723,7 @@ class phplot
     {
         $this->truecolor = imageistruecolor($this->img); // Remember image type
         $this->saved_version = self::version; // Remember version of PHPlot, for checking on unserialize
+        $this->img = null;
         return get_object_vars($this);
     }
 
