@@ -21,6 +21,8 @@ See NEWS_part1.txt for older release documentation.
 
 * All PHP warnings emitted on PHP versions from 8.0 to 8.5 have been squashed
 
+* Serialization of phplot objects on PHP 8 has been fixed
+
 * The php files in `src/contrib/` have been fixed to use the correct namespace for class `phplot`
 
 * The php files in `doc/manual/` have been fixed to use the correct namespace for class `phplot` and include directory
