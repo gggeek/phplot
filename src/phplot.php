@@ -4166,7 +4166,7 @@ class phplot
             $j = 1; // Skips label at [0]
 
             if (!$this->datatype_implied) {
-                $all_iv[] = (double)$this->data[$i][$j++];
+                $all_iv[] = (float)$this->data[$i][$j++];
             }
 
             if ($sum_vals) {
@@ -4177,8 +4177,8 @@ class phplot
             while ($j < $n_vals) {
                 if (is_numeric($val = $this->data[$i][$j++])) {
                     if ($this->datatype_error_bars) {
-                        $all_dv[] = $val + (double)$this->data[$i][$j++];
-                        $all_dv[] = $val - (double)$this->data[$i][$j++];
+                        $all_dv[] = $val + (float)$this->data[$i][$j++];
+                        $all_dv[] = $val - (float)$this->data[$i][$j++];
                     } else {
                         if ($abs_vals) {
                             $val = abs($val); // Use absolute values
@@ -5402,8 +5402,8 @@ class phplot
         }
 
         // To avoid losing a final tick mark due to round-off errors, push tick_end out slightly.
-        $tick_start = (double)$plot_min;
-        $tick_end = (double)$plot_max + ($plot_max - $plot_min) / 10000.0;
+        $tick_start = (float)$plot_min;
+        $tick_end = (float)$plot_max + ($plot_max - $plot_min) / 10000.0;
 
         // If a tick anchor was given, adjust the start of the range so the anchor falls
         // at an exact tick mark (or would, if it was within range).
@@ -9537,7 +9537,7 @@ class phplot
             for ($idx = 0; $rec < $this->num_recs[$row]; $rec += 2, $idx++) {
                 if (is_numeric($y_now = $this->data[$row][$rec])) {      //Allow for missing Y data
                     $y = $this->ytr($y_now);
-                    $z = (double)$this->data[$row][$rec + 1]; // Z is required if Y is present.
+                    $z = (float)$this->data[$row][$rec + 1]; // Z is required if Y is present.
                     $size = (int)($f_size * $z + $b_size);  // Calculate bubble size
 
                     // Select the color:
