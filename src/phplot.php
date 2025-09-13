@@ -795,7 +795,7 @@ class phplot
 
         // Deallocate any resources previously allocated
         if (isset($this->img)) {
-            imagedestroy($this->img);
+            @imagedestroy($this->img);
         }
 
         $this->img = $im;
@@ -6172,8 +6172,8 @@ class phplot
         imagecopy($this->img, $tmp, $xorig, $yorig, 0, 0, $width, $height);
 
         // Free resources
-        imagedestroy($tmp);
-        imagedestroy($im);
+        @imagedestroy($tmp);
+        @imagedestroy($im);
 
         return true;
     }
