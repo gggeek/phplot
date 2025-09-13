@@ -699,17 +699,27 @@ class phplot
     }
 
     /**
+     * Left in for old php versions
+     *
+     * @return string[] Array of object property names, as required by PHP spec for __sleep()
+     * @since 5.8.0
+     */
+    public function __sleep()
+    {
+        return array_keys($this->__serialize());
+    }
+
+    /**
      * Prepares object for serialization
      *
      * The image resource cannot be serialized. But rather than try to filter it out from the other
      * properties, just let PHP serialize it (it will become an integer=0), and then fix it in __wakeup.
      * This way the object is still usable after serialize().
      * Note: This does not work if an input file was provided to the constructor.
-     *
-     * @return string[] Array of object property names, as required by PHP spec for __sleep()
-     * @since 5.8.0
+     * @since 8.0.1
+     * @return array
      */
-    public function __sleep()
+    public function __serialize()
     {
         $this->truecolor = imageistruecolor($this->img); // Remember image type
         $this->saved_version = self::version; // Remember version of PHPlot, for checking on unserialize
